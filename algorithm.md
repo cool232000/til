@@ -25,3 +25,24 @@ n >> T(n) = n
 binary search의 조건은 인자로 들어오는 데이터가 오름차순으로 정렬되어 있어야 한다는 것이다. 연속될 필요는 없다.
 
 n >> T(n) = log<sub>2</sub>n
+
+```python
+def binary_search(li, target):
+    """
+    binary_search(li, target) -> idx
+    타겟을 찾았다면 인덱스를 반환
+    찾지 못했다면 None 반환
+    """
+    start=0
+    end=len(li)-1
+    while start <= end:
+        mid=(start+end)//2
+        if target == li[mid]:
+            return mid
+        elif target < li[mid]:
+            end=mid-1
+        elif target > li[mid]:
+            start=mid+1
+    return None
+```
+
