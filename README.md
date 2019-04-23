@@ -14,3 +14,6 @@
 [퍼스트 클래스 함수](https://github.com/cool232000/til/blob/master/First-class%20function.md)</br>
 [익명함수](https://github.com/cool232000/til/blob/master/lambda.md)<br>
 [알고리즘 성능평가](https://github.com/cool232000/til/blob/master/algorithm.md)<br>
+[메모리 계층](https://github.com/cool232000/til/blob/master/Memory_hierarchy.md)<br>
+[멀티스레드](https://github.com/cool232000/til/blob/master/Multi_threading.md)<br>
+[재귀함수](https://github.com/cool232000/til/blob/master/recursive_function.md)<br>
