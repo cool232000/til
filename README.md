@@ -19,3 +19,4 @@
 [재귀함수](https://github.com/cool232000/til/blob/master/recursive_function.md)<br>
 [함수와 메서드](https://github.com/cool232000/til/blob/master/function%26method.md)<br>
 [네트워크](https://github.com/cool232000/til/blob/master/network.md)<br>
+[버블 소트](https://github.com/cool232000/til/blob/master/bubble_sort.md)<br>
