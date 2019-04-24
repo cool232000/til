@@ -17,3 +17,4 @@
 [메모리 계층](https://github.com/cool232000/til/blob/master/Memory_hierarchy.md)<br>
 [멀티스레드](https://github.com/cool232000/til/blob/master/Multi_threading.md)<br>
 [재귀함수](https://github.com/cool232000/til/blob/master/recursive_function.md)<br>
+[함수와 메서드](https://github.com/cool232000/til/blob/master/function%26method.md)<br>
