@@ -24,7 +24,13 @@
 [삽입 정렬](https://github.com/cool232000/til/blob/master/insertion_sort.md)<br>
 [합병 정렬](https://github.com/cool232000/til/blob/master/merge_sort.md)<br>
 
+***
+
 [자바스크립트](https://github.com/cool232000/til/blob/master/About_JavaScript.md)<br>
 [변수](https://github.com/cool232000/til/blob/master/variable2.md)<br>
 [데이터 타입](https://github.com/cool232000/til/blob/master/data_type.md)<br>
 [연산자](https://github.com/cool232000/til/blob/master/operator.md)<br>
+
+***
+
+[string](https://github.com/cool232000/til/blob/master/string.md)<br>
