@@ -31,6 +31,7 @@
 [데이터 타입](https://github.com/cool232000/til/blob/master/data_type.md)<br>
 [연산자](https://github.com/cool232000/til/blob/master/operator.md)<br>
 [제어문](https://github.com/cool232000/til/blob/master/Control_flow_statement.md)<br>
+[타입 변환](https://github.com/cool232000/til/blob/master/coercion.md)<br>
 
 ***
 
