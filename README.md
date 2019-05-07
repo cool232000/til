@@ -33,6 +33,7 @@
 [제어문](https://github.com/cool232000/til/blob/master/Control_flow_statement.md)<br>
 [타입 변환](https://github.com/cool232000/til/blob/master/coercion.md)<br>
 [객체 리터럴](https://github.com/cool232000/til/blob/master/object_%20literal.md)<br>
+[원시 값과 객체의 비교](https://github.com/cool232000/til/blob/master/primitive_type%26object.md)<br>
 
 ***
 
