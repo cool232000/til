@@ -36,6 +36,7 @@
 [원시 값과 객체의 비교](https://github.com/cool232000/til/blob/master/primitive_type%26object.md)<br>
 [함수](https://github.com/cool232000/til/blob/master/function.md)<br>
 [스코프](https://github.com/cool232000/til/blob/master/scope.md)<br>
+[전역 변수의 문제점](https://github.com/cool232000/til/blob/master/global_value.md)<br>
 
 ***
 
