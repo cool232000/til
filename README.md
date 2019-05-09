@@ -35,6 +35,7 @@
 [객체 리터럴](https://github.com/cool232000/til/blob/master/object_%20literal.md)<br>
 [원시 값과 객체의 비교](https://github.com/cool232000/til/blob/master/primitive_type%26object.md)<br>
 [함수](https://github.com/cool232000/til/blob/master/function.md)<br>
+[스코프](https://github.com/cool232000/til/blob/master/scope.md)<br>
 
 ***
 
