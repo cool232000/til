@@ -7,7 +7,8 @@ if (x > 10 && x < 20) {
 
 
 // 2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
-for (let i = 0; i < 10; i += 2) {
+for (let i = 0; i < 10; i += 1) {
+  if (i % 2 === 0)
   console.log(i);
 }
 
@@ -15,7 +16,8 @@ for (let i = 0; i < 10; i += 2) {
 // 3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.
 // to.String은 배열처럼 출력 안 됨
 let str = '';
-for (let i = 0; i < 10; i += 2) {
+for (let i = 0; i < 10; i += 1) {
+  if (i % 2 === 0)
   str += i;
 }
 console.log(str);
