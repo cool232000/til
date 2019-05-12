@@ -97,6 +97,14 @@ for (let i = 1; i < 7; i += 1) {
 // ***
 // ****
 // *****
+let stars = '';
+for (let i = 1; i < 6; i += 1) {
+  for (let j = 0; j < i; j += 1) {
+    stars += '*';
+  }
+  stars += '\n';
+}
+console.log(stars);
 
 
 // 12. 삼각형 출력하기 - pattern 2
@@ -115,6 +123,14 @@ for (let i = 1; i < 7; i += 1) {
 // ***
 // **
 // *
+let stars = '';
+for (let i = 5; i > 0; i -= 1) {
+  for (let j = i; j > 0; j -= 1) {
+    stars += '*';
+  }
+  stars += '\n';
+}
+console.log(stars);
 
 
 // 14. 삼각형 출력하기 - pattern 4
