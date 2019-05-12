@@ -24,7 +24,7 @@ console.log(str);
 // 4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
 // reverse는 배열의 순서를 거꾸로 뒤집을 때 사용
 for (let i = 10; i > 0; i -= 1) {
-  if(i % 2)
+  if (i % 2)
   console.log(i);
   }
 
@@ -33,7 +33,7 @@ for (let i = 10; i > 0; i -= 1) {
 // num += 1은 증감식^^!
 let num = 0;
 while (num < 10) {
-  if(num % 2 === 0) {
+  if (num % 2 === 0) {
     console.log(num);
   }
   num += 1;
@@ -43,7 +43,7 @@ while (num < 10) {
 // 6. while문을 사용하여 0 부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
 let num = 10;
 while (num > 0) {
-  if(num % 2 === 1){
+  if (num % 2 === 1){
     console.log(num);
   }
   num -= 1;
@@ -62,7 +62,7 @@ console.log(sum);
 // 조건: i % 2 === 1 && i % 3 === 1
 let sum = 0;
 for (let i = 1; i < 20; i += 1) {
-  if((i % 2) && (i % 3)) {
+  if ((i % 2) && (i % 3)) {
   sum += i;
   }
 }
@@ -73,7 +73,7 @@ console.log(sum);
 // 조건: i % 2 === 0 || i % 3 === 0
 let sum = 0;
 for (let i = 1; i < 20; i += 1) {
-  if((i % 2 === 0) || (i % 3 === 0)) {
+  if ((i % 2 === 0) || (i % 3 === 0)) {
   sum += i;
   }
 }
@@ -114,7 +114,7 @@ console.log(stars);
 //   ***
 //    **
 //     *
-// stars.length | repeat()
+// .length | repeat()
 
 
 // 13. 삼각형 출력하기 - pattern 3
