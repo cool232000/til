@@ -43,7 +43,7 @@ while (num < 10) {
 // 6. while문을 사용하여 0 부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
 let num = 10;
 while (num > 0) {
-  if (num % 2 === 1){
+  if (num % 2 === 1) {
     console.log(num);
   }
   num -= 1;
