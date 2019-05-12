@@ -114,6 +114,7 @@ console.log(stars);
 //   ***
 //    **
 //     *
+// stars.length | repeat()
 
 
 // 13. 삼각형 출력하기 - pattern 3
