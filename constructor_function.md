@@ -239,7 +239,7 @@ const circle1 = new Circle(5);
 
 생성자 함수는
 
-1. 암묵적으로 빈 객체가 생성되고 this에 바인딩 된 후
+1. 암묵적으로 빈 객체가 생성되고 this(생성자 함수가 리턴할 객체)에 바인딩 된 후
 2. 생성된 빈 객체를 가리키는 this를 사용해 프로퍼티 혹은 메서드를 추가하고, 인수로 전달받은 초기값을 할당해 초기화하거나 고정값을 할당한다.
 3. 주의할 점은 생성자 함수의 내부 처리가 끝나면 암묵적으로 this가 반환된다는 것이다. 만약 명시적으로 다른 객체를 return 하면 this는 무시되고 return 문에 명시한 객체가 반환된다. 그러나 예외적으로 원시 타입의 값을 return 문에 명시하면 이 원시 타입 값은 무시되고 this가 반환된다.
 
@@ -263,7 +263,6 @@ function createUser(name, role) {
 }
 inst = new createUser('Lee', 'admin');
 console.log(inst); // {name: "Lee", role: "admin"}
-
 ```
 
 new 연산자 없이 생성자 함수를 호출하면 일반 함수로 호출된다.
@@ -284,7 +283,6 @@ console.log(radius); // 5
 console.log(getDiameter()); // 10
 
 circle.getDiameter(); // TypeError: Cannot read property 'getDiameter' of undefined
-
 ```
 
 new 연산자와 함께 생성자 함수를 호출하면 함수 내부의 this는 생성자 함수가 생성할 인스턴스를 가리킨다. 그러나 해당 함수를 일반 함수로 호출하면 함수 내부의 this는 전역 객체 window를 가리킨다. 따라서 위 코드에서 radius 프로퍼티와 getDiameter 메서드는 전역 객체의 프로퍼티와 메서드가 된다.
@@ -301,9 +299,13 @@ new.target은 함수 내부에서 지역 변수와 같이 사용되며 메타 �
 
 ```javascript
 function Circle(radius) {
+  // new와 함께 호출했으면 문자열
+  // new와 함께 호출하지 않았으면 undefined
+  // new와 함께 실행되지 않으면(!new.target; true로 평가) if 문을 실행해 위로 올라간다(재귀).
   if (!new.target) {
     return new Circle(radius);
   }
+  // new가 없을 경우 재귀 함수를 통해 위로 올라갔다 오기 때문에 if 조건은 false가 된다.
   this.radius = radius;
   this.getDiameter = function () {
     return 2 * this.radius;
@@ -312,7 +314,6 @@ function Circle(radius) {
 
 const circle = Circle(5);
 console.log(circle.getDiameter()); // 10
-
 ```
 
 만약 위 코드에서
@@ -340,7 +341,6 @@ function Circle(radius) {
 
 const circle = Circle(5);
 console.log(circle.getDiameter()); // 10
-
 ```
 
 new 연산자와 함께 생성자 함수에 의해 생성된 객체(인스턴스)는 프로토타입에 의해 생성자 함수와 연결된다. 이를 이용해 new 연산자 함수와 함께 호출되었는지 확인할 수 있다.
@@ -361,10 +361,9 @@ console.log(f); // ƒ anonymous(x) {return x ** x}
 
 f = Function('x', 'return x ** x');
 console.log(f); // ƒ anonymous(x) {return x ** x}
-
 ```
 
-그러나 `String` 생성자 함수는 new 연산자와 함께 호출했을 때 String 객체를 생성해 반환하지만 new 연산자 없이 호출하면 문자열 리러털을 반환한다. 문자열로 타입을 변환하는 것이다.
+그러나 `String` 생성자 함수는 new 연산자와 함께 호출했을 때 String 객체를 생성해 반환하지만 new 연산자 없이 호출하면 문자열 리터럴을 반환한다. 문자열로 타입을 변환(형변환 해서 원시값 리턴)하는 것이다.
 
 ```javascript
 let s = new String('abc');
@@ -372,6 +371,5 @@ console.log(s); // String {"abc"}
 
 s = String('abc');
 console.log(s); // abc
-
 ```
 
