@@ -17,7 +17,7 @@ const decrease = function (num) {
   return --num;
 };
 
-// 함수 객체를 객체에 저장할 수 있다.
+// 함수 객체를 객체에 저장할 수 있다. 변수명과 함수명이 같을 경우 축약 표현을 사용할 수 있다.
 const predicates = { increase, decrease };
 
 // 함수의 매개변수에 전달할 수 있고 반환값으로 사용할 수 있다.
@@ -30,7 +30,7 @@ function makeCounter(predicate) {
   };
 }
 
-// makeCounter의 매개변수에 함수 객체를 전달
+// makeCounter의 매개변수에 함수 객체를 전달(함수에 대한 참조): 함수가 함수를 부른다. 이것이 함수형 프로그래밍이다.
 const increaser = makeCounter(predicates.increase);
 console.log(increaser()); // 1
 console.log(increaser()); // 2
@@ -206,6 +206,7 @@ console.log(bar()); // caller: null
 // node 환경
 console.log(foo(bar)); //caller : function foo(func) { return func(); }
 console.log(bar()); // caller : function (exports, require, module, __filename, __dirname) { function foo(func) { return func(); }
+
 ```
 
 
@@ -229,6 +230,7 @@ function baz(x, y) {
   return x * y;
 }
 console.log(baz.length); // 2
+
 ```
 
 
@@ -242,6 +244,7 @@ console.log(baz.length); // 2
 주의해야 할 것은 함수명과 함수 객체를 가리키는 변수명은 의미가 다르다. 함수를 호출할 때는 함수명이 아닌 함수 객체를 가리키는 변수명으로 호출해야 한다.
 
 ```javascript
+// 기명 함수 표현식; 함수명은 함수 내부에서만 유효한 식별자이므로 재귀함수를 쓸 때 함수명을 사용한다.
 var namedFunc = function foo() {};
 console.log(namedFunc.name); // foo
 
@@ -251,11 +254,12 @@ console.log(anonymousFunc.name); // anonymousFunc
 
 function bar() {}
 console.log(bar.name); // bar
+
 ```
 
 
 
-### proto 접근자 프로퍼티
+### `__proto__` 접근자 프로퍼티
 
 모든 객체는 `[[Prototype]]`이라는 내부 슬롯을 갖는다. `[[Prototype]]` 내부 슬롯은 객체 지향 프로그래밍의 상속을 구현하는 프로토타입 객체를 가리킨다.
 
@@ -268,6 +272,7 @@ console.log(obj.__proto__ === Object.prototype); // true
 
 console.log(obj.hasOwnProperty('a')); // true
 console.log(obj.hasOwnProperty('__proto__')); // false
+
 ```
 
 
@@ -286,5 +291,6 @@ console.log(Object.getOwnPropertyDescriptor(function() {}, 'prototype'));
 // 일반 객체
 console.log(Object.getOwnPropertyDescriptor({}, 'prototype'));
 //undefined
+
 ```
 
