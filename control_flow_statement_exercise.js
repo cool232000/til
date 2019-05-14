@@ -14,7 +14,6 @@ for (let i = 0; i < 10; i += 1) {
 
 
 // 3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.
-// to.String은 배열처럼 출력 안 됨
 let str = '';
 for (let i = 0; i < 10; i += 1) {
   if (i % 2 === 0)
@@ -24,7 +23,6 @@ console.log(str);
 
 
 // 4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
-// reverse는 배열의 순서를 거꾸로 뒤집을 때 사용
 for (let i = 10; i > 0; i -= 1) {
   if (i % 2)
   console.log(i);
@@ -100,8 +98,8 @@ for (let i = 1; i < 7; i += 1) {
 // ****
 // *****
 let stars = '';
-for (let i = 1; i < 6; i += 1) {
-  for (let j = 0; j < i; j += 1) {
+for (let i = 0; i < 5; i += 1) {
+  for (let j = 0; j <= i; j += 1) {
     stars += '*';
   }
   stars += '\n';
@@ -116,7 +114,36 @@ console.log(stars);
 //   ***
 //    **
 //     *
-// .length | repeat()
+// 순차적으로 내려오고 if 문 사용하기
+let stars = '';
+for (let i = 0; i < 5; i += 1) {
+  for (let j = 0; j < 5; j += 1) {
+    if (i > j) {
+      stars += ' ';
+    }
+    else {
+      stars += '*';
+    }
+  }
+  stars += '\n';
+}
+console.log(stars);
+
+// 거꾸로 내려오기
+let stars = '';
+for (let i = 5; i > 0; i -= 1) {
+  for (let j = 5; j > 0; j -= 1) {
+    if (i < j) {
+      stars += ' ';
+    }
+    else {
+      stars += '*';
+    }
+  }
+  stars += '\n';
+}
+console.log(stars);
+
 
 
 // 13. 삼각형 출력하기 - pattern 3
@@ -126,10 +153,26 @@ console.log(stars);
 // ***
 // **
 // *
+// 거꾸로 내려오기
 let stars = '';
 for (let i = 5; i > 0; i -= 1) {
   for (let j = i; j > 0; j -= 1) {
     stars += '*';
+  }
+  stars += '\n';
+}
+console.log(stars);
+
+// 순차적으로 시작하고 if 문 사용하기
+let stars = '';
+for (let i = 0; i < 5; i += 1) {
+  for (let j = 0; j < 5; j += 1) {
+    if (i + j < 5) {
+      stars += '*';
+    }
+    else {
+      stars += ' ';
+    }
   }
   stars += '\n';
 }
@@ -143,6 +186,19 @@ console.log(stars);
 //   ***
 //  ****
 // *****
+let stars ='';
+for (let i = 0; i < 5; i += 1) {
+  for (let j = 0; j < 5; j += 1) {
+    if (i + j < 5-1) {
+      stars += ' ';
+    }
+    else {
+      stars += '*';
+    }
+  }
+  stars += '\n';
+}
+console.log(stars);
 
 
 // 15. 정삼각형 출력하기
@@ -151,6 +207,22 @@ console.log(stars);
 //   *****
 //  *******
 // *********
+let stars ='';
+for (let i = 0; i < 5; i += 1) {
+  for (let j = 0; j < 5; j += 1) {
+    if (i + j < 5-1) {
+      stars += ' ';
+    }
+    else {
+      stars += '*';
+    }
+  }
+  for (let j = 0; j < i; j += 1) {
+    stars += '*';
+  }
+  stars += '\n';
+}
+console.log(stars);
 
 
 // 16. 역정삼각형 출력하기
@@ -159,3 +231,19 @@ console.log(stars);
 //   *****
 //    ***
 //     *
+let stars = '';
+for (let i = 0; i < 5; i += 1) {
+  for (let j = 0; j < 5; j += 1) {
+    if (i > j) {
+      stars += ' ';
+    }
+    else {
+      stars += '*';
+    }
+  }
+  for (let j = 4; j > i; j -= 1) {
+    stars += '*';
+  }
+  stars += '\n';
+}
+console.log(stars);
