@@ -45,3 +45,7 @@
 ***
 
 [string](https://github.com/cool232000/til/blob/master/string.md)<br>
+
+***
+[제어문 연습](https://github.com/cool232000/til/blob/master/control_flow_statement_exercise.js)<br>
+[0515 연습문제](https://github.com/cool232000/til/blob/master/0515_exercise.js)<br>
