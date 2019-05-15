@@ -77,7 +77,7 @@ console.log(getCount8()); // 4000
 
 // 예를 들어 s가 'a234'이면 false를 리턴하고 '1234'라면 true를 리턴한다.
 
-
+// 2중 if 문
 function alphaString46(s) {
   if (isNaN(s) === false) {
     if (s.length > 3 && s.length < 7) {
@@ -89,6 +89,7 @@ function alphaString46(s) {
 }
 
 
+// 삼항 조건 연산자
 
 function alphaString46(s) {
   return !(isNaN(s)) ? (s.length > 3 && s.length < 7) : false;
