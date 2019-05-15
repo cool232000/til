@@ -89,6 +89,10 @@ function alphaString46(s) {
 }
 
 
+
+function alphaString46(s) {
+  return !(isNaN(s)) ? (s.length > 3 && s.length < 7) : false;
+}
 console.log(alphaString46('1234')); // true
 console.log(alphaString46('9014')); // true
 console.log(alphaString46('723'));  // false
