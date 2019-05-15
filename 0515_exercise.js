@@ -37,7 +37,7 @@ console.log(evenOrOdd(1000));
 
 // (hint) 문자열 중 n번째에 있는 문자 : str.charAt(n) or str[n]
 
-// 강사님 
+// 강사님 코드
 function getCount8 () {
   let str = '';
   let sum = 0;
