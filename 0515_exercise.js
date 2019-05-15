@@ -18,7 +18,8 @@ console.log(evenOrOdd(2));
 console.log(evenOrOdd(3));
 console.log(evenOrOdd(1000));
 
-// 삼항조건연산자
+
+// 삼항 조건 연산자
 function evenOrOdd(num) {
   return num % 2 ? 'Odd' : 'Even';
 }
@@ -28,6 +29,7 @@ console.log(evenOrOdd(3));
 console.log(evenOrOdd(1000));
 
 
+
 // 2. 1 ~ 10,000의 숫자 중 8이 등장하는 횟수 구하기 (Google)
 // 1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가? 이를 구하는 함수를 완성하라.
 
@@ -35,6 +37,7 @@ console.log(evenOrOdd(1000));
 
 // (hint) 문자열 중 n번째에 있는 문자 : str.charAt(n) or str[n]
 
+// 강사님 
 function getCount8 () {
   let str = '';
   let sum = 0;
@@ -72,6 +75,8 @@ console.log(getCount8()); // 4000
 // for문을 0부터 10,001까지 돌림
 // 문자열로 다 붙임
 
+
+
 // 3. 문자열 다루기
 // alphaString46 함수는 문자열 s를 매개변수로 입력받는다. s의 길이가 4 ~ 6이고, 숫자로만 구성되어 있는지 확인하는 alphaString46 함수를 완성하라.
 
@@ -94,6 +99,8 @@ function alphaString46(s) {
 function alphaString46(s) {
   return !(isNaN(s)) ? (s.length > 3 && s.length < 7) : false;
 }
+
+
 console.log(alphaString46('1234')); // true
 console.log(alphaString46('9014')); // true
 console.log(alphaString46('723'));  // false
