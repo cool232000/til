@@ -89,6 +89,15 @@ function alphaString46(s) {
 }
 
 
+// if 문 하나만 쓰기
+function alphaString46(s) {
+    if (s.length > 3 && s.length < 7 && !(isNaN(s))) {
+      return true
+    }
+    return false
+}
+
+
 // 삼항 조건 연산자
 function alphaString46(s) {
   return !(isNaN(s)) ? (s.length > 3 && s.length < 7) : false;
