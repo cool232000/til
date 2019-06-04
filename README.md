@@ -1,5 +1,30 @@
 # Today I Learned
 
+
+## Javascript
+[자바스크립트](https://github.com/cool232000/til/blob/master/Javascript/About_JavaScript.md)<br>
+[변수](https://github.com/cool232000/til/blob/master/Javascript/variable2.md)<br>
+[데이터 타입](https://github.com/cool232000/til/blob/master/Javascript/data_type.md)<br>
+[연산자](https://github.com/cool232000/til/blob/master/Javascript/operator.md)<br>
+[제어문](https://github.com/cool232000/til/blob/master/Javascript/Control_flow_statement.md)<br>
+[타입 변환](https://github.com/cool232000/til/blob/master/Javascript/coercion.md)<br>
+[객체 리터럴](https://github.com/cool232000/til/blob/master/Javascript/object_%20literal.md)<br>
+[원시 값과 객체의 비교](https://github.com/cool232000/til/blob/master/Javascript/primitive_type%26object.md)<br>
+[함수](https://github.com/cool232000/til/blob/master/Javascript/function.md)<br>
+[스코프](https://github.com/cool232000/til/blob/master/Javascript/scope.md)<br>
+[전역 변수의 문제점](https://github.com/cool232000/til/blob/master/Javascript/global_value.md)<br>
+[블록 레벨 스코프](https://github.com/cool232000/til/blob/master/Javascript/block_level_scope.md)<br>
+[프로퍼티](https://github.com/cool232000/til/blob/master/Javascript/property.md)<br>
+[생성자 함수](https://github.com/cool232000/til/blob/master/Javascript/constructor_function.md)<br>
+[일급 객체로서의 함수](https://github.com/cool232000/til/blob/master/Javascript/first-class_function.md)<br>
+
+
+## exercise
+[제어문 연습](https://github.com/cool232000/til/blob/master/exercise/control_flow_statement_exercise.js)<br>
+[0515 연습문제](https://github.com/cool232000/til/blob/master/exercise/0515_exercise.js)<br>
+
+
+## Computer Science
 [메모리 주소](https://github.com/cool232000/til/blob/master/Computer_Science/Memory_Address.md)<br>
 [수와 진수 변환](https://github.com/cool232000/til/blob/master/Computer_Science/number.md)<br>
 [정수와 정수 표현](https://github.com/cool232000/til/blob/master/Computer_Science/integer.md)<br>
@@ -24,28 +49,6 @@
 [삽입 정렬](https://github.com/cool232000/til/blob/master/Computer_Science/insertion_sort.md)<br>
 [합병 정렬](https://github.com/cool232000/til/blob/master/Computer_Science/merge_sort.md)<br>
 
-***
-
-[자바스크립트](https://github.com/cool232000/til/blob/master/About_JavaScript.md)<br>
-[변수](https://github.com/cool232000/til/blob/master/variable2.md)<br>
-[데이터 타입](https://github.com/cool232000/til/blob/master/data_type.md)<br>
-[연산자](https://github.com/cool232000/til/blob/master/operator.md)<br>
-[제어문](https://github.com/cool232000/til/blob/master/Control_flow_statement.md)<br>
-[타입 변환](https://github.com/cool232000/til/blob/master/coercion.md)<br>
-[객체 리터럴](https://github.com/cool232000/til/blob/master/object_%20literal.md)<br>
-[원시 값과 객체의 비교](https://github.com/cool232000/til/blob/master/primitive_type%26object.md)<br>
-[함수](https://github.com/cool232000/til/blob/master/function.md)<br>
-[스코프](https://github.com/cool232000/til/blob/master/scope.md)<br>
-[전역 변수의 문제점](https://github.com/cool232000/til/blob/master/global_value.md)<br>
-[블록 레벨 스코프](https://github.com/cool232000/til/blob/master/block_level_scope.md)<br>
-[프로퍼티](https://github.com/cool232000/til/blob/master/property.md)<br>
-[생성자 함수](https://github.com/cool232000/til/blob/master/constructor_function.md)<br>
-[일급 객체로서의 함수](https://github.com/cool232000/til/blob/master/first-class_function.md)<br>
-
-***
 
 [string](https://github.com/cool232000/til/blob/master/string.md)<br>
 
-***
-[제어문 연습](https://github.com/cool232000/til/blob/master/control_flow_statement_exercise.js)<br>
-[0515 연습문제](https://github.com/cool232000/til/blob/master/0515_exercise.js)<br>
