@@ -22,7 +22,14 @@
 ## exercise
 [제어문 연습](https://github.com/cool232000/til/blob/master/exercise/control_flow_statement_exercise.js)<br>
 [0515 연습문제](https://github.com/cool232000/til/blob/master/exercise/0515_exercise.js)<br>
-
+[0531 Ajax](https://github.com/cool232000/til/blob/master/exercise/0531_ajax.html)<br>
+[0531 Promise](https://github.com/cool232000/til/blob/master/exercise/0531_promise.html)<br>
+[0531 Fetch](https://github.com/cool232000/til/blob/master/exercise/0531_fetch.html)<br>
+[0531 Async/Await](https://github.com/cool232000/til/blob/master/exercise/0531_async_await.html)<br>
+[Toggle Side Nav](https://github.com/cool232000/til/blob/master/exercise/Toggle_side_nav.html)<br>
+[Counter](https://github.com/cool232000/til/blob/master/exercise/counter.html)<br>
+[Stop Watch](https://github.com/cool232000/til/blob/master/exercise/Stop_watch.html)<br>
+[Analog Clock](https://github.com/cool232000/til/blob/master/exercise/Analog_Clock.html)<br>
 
 ## Computer Science
 [메모리 주소](https://github.com/cool232000/til/blob/master/Computer_Science/Memory_Address.md)<br>
