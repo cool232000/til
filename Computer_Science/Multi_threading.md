@@ -13,9 +13,6 @@ os가 하는 역할은 Job scheduling이다. 스케줄러가 하는 가장 중�
 함수를 실행하는 쓰레드가 많으면, 스택만 가지고 있어도 각자 독립적인 연산이 가능하다.
 
 
-
-![400px-Process_states.svg](/Users/PinkElephant/Library/Group Containers/group.com.apple.notes/Media/69B68B94-0E19-4B72-AB9D-54C1C8E3C5E7/400px-Process_states.svg.png)
-
 ## 동시성 프로그래밍(concarrency programming)과 병렬 프로그래밍(parallel programming)
 
 동시성 프로그래밍은 CPU가 하나지만 쓰레드를 여러 개 나눠서 멀티로 동작시킨다. 그러나 CPU가 하나이기 때문에 사람은 인지하지 못하지만 쓰레드 하나가 CPU를 점유해 실행되고 있을 때 나머지 쓰레드는 웨이팅 영역에서 기다리고 있기 때문에 실제로 엄밀한 의미에서 동시적으로 실행되고 있지는 않다.
