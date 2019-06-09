@@ -33,7 +33,7 @@
 
 ## exercise
 [제어문 연습](https://github.com/cool232000/til/blob/master/exercise/control_flow_statement_exercise.js)  
-[0515 연습문제](https://github.com/cool232000/til/blob/master/exercise/0515_exercise.js) 
+[0515 연습문제](https://github.com/cool232000/til/blob/master/exercise/0515_exercise.js)  
 [Array HOF](https://github.com/cool232000/til/blob/master/exercise/Array_HOF.js)  
 [0531 Ajax](https://github.com/cool232000/til/blob/master/exercise/0531_ajax.html)  
 [0531 Promise](https://github.com/cool232000/til/blob/master/exercise/0531_promise.html)  
