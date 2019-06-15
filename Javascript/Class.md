@@ -1,6 +1,6 @@
-# class
+# Class
 
-프로토타입 기반 객체지향 언어인 자바스크립트는 다른 언어와는 달리 클래스가 필요 없이 프로토타입 체인과 클로저 등으로 객체지향 언어의 상속, 캡슐화 등의 개념을 구현할 수 있다.
+프로토타입 기반 객체지향 언어인 자바스크립트는 다른 언어와는 달리 클래스가 필요 없이 프로토타입 체인과 클로저 등으로 객체지향 언어의 상속, 캡슐화 등의 개념을 구현할 수 있다. 그러나 ES6부터는 ES5에서 생성자 함수와 프로토타입, 클로저를 이용해 상속, 캡슐화 등을 구현하던 것을 좀 더 엄격하게 사용할 수 있는 클래스를 지원한다.
 
 
 
@@ -128,7 +128,6 @@ const foo = new Foo(1);
 // foo.num = 1;
 
 console.log(foo); // Foo {num: 1}
-
 ```
 
 
@@ -143,7 +142,6 @@ class Foo {
 
 	constructor() {}
 }
-
 ```
 
 최신 브라우저에서는 위 예제가 정상적으로 동작한다. TC39 프로세스의 stage3 단계에, 클래스 바디에서 직접 인스턴스 필드를 선언하고 private 인스턴스 필드를 선언할 수 있는 프로포절의 [Field declarations](https://github.com/tc39/proposal-class-fields#field-declarations)를 최신 브라우저가 구현하고 있기 때문이다.
@@ -160,7 +158,6 @@ class Foo {
 const foo = new Foo('Lee');
 console.log(foo); // Foo {name: "Lee"}
 console.log(foo.name); // Lee
-
 ```
 
 constructor 내부에서 선언한 클래스 필드는 클래스가 생성할 인스턴스를 가리키는 this에 바인딩된다. 클래스 필드는 클래스가 생성할 인스턴스의 프로퍼티가 되며, 클래스의 인스턴스를 통해 클래스 외부에서 참조할 수 있다.
@@ -188,7 +185,6 @@ class Foo {
 
 const foo = new Foo([1, 2]);
 console.log(foo.firstElem); // 1
-
 ```
 
 ### setter
@@ -217,7 +213,6 @@ const foo = new Foo([1, 2]);
 foo.firstElem = 100;
 
 console.log(foo.firstElem); // 100
-
 ```
 
 
@@ -246,7 +241,6 @@ console.log(Foo.staticMethod()); // staticMethod
 const foo = new Foo(123);
 
 console.log(foo.staticMethod()); // Uncaught TypeError: foo.staticMethod is not a function
-
 ```
 
 클래스의 정적 메소드는 인스턴스로 호출할 수 없다. 따라서 정적 메소드는 this를 사용할 수 없다. 일반 메소드 내부에서 this는 클래스의 인스턴스를 가리키며, 메소드 내부에서 this를 사용한다는 것은 클래스의 인스턴스의 생성을 전제로 하는 것이다.
@@ -277,7 +271,6 @@ var foo = new Foo(123);
 console.log(foo.prototypeMethod()); // 123
 console.log(Foo.staticMethod()); // staticMethod
 console.log(foo.staticMethod()); // Uncaught TypeError: foo.staticMethod is not a function
-
 ```
 
 함수 객체는 일반 객체와는 달리 prototype 프로퍼티를 갖는다. prototype 프로퍼티는 함수 객체가 생성자로 사용될 때, 이 함수를 통해 생성된 객체의 부모 역할을 하는 프로토타입 객체를 가리킨다. 위 예제에서 Foo는 생성자 함수로 사용되므로 생성자 함수 Foo의 prototype 프로퍼티가 가리키는 프로토타입 객체는 생성자 함수 Foo를 통해 생성되는 인스턴스 foo의 프로토타입 체인상 부모이다.
@@ -286,7 +279,6 @@ console.log(foo.staticMethod()); // Uncaught TypeError: foo.staticMethod is not 
 
 ```javascript
 console.log(Foo.staticMethod()); // staticMethod
-
 ```
 
 일반 메소드인 prototypeMethod는 프로토타입 객체 Foo.prototype의 메소드이다.
