@@ -43,6 +43,9 @@
 [Counter](https://github.com/cool232000/til/blob/master/exercise/counter.html)  
 [Stop Watch](https://github.com/cool232000/til/blob/master/exercise/Stop_watch.html)  
 [Analog Clock](https://github.com/cool232000/til/blob/master/exercise/Analog_Clock.html)  
+[counter Angular ver1](https://github.com/cool232000/til/tree/master/exercise/counter_ng1)  
+[counter Angular ver2](https://github.com/cool232000/til/tree/master/exercise/counter_ng2)  
+[counter Angular ver3](https://github.com/cool232000/til/tree/master/exercise/counter_ng3)  
 
 ## Computer Science
 [메모리 주소](https://github.com/cool232000/til/blob/master/Computer_Science/Memory_Address.md)  
