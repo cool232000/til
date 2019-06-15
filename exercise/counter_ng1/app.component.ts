@@ -41,8 +41,7 @@ export class AppComponent {
   counter = 0;
 
   increaseCnt() {
-    this.counter += 1;
-    
+    this.counter += 1;    
   }
 
   decreaseCnt() {
