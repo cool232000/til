@@ -46,6 +46,7 @@
 [counter Angular ver1](https://github.com/cool232000/til/tree/master/exercise/counter_ng1)  
 [counter Angular ver2](https://github.com/cool232000/til/tree/master/exercise/counter_ng2)  
 [counter Angular ver3](https://github.com/cool232000/til/tree/master/exercise/counter_ng3)  
+[tabs](https://github.com/cool232000/til/tree/master/exercise/tabs)  
 
 ## Computer Science
 [메모리 주소](https://github.com/cool232000/til/blob/master/Computer_Science/Memory_Address.md)  
