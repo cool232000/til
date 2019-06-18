@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       </ul>
       <div class="tab-content-group">
         <ng-container *ngFor="let tab of tabs">
-          <div *ngIf="tab.active" class="tab-content" [innerHTML]='tab.content'></div>
+          <div *ngIf="tab.active" class="tab-content" [innerHTML]="tab.content"></div>
           </ng-container>
       </div>
     </div>
