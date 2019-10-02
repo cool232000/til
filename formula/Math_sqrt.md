@@ -23,7 +23,7 @@ sqrt()는 Math의 정적 메소드이므로 Math 객체의 메소드가 아니�
 let isSquare = function(n){
   if (n < 0) { return false }
   else 
-  return Math.sqrt(n) % 1 ? false :true; 
+  return Math.sqrt(n) % 1 ? false : true; 
 }
 ```
 
