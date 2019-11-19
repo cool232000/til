@@ -108,7 +108,7 @@ let todos = [
 ];
 
 function addTodo(newTodo) {
-  todos = [newTodo].concat(todos);
+  return todos = [newTodo].concat(todos);
 }
 
 addTodo({ id: 4, content: 'Test', completed: false });
@@ -133,7 +133,7 @@ let todos = [
 ];
 
 function removeTodo(id) {
-  todos = todos.filter(remove => remove.id !== id);
+  return todos = todos.filter(remove => remove.id !== id);
 }
 
 removeTodo(2);
@@ -159,7 +159,7 @@ let todos = [
 ];
 
 function toggleCompletedById(id) {  
-  todos = todos.map(todo => todo.id === id ? Object.assign({}, todo, { completed: !todo.completed }) : todo);
+  return todos = todos.map(todo => todo.id === id ? Object.assign({}, todo, { completed: !todo.completed }) : todo);
 }
 
 toggleCompletedById(2);
@@ -175,7 +175,7 @@ let todos = [
 ];
 
 function toggleCompletedById(id) {  
-  todos = todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo);
+  return todos = todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo);
 }
 
 toggleCompletedById(2);
@@ -202,7 +202,7 @@ let todos = [
 ];
 
 function toggleCompletedAll() {
-  todos = todos.map(todo => Object.assign({}, todo, { completed: true }))
+  return todos = todos.map(todo => Object.assign({}, todo, { completed: true }))
 }
 
 toggleCompletedAll();
@@ -219,7 +219,7 @@ let todos = [
 ];
 
 function toggleCompletedAll() {
-  todos = todos.map(todo => ({...todo, completed: true}))
+  return todos = todos.map(todo => ({...todo, completed: true}))
 }
 
 toggleCompletedAll();
