@@ -1,4 +1,4 @@
-#VS Code에서 mirror cursor 옵션 조정하기
+# VS Code에서 mirror cursor 옵션 조정하기
 
 VS Code 1.41 이상 버전부터 mirror cursor가 채택되었다. 기존 VS Code에서 동작하던 Auto Rename tag 익스텐션과 거의 비슷하게 동작한다. 그런데 mirror cursor는 단점이 하나 있는데 단순히 태그 자체를 수정하는 것이 아니라 다중커서로 클래스를 넣거나 할 때 닫힘 태그 부분까지 같이 움직인다는 것이다.
 
@@ -10,4 +10,4 @@ mirror cursor는 조정 가능한 옵션이기 때문에 설정에서 `HTML: Mir
 
 
 
-#####[VS Code: mirror cursor](https://code.visualstudio.com/updates/v1_41#_html-mirror-cursor)
+##### [VS Code: mirror cursor](
