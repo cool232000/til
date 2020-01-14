@@ -10,4 +10,4 @@ mirror cursor는 조정 가능한 옵션이기 때문에 설정에서 `HTML: Mir
 
 
 
-##### [VS Code: mirror cursor](
+##### [VS Code: mirror cursor](https://code.visualstudio.com/updates/v1_41#_html-mirror-cursor)
