@@ -8,19 +8,20 @@ SICP(Structure and Interpretation of Computer Programs)는 자바스크립트 �
 
 GUI: Graphic User Interface
 
-
-
-gitforwindows.org
-
 git bash (터미널 or iTerm)
 
+```shell
 pwd < 현재 위치 알아내기
-
 ls < 현재 위치의 하위 폴더/파일 나타내기
-
 ls -l < 하위 폴더/파일 자세한 정보로 확인하기
-
 ls -a < 숨김 파일까지 보기 (윈도우에서는 안 됨)
+rm -rf < 삭제
+mkdir < 폴더 만들기
+touch < 파일 만들기
+mv 파일명 폴더명/파일명 < 파일의 폴더 이동
+mv 파일명 변경된 파일명 < 파일명 변경
+cp 파일명 < 파일 복사
+```
 
 
 
@@ -32,35 +33,22 @@ VSC == SCM(source Code Management) < SCM (software Configuration Management: 형
 
 
 
-
-
+```shell
 git config --global user.name "가입할 때 썼던 네임"
-
 git config --global user.email "가입할 때 썼던 메일"
-
 git config --global core.editor "vim"
-
 git config --global core.pager "cat"
-
 git config --list
 
-수정시
-
+수정시 (ex.email)
 git config --global --unset user.email
+git config --global user.email
+```
 
-삭제되고 다시
-
-git config --global user.email "가입할 때 썼던 메일" 쓰면 됨
-
-
-
+```sh
 디렉토리에 깃 연결하기
-
 git init
-
-디렉토리에 연결된 깃 삭제하기
-
-rm -r .git
+```
 
 
 
@@ -76,27 +64,23 @@ Public > 깃은 어지간하면 퍼블릭으로 작성할 것 (마소가 산 뒤
 
 https에 있는 주소를 카피한 후 터미널로 넘어옴
 
-
-
-git remote 주소를 등록해야 함 (git remote 명령어에 아무것도 나오지 않는다면)
-
-관습적으로 origin 이라는 이름을 써서 주소를 등록한다
-
-git remote add origin 레포 주소
-
-
+```shell
+git remote 주소를 등록해야 한다
+git remote add origin 레포주소
 
 연결된 url 확인하기
-
 git remote get-url origin
-
-
-
-git add README.md
-
-git commit > vim 열림
-
 ```
+
+```shell
+git add . == git add 파일명
+git commit -m "커밋 내용"
+git push == git push origin master
+```
+
+commit 예시
+
+```markdown
 I added README.md with git for the first time.
 I think git and GitHub is cool.
 
@@ -105,7 +89,3 @@ docs: documentations
 bugfix: bug fix
 conf: configurations
 ```
-
-:wq
-
-git push origin master
