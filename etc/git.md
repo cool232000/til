@@ -50,6 +50,11 @@ git config --global user.email
 git init
 ```
 
+```sh
+깃 로그 확인
+git log
+```
+
 
 
 # repo
@@ -89,3 +94,4 @@ docs: documentations
 bugfix: bug fix
 conf: configurations
 ```
+
