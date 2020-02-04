@@ -19,11 +19,15 @@
     <source srcset="image_large.png" media="(min-width: 1000px)" />
     <source srcset="image_medium.png" media="(min-width: 700px)" />
     <source srcset="image_small.png" media="(min-width: 400px)" />
-    <img src="image.png">
+    <img src="image.png" alt="이미지">
 </picture>
 ```
 
 `picture` 태그에서 주의할 점은 `img` 태그와 달리 반드시 높은 해상도 기준을 가진 이미지 소스 태그가 상위에 위치해야 한다는 점이다. `picture` 태그를 지원하지 않는 브라우저인 IE의 경우에는 해상도에 관계없이 `img` 태그로 설정된 기본 이미지가 브라우저에 나타나게 된다.
+
+또한 `picture` 태그 내에 `img` 태그가 빠져서는 안 된다. 문법상으로도 불가하지만 `img` 태그가 없으면 제대로 렌더링 되지 않는다.
+
+소스셋과 `img` 태그의 이미지가 달라서도 안 된다. 같은 이미지가 렌더링되도록 해야 한다.
 
 > If no matches are found—or the browser doesn't support the `` element—the URL of the `` element's `src` attribute is selected.
 
