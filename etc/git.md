@@ -96,3 +96,39 @@ conf: configurations (세팅 변경)
 refactor: refactoring (기능 개선)
 ```
 
+
+
+# branch
+
+```markdown
+git branch 파일명
+git branch <-브랜치 확인
+git checkout 파일명
+마스터 파일 작업
+git add 파일명
+git commit -m "커밋내용"
+git checkout master
+git merge 파일명
+```
+
+
+
+# git flow
+
+```markdown
+git pull pmorigin develop
+git flow feature start 브랜치명
+작업
+git status
+git add 수정파일
+git commit -m 수정파일
+git push origin feature/브랜치명
+git flow feature finish 브랜치명
+git pull pmorigin develop
+git push origin develop
+
+완료된 파일 받을 때
+git fetch pmorigin
+git merge pmorigin/develop
+```
+
