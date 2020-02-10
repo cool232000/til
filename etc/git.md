@@ -89,9 +89,10 @@ commit 예시
 I added README.md with git for the first time.
 I think git and GitHub is cool.
 
-feat: feature
-docs: documentations
-bugfix: bug fix
-conf: configurations
+feat: feature (기능 개발)
+docs: documentations (문서 작성)
+bugfix: bug fix (버그 픽스)
+conf: configurations (세팅 변경)
+refactor: refactoring (기능 개선)
 ```
 
