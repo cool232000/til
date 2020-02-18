@@ -1,7 +1,5 @@
 SICP(Structure and Interpretation of Computer Programs)는 자바스크립트 버전으로 개편되었다. 컴퓨터 동작 원리를 이해하는데 큰 도움이 된다.
 
-
-
 # 리눅스
 
 헬싱키 대학생이었던 리누스 토발즈가 미닉스 OS를 개조해서 만들었다. 리눅스는 많은 곳에서 활용되고 있는데 현재 시점에서 사용자가 가장 많이 접할 수 있는 리눅스 운영체제는 안드로이드이다.
@@ -23,15 +21,11 @@ mv 파일명 변경된 파일명 < 파일명 변경
 cp 파일명 < 파일 복사
 ```
 
-
-
 # git
 
 git은 VCS(Version Control System)이다.
 
 VSC == SCM(source Code Management) < SCM (software Configuration Management: 형상관리)
-
-
 
 ```shell
 git config --global user.name "가입할 때 썼던 네임"
@@ -54,8 +48,6 @@ git init
 깃 로그 확인
 git log
 ```
-
-
 
 # repo
 
@@ -96,11 +88,9 @@ conf: configurations (세팅 변경)
 refactor: refactoring (기능 개선)
 ```
 
-
-
 # branch
 
-```markdown
+```shell
 git branch 파일명
 git branch <-브랜치 확인
 git checkout 파일명
@@ -111,11 +101,9 @@ git checkout master
 git merge 파일명
 ```
 
-
-
 # git flow
 
-```markdown
+```shell
 git pull pmorigin develop
 git flow feature start 브랜치명
 작업
