@@ -36,8 +36,6 @@ console.log(result);
    console.log(result); // 10
    ```
 
-   
-
 3. reduce를 활용하는 방법
 
    ```javascript
