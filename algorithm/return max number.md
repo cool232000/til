@@ -26,15 +26,17 @@ console.log(result);
 
 2. sort해서 가장 마지막에 있는 숫자를 반환하는 방법
 
-```javascript
-function max(...params) {
-  let sortNum = params.sort((a, b) => a - b);
-  return sortNum[sortNum.length-1];
-}
+   ```javascript
+   function max(...params) {
+     let sortNum = params.sort((a, b) => a - b);
+     return sortNum[sortNum.length-1];
+   }
+   
+   const result = max(1, 2, 3, 4, 10, 5, 6, 7);
+   console.log(result); // 10
+   ```
 
-const result = max(1, 2, 3, 4, 10, 5, 6, 7);
-console.log(result); // 10
-```
+   
 
 3. reduce를 활용하는 방법
 
