@@ -1,4 +1,4 @@
-# Javascript Web API
+# 브라우저의 전역 변수
 
 ```javascript
 let person = {
