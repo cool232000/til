@@ -5,6 +5,10 @@ if (x > 10 && x < 20) {
   console.log(x);
 }
 
+if (10 < x < 20) {
+  console.log(x);
+}
+
 
 // 2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
 for (let i = 0; i < 10; i += 1) {
@@ -20,6 +24,10 @@ for (let i = 0; i < 10; i += 1) {
   str += i;
 }
 console.log(str);
+
+for (let i = 0; i < 10; i++) {
+  if (i % 2 === 0) console.log(i + '');
+}
 
 
 // 4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
@@ -43,7 +51,7 @@ while (num < 10) {
 // 6. while문을 사용하여 0 부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
 let num = 10;
 while (num > 0) {
-  if (num % 2 === 1) {
+  if (num % 2) {
     console.log(num);
   }
   num -= 1;
@@ -129,6 +137,19 @@ for (let i = 0; i < 5; i += 1) {
 }
 console.log(stars);
 
+// 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j < line; j++) {
+    star += i > j ? blank : '*';
+  }
+  star += '\n';
+}
+console.log(star);
+
 // 거꾸로 내려오기
 let stars = '';
 for (let i = 5; i > 0; i -= 1) {
@@ -143,6 +164,19 @@ for (let i = 5; i > 0; i -= 1) {
   stars += '\n';
 }
 console.log(stars);
+
+// 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = line; i > 0; i--) {
+  for (let j = line; j > 0; j--) {
+    star += i < j ? blank : '*';
+  }
+  star += '\n';
+}
+console.log(star);
 
 
 
@@ -178,6 +212,19 @@ for (let i = 0; i < 5; i += 1) {
 }
 console.log(stars);
 
+// 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j < line; j++) {
+    star += i + j < line ? '*' : blank;
+  }
+  star += '\n';
+}
+console.log(star);
+
 
 // 14. 삼각형 출력하기 - pattern 4
 // 다음을 참고하여 *(별)로 트리를 문자열로 완성하라. 개행문자(‘\n’)를 사용하여 개행한다. 완성된 문자열의 마지막은 개행문자(‘\n’)로 끝나도 관계없다.
@@ -199,6 +246,32 @@ for (let i = 0; i < 5; i += 1) {
   stars += '\n';
 }
 console.log(stars);
+
+// 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j <= line; j++) {
+    star += i + j < line ? blank : '*';
+  }
+  star += '\n';
+}
+console.log(star);
+
+// 내림차순 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = line; i > 0; i--) {
+  for (let j = line; j >= 0; j--) {
+    star += i + j > line ? blank : '*';
+  }
+  star += '\n';
+}
+console.log(star);
 
 
 // 15. 정삼각형 출력하기
@@ -224,6 +297,22 @@ for (let i = 0; i < 5; i += 1) {
 }
 console.log(stars);
 
+// 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j <= line; j++) {
+    star += i + j < line ? blank : '*';
+  }
+  for (let k = 0; k < i; k++) {
+    star += '*'
+  }
+  star += '\n';
+}
+console.log(star);
+
 
 // 16. 역정삼각형 출력하기
 // *********
@@ -247,3 +336,19 @@ for (let i = 0; i < 5; i += 1) {
   stars += '\n';
 }
 console.log(stars);
+
+// 삼항연산자
+const line = 5;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j < line; j++) {
+    star += i > j ? blank : '*';
+  }
+  for (let k = 1; k < line; k++) {
+    star += i + k < line ? '*' : blank;
+  }
+  star += '\n';
+}
+console.log(star);
