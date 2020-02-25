@@ -5,15 +5,15 @@ if (x > 10 && x < 20) {
   console.log(x);
 }
 
-if (10 < x < 20) {
-  console.log(x);
-}
-
 
 // 2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.
 for (let i = 0; i < 10; i += 1) {
   if (i % 2 === 0)
   console.log(i);
+}
+
+for (let i = 0; i < 10; i++) {
+  if (!(i % 2)) console.log(i);
 }
 
 
@@ -27,6 +27,10 @@ console.log(str);
 
 for (let i = 0; i < 10; i++) {
   if (i % 2 === 0) console.log(i + '');
+}
+
+for (let i = 0; i < 10; i++) {
+  if (!(i % 2)) console.log(i + '');
 }
 
 
@@ -44,6 +48,12 @@ while (num < 10) {
   if (num % 2 === 0) {
     console.log(num);
   }
+  num += 1;
+}
+
+let num = 0;
+while (num < 10) {
+  if (!(num % 2)) console.log(num);
   num += 1;
 }
 
@@ -87,12 +97,28 @@ for (let i = 1; i < 20; i += 1) {
 }
 console.log(sum);
 
+let multiple = 0;
+for (let i = 1; i < 20; i++) {
+  if (!(i % 2) || !(i % 3)) {
+    multiple += i;
+  }
+}
+console.log(multiple);
+
 
 // 10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오.
 for (let i = 1; i < 7; i += 1) {
   for (let j = 1; j < 7; j += 1) {
     if (i + j === 6)
     console.log(i, j)
+  }
+}
+
+for (let i = 1; i <= 6; i++) {
+  for (let j = 1; j <= 6; j++) {
+    if (i + j === 6) {
+      console.log([i, j]);
+    }
   }
 }
 
