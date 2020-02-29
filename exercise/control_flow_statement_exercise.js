@@ -26,12 +26,14 @@ for (let i = 0; i < 10; i += 1) {
 console.log(str);
 
 for (let i = 0; i < 10; i++) {
-  if (i % 2 === 0) console.log(i + '');
+  if (i % 2 === 0) str += i;
 }
+console.log(str);
 
 for (let i = 0; i < 10; i++) {
-  if (!(i % 2)) console.log(i + '');
+  if (!(i % 2)) str += i;
 }
+console.log(str);
 
 
 // 4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰수부터 출력하시오.
@@ -92,7 +94,7 @@ console.log(sum);
 let sum = 0;
 for (let i = 1; i < 20; i += 1) {
   if ((i % 2 === 0) || (i % 3 === 0)) {
-  sum += i;
+    sum += i;
   }
 }
 console.log(sum);
@@ -116,9 +118,7 @@ for (let i = 1; i < 7; i += 1) {
 
 for (let i = 1; i <= 6; i++) {
   for (let j = 1; j <= 6; j++) {
-    if (i + j === 6) {
-      console.log([i, j]);
-    }
+    if (i + j === 6) console.log([i, j]);
   }
 }
 
@@ -148,7 +148,8 @@ console.log(stars);
 //   ***
 //    **
 //     *
-// 순차적으로 내려오고 if 문 사용하기
+
+// 오름차순
 let stars = '';
 for (let i = 0; i < 5; i += 1) {
   for (let j = 0; j < 5; j += 1) {
@@ -176,7 +177,7 @@ for (let i = 0; i < line; i++) {
 }
 console.log(star);
 
-// 거꾸로 내려오기
+// 내림차순
 let stars = '';
 for (let i = 5; i > 0; i -= 1) {
   for (let j = 5; j > 0; j -= 1) {
@@ -213,7 +214,8 @@ console.log(star);
 // ***
 // **
 // *
-// 거꾸로 내려오기
+
+// 내림차순
 let stars = '';
 for (let i = 5; i > 0; i -= 1) {
   for (let j = i; j > 0; j -= 1) {
@@ -223,7 +225,7 @@ for (let i = 5; i > 0; i -= 1) {
 }
 console.log(stars);
 
-// 순차적으로 시작하고 if 문 사용하기
+// 오름차순
 let stars = '';
 for (let i = 0; i < 5; i += 1) {
   for (let j = 0; j < 5; j += 1) {
@@ -259,6 +261,7 @@ console.log(star);
 //   ***
 //  ****
 // *****
+
 let stars ='';
 for (let i = 0; i < 5; i += 1) {
   for (let j = 0; j < 5; j += 1) {
@@ -306,6 +309,7 @@ console.log(star);
 //   *****
 //  *******
 // *********
+
 let stars ='';
 for (let i = 0; i < 5; i += 1) {
   for (let j = 0; j < 5; j += 1) {
@@ -346,6 +350,7 @@ console.log(star);
 //   *****
 //    ***
 //     *
+
 let stars = '';
 for (let i = 0; i < 5; i += 1) {
   for (let j = 0; j < 5; j += 1) {
