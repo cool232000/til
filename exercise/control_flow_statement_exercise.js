@@ -343,7 +343,7 @@ for (let i = 0; i < line; i++) {
 }
 console.log(star);
 
-// for문 두 개만 쓰기 (이중삼항연산자...)
+// for문 두 개만 쓰기 (이중삼항연산자)
 const line = 5;
 const innerLine = 9;
 let star = '';
@@ -397,14 +397,14 @@ for (let i = 0; i < line; i++) {
 }
 console.log(star);
 
-// for문 두 개만 쓰기 (이중삼항연산자...)
+// for문 두 개만 쓰기 (이중삼항연산자)
 const line = 5;
 const innerLine = 9;
 let star = '';
 const blank = ' ';
 
 for (let i = 0; i < line; i++) {
-  for (let j = 0; j <= innerLine; j++) {
+  for (let j = 0; j < innerLine; j++) {
     star += i > j ? blank : (j + i > innerLine-1 ? blank : '*');
   }
   star += '\n';
