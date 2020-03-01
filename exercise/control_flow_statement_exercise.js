@@ -343,6 +343,19 @@ for (let i = 0; i < line; i++) {
 }
 console.log(star);
 
+// for문 두 개만 쓰기 (이중삼항연산자...)
+const line = 5;
+const innerLine = 9;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j <= innerLine; j++) {
+    star += i + j < line ? blank : (j - i > line ? blank : '*');
+  }
+  star += '\n';
+}
+
 
 // 16. 역정삼각형 출력하기
 // *********
@@ -383,3 +396,16 @@ for (let i = 0; i < line; i++) {
   star += '\n';
 }
 console.log(star);
+
+// for문 두 개만 쓰기 (이중삼항연산자...)
+const line = 5;
+const innerLine = 9;
+let star = '';
+const blank = ' ';
+
+for (let i = 0; i < line; i++) {
+  for (let j = 0; j <= innerLine; j++) {
+    star += i > j ? blank : (j + i > innerLine-1 ? blank : '*');
+  }
+  star += '\n';
+}
