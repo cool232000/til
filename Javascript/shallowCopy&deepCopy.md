@@ -94,7 +94,7 @@ console.log(o.b.f === d.b.f); // true
    
    ```javascript
    // lodash 명령어 입력
-const _ = require('lodash');
+  const _ = require('lodash');
    console.log(_);
    
    // lodash가 적용된 변수를 활용해 깊은 복사하기
