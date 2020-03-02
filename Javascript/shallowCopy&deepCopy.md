@@ -9,9 +9,7 @@
 ```javascript
 const o = {
   a: 1,
-  b: {
-    c: 1
-  },
+  b: { c: 1 },
   c: 3
 };
 ```
@@ -32,13 +30,43 @@ const o = {
    console.log(o === d); // false
    
    // 그러나 프로퍼티 값으로 존재하는 객체를 비교하면 같은 값이라고 판단한다.
-   console.log(o.b === d.b); // ture
+   console.log(o.b === d.b); // true
+   console.log(o.b.c === d.b.c); // true
+   ```
+
+2. Object.assign()으로 객체 복사하기
+
+   ```javascript
+   const d = Object.assign({}, o);
+   
+   console.log(d); // {a: 1, b: { c: 1 }, c: 3}
+   console.log(o === d); // false
+   console.log(o.b === d.b); // true
+   console.log(o.b.c === d.b.c); // true
+   ```
+
+3. For ... in 문 사용해서 객체 복사하기
+
+   ```javascript
+   function shallow(obj) {
+     const copy = {};
+     for (const key in obj) {
+       copy[key] = obj[key];
+     }
+     return copy;
+   }
+   
+   const d = shallow(o);
+   
+   console.log(d); // {a: 1, b: { c: 1 }, c: 3}
+   console.log(o === d); // false
+   console.log(o.b === d.b); // true
    console.log(o.b.c === d.b.c); // true
    ```
 
    
 
-o 라는 객체 자체는 새로운 객체로 복사되어 d에 다른 메모리 주소를 갖는 객체를 형성하지만 프로퍼티 값으로 존재하는 객체는 다른 메모리 주소를 갖는 객체로 복사되지 않고 같은 메모리 주소를 공유하는 방식으로 복사된다. 때문에 아래와 같은 문제가 발생한다.
+o 라는 객체 자체는 새로운 객체로 복사되어 d에 다른 메모리 주소를 갖는 객체를 형성하지만 프로퍼티 값으로 존재하는 객체는 다른 메모리 주소를 갖는 객체로 복사되지 않고 같은 메모리 주소를 공유하는 방식으로 복사된다. 때문에 세가지 복사 방법은 아래와 같은 문제가 발생한다.
 
 ```javascript
 d.b.f = 4;
