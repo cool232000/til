@@ -2,8 +2,8 @@
 
 
 ## [Javascript](https://github.com/YiJaeE/til/tree/master/Javascript)
-[브라우저의 전역변수](https://github.com/YiJaeE/til/blob/master/Javascript/global_variable_on_browser.md)
-[얕은 복사와 깊은 복사](https://github.com/YiJaeE/til/blob/master/Javascript/shallowCopy%26deepCopy.md)
+[브라우저의 전역변수](https://github.com/YiJaeE/til/blob/master/Javascript/global_variable_on_browser.md)  
+[얕은 복사와 깊은 복사](https://github.com/YiJaeE/til/blob/master/Javascript/shallowCopy%26deepCopy.md)  
 
 ## [algorithm](https://github.com/YiJaeE/til/tree/master/algorithm)
 
@@ -11,11 +11,11 @@
 [제어문 연습](https://github.com/cool232000/til/blob/master/exercise/control_flow_statement_exercise.js)  
 
 ## [Computer Science](https://github.com/YiJaeE/til/tree/master/Computer_Science)
-[Bubble Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/bubble_sort.md)
-[Insertion Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/insertion_sort.md)
-[Selection Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/selection_sort.md)
-[Merge Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/merge_sort.md)
-[lambda](https://github.com/YiJaeE/til/blob/master/Computer_Science/lambda.md)
+[Bubble Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/bubble_sort.md)  
+[Insertion Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/insertion_sort.md)  
+[Selection Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/selection_sort.md)  
+[Merge Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/merge_sort.md)  
+[lambda](https://github.com/YiJaeE/til/blob/master/Computer_Science/lambda.md)  
 
 ## [CSS](https://github.com/YiJaeE/til/tree/master/css)
 
