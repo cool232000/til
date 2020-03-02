@@ -45,7 +45,7 @@ const o = {
    console.log(o.b.c === d.b.c); // true
    ```
 
-3. For ... in 문 사용해서 객체 복사하기
+3. for ... in 문 사용해서 객체 복사하기
 
    ```javascript
    function shallow(obj) {
@@ -84,18 +84,67 @@ console.log(o.b.f === d.b.f); // true
 
 1. lodash 라이브러리
 
+   * lodash 설치
+   
+   ```shell
+   $ npm install lodash
+   ```
+   
+   * lodash를 사용해 깊은 복사하기
+   
    ```javascript
-   const _ = require('lodash');
+   // lodash 명령어 입력
+const _ = require('lodash');
    console.log(_);
    
+   // lodash가 적용된 변수를 활용해 깊은 복사하기
    const d = _.cloneDeep(o);
    
    console.log(d); // {a: 1, b: { c: 1 }, c: 3}
+   console.log(o === d); // false
    console.log(o.b === d.b); // false
+   
+   // 객체의 내부에 있는 객체의 값들을 비교했을 때만 true가 나온다.
    console.log(o.c === d.c); // true
    ```
-
    
+2. Json.parse(Json.stringify()) 이용해 깊은 복사하기
+
+   ```javascript
+   const d = JSON.parse(JSON.stringify(o));
+   
+   console.log(d); // {a: 1, b: { c: 1 }, c: 3}
+   console.log(o === d); // false
+   console.log(o.b === d.b); // false
+   console.log(o.b.c === d.b.c); // true
+   ```
+
+3. for ... in 문 사용해서 깊은 복사하기
+
+   ```javascript
+   function deep(obj) {
+     const copy = {};
+     for (const key in obj) {
+       if (typeof obj[key] === 'object') {
+         copy[key] = deep(obj[key]);
+       } else {
+         copy[key] = obj[key];
+       }
+     }
+     return copy;
+   }
+   
+   const d = deep(o);
+   
+   console.log(d); // {a: 1, b: { c: 1 }, c: 3}
+   console.log(o === d); // false
+   console.log(o.b === d.b); // false
+   console.log(o.b.c === d.b.c); // true
+   ```
+
+
+
+깊은 복사를 하게 되면 아래와 같이 복사된 객체에 프로퍼티를 추가하더라도 원본 객체는 영향을 받지 않는다. 동일한 값을 갖는 새로운 객체이기 때문이다. 객체를 복사해서 사용할 때는 객체 내부에 객체가 있는지를 확인해서 어떤 방식으로 객체를 복사할 것인지 미리 판단해야 한다. 이중 배열 등의 객체 내부에 객체가 있는 형태의 객체를 얕은 복사로 사용하면 뜻하지 않게 값이 바뀌는 일이 발생할 수 있기 때문에 주의해야 한다.
 
 ```javascript
 d.b.f = 4;
