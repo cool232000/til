@@ -26,11 +26,6 @@ for (let i = 0; i < 10; i += 1) {
 console.log(str);
 
 for (let i = 0; i < 10; i++) {
-  if (i % 2 === 0) str += i;
-}
-console.log(str);
-
-for (let i = 0; i < 10; i++) {
   if (!(i % 2)) str += i;
 }
 console.log(str);
@@ -82,7 +77,7 @@ console.log(sum);
 // 조건: i % 2 === 1 && i % 3 === 1
 let sum = 0;
 for (let i = 1; i < 20; i += 1) {
-  if ((i % 2) && (i % 3)) {
+  if ((i % 2 && i % 3)) {
   sum += i;
   }
 }
@@ -101,7 +96,7 @@ console.log(sum);
 
 let multiple = 0;
 for (let i = 1; i < 20; i++) {
-  if (!(i % 2) || !(i % 3)) {
+  if (!(i % 2 && i % 3)) {
     multiple += i;
   }
 }
