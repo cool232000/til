@@ -4,7 +4,7 @@
 ## [Javascript](https://github.com/YiJaeE/til/tree/master/Javascript)
 [브라우저의 전역변수](https://github.com/YiJaeE/til/blob/master/Javascript/global_variable_on_browser.md)  
 [얕은 복사와 깊은 복사](https://github.com/YiJaeE/til/blob/master/Javascript/shallowCopy%26deepCopy.md)  
-[객체 변경 방지](https://github.com/YiJaeE/til/blob/master/Javascript/PreventObjectChanges.md)  
+[객체 변경 방지(얕은 변경 방지와 깊은 변경 방지)](https://github.com/YiJaeE/til/blob/master/Javascript/PreventObjectChanges.md)  
 
 ## [algorithm](https://github.com/YiJaeE/til/tree/master/algorithm)
 
