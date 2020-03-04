@@ -45,7 +45,7 @@ console.log(person); // {}
 ```javascript
 const person = { name: 'Lee' };
 
-// Object.isSealed() 메소드는 밀봉이 되어있는지 확인하는 메소드이다.
+// Object.isSealed() 메소드는 객체가 밀봉이 되어있는지 확인하는 메소드이다.
 console.log(Object.isSealed(person)); // false
 
 // seal() 메소드로 person 객체의 프로퍼티 추가, 삭제, 재정의를 금지한다.
@@ -76,4 +76,37 @@ Object.defineProperty(person, 'name', { configurable: true });
 
 
 ## 객체 동결
+
+[Object.freeze()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) 메소드는 객체를 동결한다. 동결된 객체는 새로운 속성을 추가하거나 존재하는 속성을 삭제하는 것을 방지하며, 존재하는 속성의 재정의를 금지하고 값을 변경(쓰기)하는 것도 금지한다. 즉, 동결된 객체는 읽기만 가능하다. freeze() 메소드는 전달된 동일한 객체를 반환하는 것이지 복사된 객체를 반환하는 것은 아니다.
+
+```javascript
+const person = { name: 'Lee' };
+
+// isFrozen() 메소드는 객체가 동결되었는지 확인하는 메소드이다.
+console.log(Object.isFrozen(person)); // false
+
+// freeze() 메소드로 person 객체의 프로퍼티 추가, 삭제, 재정의, 쓰기를 금지한다.
+Object.freeze(person);
+console.log(Object.isFrozen(person)); // true
+
+// 동결(freeze)된 객체는 writable(쓰기)과 configurable(재정의)가 false이다.
+console.log(Object.getOwnPropertyDescriptors(person));
+// { name: {value: "Lee", writable: false, enumerable: true, configurable: false}, }
+
+// 프로퍼티 추가가 금지된다.
+person.age = 20; // strict mode에서는 TypeError를 반환한다.
+console.log(person); // {name: "Lee"}
+
+// 프로퍼티 삭제가 금지된다.
+delete person.name; // strict mode에서는 TypeError를 반환한다.
+console.log(person); // {name: "Lee"}
+
+// 프로퍼티 값 갱신(쓰기)이 금지된다.
+person.name = 'Kim'; // strict mode에서는 TypeError를 반환한다.
+console.log(person); // {name: "Lee"}
+
+// 프로퍼티 어트리뷰트 재정의가 금지된다.
+Object.defineProperty(person, 'name', { value: 'Kim' });
+// TypeError: Cannot redefine property: name
+```
 
