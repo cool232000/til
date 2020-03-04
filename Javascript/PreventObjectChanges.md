@@ -110,3 +110,60 @@ Object.defineProperty(person, 'name', { value: 'Kim' });
 // TypeError: Cannot redefine property: name
 ```
 
+
+
+## 불변 객체
+
+그러나 위에서 살펴본 객체 변경 방지 방법은 얕은 변경 방지로, 직속 프로퍼티만 변경이 금지되고 중첩 객체까지 영향을 주지는 않는다. Object.freeze() 메소드로 객체를 읽을 수 있게만 하고 나머지를 모두 동결한다고 해도 중첩 객체까지 동결할 수 있는 것은 아니다.
+
+```javascript
+const person = {
+  name: 'Lee',
+  address: { city: 'Seoul' }
+};
+
+// 얕은 객체 동결
+Object.freeze(person);
+
+console.log(Object.isFrozen(person)); // true
+// 중첩 객체까지 동결하지 못한다.
+console.log(Object.isFrozen(person.address)); // false
+
+person.address.city = 'Busan';
+console.log(person); // {name: "Lee", address: {city: "Busan"}}
+```
+
+때문에 아무리 Object.freeze() 메소드로 객체를 동결한다고 해도 객체를 프로퍼티 값으로 갖는 중첩 객체의 경우는 객체를 변경, 삭제, 재정의까지 가능하게 된다. 객체의 중첩 객체까지 동결해 변경이 불가능한 읽기 전용의 불변 객체를 구현하기 위해서는 객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 Object.freeze() 메소드를 호출해야 한다.
+
+```javascript
+function deepFreeze(target) {
+  // 객체가 아니거나 동결된 객체는 무시하고 객체이고 동결되지 않은 객체만 동결한다.
+  if (target && typeof target === 'object' && !Object.isFrozen(target)) {
+    Object.freeze(target);
+    /*
+      Object.keys() 메소드는 객체 내부의 프로퍼티 키를 배열로 반환하는 메소드이다.
+      배열로 반환된 프로퍼티 키를 map() 메소드로 순회하면서 재귀적으로 동결하도록 한다.
+      map() 메소드 대신 forEach() 메소드를 사용하는 것도 가능하다.
+    */
+    Object.keys(target).map((item) => deepFreeze(target[item]));
+    // Object.keys(target).forEach((item) => deepFreeze(target[item]));
+  }
+  return target;
+}
+
+const person = {
+  name: 'Lee',
+  address: { city: 'Seoul' }
+};
+
+// 깊은 객체 동결
+deepFreeze(person);
+
+console.log(Object.isFrozen(person)); // true
+// 중첩 객체까지 동결한다.
+console.log(Object.isFrozen(person.address)); // true
+
+person.address.city = 'Busan';
+console.log(person); // {name: "Lee", address: {city: "Seoul"}}
+```
+
