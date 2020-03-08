@@ -14,8 +14,6 @@
 
 ![렌더링 트리](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/render-tree-construction.png?hl=ko "Chrome 브라우저 렌더링 과정")
 
-<center><font size="2pt" color="#666666">chrome 브라우저 렌더링 과정</center>
-
 HTML 요소를 파싱해서 만들어진 DOM 트리와 CSS 요소를 파싱해서 만들어진 CSSOM 트리가 결합되어 렌더링 트리가 생성된 후, 브라우저는 **레이아웃** 단계로 넘어가게 된다.
 
 
