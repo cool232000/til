@@ -19,4 +19,4 @@
 [lambda](https://github.com/YiJaeE/til/blob/master/Computer_Science/lambda.md)  
 
 ## [browser](https://github.com/YiJaeE/til/tree/master/browser)
-
+[reflow&repaint](https://github.com/YiJaeE/til/blob/master/browser/reflow%26repaint.md)  
