@@ -18,7 +18,5 @@
 [Merge Sort](https://github.com/YiJaeE/til/blob/master/Computer_Science/merge_sort.md)  
 [lambda](https://github.com/YiJaeE/til/blob/master/Computer_Science/lambda.md)  
 
-## [CSS](https://github.com/YiJaeE/til/tree/master/css)
-
-## [HTML](https://github.com/YiJaeE/til/tree/master/HTML)
+## [browser](https://github.com/YiJaeE/til/tree/master/browser)
 
