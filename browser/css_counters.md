@@ -60,7 +60,6 @@ li::before {
 ```
 
 ```markdown
-결과값
 1안녕
 2안녕
 3안녕
@@ -77,7 +76,6 @@ li::before {
 ```
 
 ```markdown
-결과값
 1안녕
 1안녕
 1안녕
@@ -138,7 +136,6 @@ li::before {
 ```
 
 ```markdown
-결과값
 1 item
 2 item
 	2.1 item
