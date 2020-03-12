@@ -40,9 +40,9 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
 
 function bubbleSort(array) {
-  const length = array.length - 1;
-  for (let i = 0; i < length; i++) {
-    for (let j = 0; j < length - i; j++) {
+  const arrLength = array.length - 1;
+  for (let i = 0; i < arrLength; i++) {
+    for (let j = 0; j < arrLength - i; j++) {
       if (array[j] > array[j + 1]) {
         const changeNum = array[j];
         array[j] = array[j + 1];
