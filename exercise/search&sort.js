@@ -1,3 +1,4 @@
+// Linear search
 function linearSearch(array, target) {
   for (let i = 0; i < array.length; i++) {
     if (target === array[i]) {
@@ -15,6 +16,7 @@ console.log(linearSearch([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(linearSearch([1, 2, 3, 4, 5, 6], 7)); // 2
 
 
+// Binary search
 function binarySearch(array, target) {
   let start = 0;
   let end = array.length - 1;
@@ -39,6 +41,7 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
 
+// Bubble sort
 function bubbleSort(array) {
   const arrLength = array.length - 1;
   for (let i = 0; i < arrLength; i++) {
