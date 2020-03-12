@@ -1,6 +1,4 @@
-Flexible vs Adaptive
-
-
+# Flexible vs Adaptive
 
 반응형에서 생각해야할 3가지
 
