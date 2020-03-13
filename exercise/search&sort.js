@@ -4,7 +4,8 @@ function linearSearch(array, target) {
     if (target === array[i]) {
       return i;
     }
-  } return -1;
+  }
+  return -1;
 }
 
 console.log(linearSearch([1, 2, 3, 4, 5, 6], 1)); // 0
@@ -22,14 +23,15 @@ function binarySearch(array, target) {
   let end = array.length - 1;
   while (start <= end) {
     const mid = Math.floor((start + end) / 2);
-    if (array[mid] < target) {
+    if (target > array[mid]) {
       start = mid + 1;
-    } else if (array[mid] > target) {
+    } else if (target < array[mid]) {
       end = mid - 1;
     } else {
       return mid;
     }
-  } return -1;
+  }
+return -1;
 }
 
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 1)); // 0
@@ -60,4 +62,44 @@ console.log(bubbleSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
 console.log(bubbleSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 console.log(bubbleSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
 console.log(bubbleSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
-console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-2, -1, 0, 1, 2, 3, 4]
+console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
+
+
+// Selection Sort
+function selectionSort() {
+
+}
+
+console.log(selectionSort());
+
+
+// Insertion Sort
+function insertionSort() {
+
+}
+
+console.log(insertionSort());
+
+
+// Quick Sort
+function quickSort() {
+
+}
+
+console.log(quickSort());
+
+
+// Merge Sort
+function mergeSort() {
+
+}
+
+console.log(mergeSort());
+
+
+// Counting Sort
+function countingSort() {
+
+}
+
+console.log(countingSort());
