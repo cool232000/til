@@ -1,11 +1,8 @@
 // Linear search
 function linearSearch(array, target) {
   for (let i = 0; i < array.length; i++) {
-    if (target === array[i]) {
-      return i;
-    }
-  }
-  return -1;
+    if (target === array[i]) return i;
+  } return -1;
 }
 
 console.log(linearSearch([1, 2, 3, 4, 5, 6], 1)); // 0
@@ -27,11 +24,8 @@ function binarySearch(array, target) {
       start = mid + 1;
     } else if (target < array[mid]) {
       end = mid - 1;
-    } else {
-      return mid;
-    }
-  }
-return -1;
+    } else return mid;
+  } return -1;
 }
 
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 1)); // 0
@@ -54,8 +48,7 @@ function bubbleSort(array) {
         array[j + 1] = changeNum;
       }
     }
-  }
-  return array;
+  } return array;
 }
 
 console.log(bubbleSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
