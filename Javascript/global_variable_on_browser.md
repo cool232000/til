@@ -7,20 +7,25 @@ let person = {
 };
 ```
 
-위와 같은 객체에서 프로퍼티에 접근하는 방법은 두 가지이다. **마침표 표기법(Dot notation)**이나 **대괄호 표기법(Bracket notation)**을 활용하는 것이다.
+위와 같은 객체에서 프로퍼티에 접근하는 방법은 두 가지이다. **마침표 표기법(Dot notation)**이나 **대괄호 표기법(Bracket notation)**을 활용하는 것이다. 접근 방법을 구분하는 기준은 '프로퍼티 키가 식별자 네이밍 규칙을 따르는가' 이다.
 
-프로퍼티 키가 식별자 네이밍 규칙을 따른다면 마침표 표기법과 대괄호 표기법을 모두 사용할 수 있다. 그러나 프로퍼티 키가 식별자 네이밍 규칙을 따르지 않는다면 반드시 대괄호 표기법으로만 프로퍼티에 접근할 수 있다. 즉, 마침표 표기법으로 접근할 수 있는 프로퍼티는 식별자 네이밍 규칙을 따른 프로퍼티에 한한다.
+* 프로퍼티 키가 식별자 네이밍 규칙을 따를 경우
+  * 마침표 표기법과 대괄호 표기법 모두 사용 가능
+* 프로퍼티 키가 식별자 네이밍 규칙을 따르지 않을 경우
+  * 대괄호 표기법으로만 프로퍼티에 접근 가능
+
+즉, 마침표 표기법으로 접근할 수 있는 프로퍼티는 식별자 네이밍 규칙을 따른 프로퍼티에 한한다.
 
 위의 객체는 식별자 네이밍 규칙을 따르지 않은 프로퍼티를 가졌으므로 대괄호 표기법으로만 접근할 수 있다. 때문에 여러가지 방법(마침표 표기법, 프로퍼티를 작은 따옴표로 감싼 마침표 표기법, 대괄호 표기법, 대괄호 표기법 내부에 작은 따옴표가 포함되지 않은 방법 등)으로 해당 프로퍼티에 접근해보면 다양한 방식으로 에러를 반환한다.
 
 ```javascript
-console.log(person.'last-name'); // SyntaxError: Unexpected string
+1. console.log(person.'last-name'); // SyntaxError: Unexpected string
 // 브라우저 환경
-console.log(person.last-name); // NaN
+2. console.log(person.last-name); // NaN
 // Node.js 환경
-console.log(person.last-name); // ReferenceError: name is not defined
-console.log(person[last-name]); // ReferenceError: last is not defined
-console.log(person['last-name']); // Lee
+3. console.log(person.last-name); // ReferenceError: name is not defined
+4. console.log(person[last-name]); // ReferenceError: last is not defined
+5. console.log(person['last-name']); // Lee
 ```
 
 `console.log(person.'last-name');`은 person 뒤에 찍힌 마침표로 인해 자바스크립트 엔진이 다음에 오는 것이 프로퍼티라고 간주하고 접근하는데, 처음으로 만나는 문자열이 작은 따옴표이다. 식별자 네이밍 규칙에 따르면 작은 따옴표는 프로퍼티의 키로 이름 지어질 수 없기 때문에 문법에러를 리턴한다.
@@ -42,3 +47,4 @@ console.log(name); // ReferenceError: name is not defined
 이런 차이는 name이라는 식별자가 무엇에 대한 식별자인지에 따라 나타난다. 브라우저 환경의 name이라는 식별자는 HTML에 iframe으로 들어가는 창의 이름을 표현하는 빈문자열('')로 존재하는 전역변수이다. 때문에 name 식별자는 `window.name` 이라고 콘솔에 찍어도 같은 빈문자열이 찍히게 된다. 때문에 브라우저 환경에서 name은 빈문자열이 되므로 `undefined - ''` 이라는 계산식이 되기 때문에 undefined과 빈문자열을 숫자로 해석해 `NaN`을 반환한다.
 
 name이라는 식별자를 모르는 Node.js 환경에서는 등록된 name 식별자가 없으므로 레퍼런스에러를 반환하게 된다. 이 식별자를 Node.js 환경에서는 사용할 일이 없으므로 전역 변수를 가지고 있을 이유도 없다.
+
