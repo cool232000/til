@@ -1,4 +1,8 @@
-// Linear search
+// Linear search (선형 검색)
+// 선형 검색은 배열의 각 요소를 한 인덱스씩 순차적으로 접근하면서 동작한다.
+// 선형 검색은 배열의 정렬 여부와 상관없이 동작하는 장점이 있지만, 배열의 모든 요소를 확인해야 하는 단점이 있다.
+// 시간 복잡도: O(n)
+
 function linearSearch(array, target) {
   for (let i = 0; i < array.length; i++) {
     if (target === array[i]) return i;
@@ -14,7 +18,14 @@ console.log(linearSearch([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(linearSearch([1, 2, 3, 4, 5, 6], 7)); // 2
 
 
-// Binary search
+// Binary search (이진 검색)
+// 이진 검색은 선형 검색과는 달리 정렬된 배열에서만 동작한다.
+// 선형 검색은 배열의 모든 요소를 확인해야 하지만 이진 검색은 중간값과 검색 대상 값을 비교하여 검색 범위를 매번 반으로 줄여 나간다.
+//  1. 검색 대상 값이 중간값보다 작은 경우 중간값보다 작은 쪽(왼쪽)을 검색 범위로 한정한다.
+//  2. 검색 대상 값이 중간값보다 큰 경우 중간값보다 큰 쪽(오른쪽)을 검색 범위로 한정한다.
+//  3. 검색 대상 값을 검색할 때까지 이와 같은 처러를 반복한다.
+// 시간 복잡도: O(log n)
+
 // while문
 function binarySearch(array, target) {
   let start = 0;
@@ -61,7 +72,11 @@ console.log(binarySearch2([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(binarySearch2([1, 2, 3, 4, 5, 6], 7)); // -1
 
 
-// Bubble sort
+// Bubble sort (거품 정렬)
+// 거품 정렬은 순차적으로 배열을 순회하면서 인접한 두 요소를 비교하여 작은 요소를 왼쪽으로, 큰 요소를 오른쪽으로 교환한다.
+// 거품 정렬은 가장 간단하지만 가장 느린 정렬 알고리즘이다.
+// 시간 복잡도: O(n2)
+
 function bubbleSort(array) {
   const arrLength = array.length - 1;
   for (let i = 0; i < arrLength; i++) {
@@ -82,7 +97,9 @@ console.log(bubbleSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
 console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
 
-// Selection Sort
+// Selection Sort (선택 정렬)
+// 선택 정렬은 순차적으로 배열을 순회하면서 가장 작은 값부터 하나씩 앞으로 옮기는 방법이다.
+// 시간 복잡도: O(n2)
 function selectionSort(array) {
   const arrLength = array.length;
   for (let i = 0; i < arrLength - 1; i++) {
@@ -105,7 +122,9 @@ console.log(selectionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
 console.log(selectionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
 
-// Insertion Sort
+// Insertion Sort (삽입 정렬)
+// 삽입 정렬은 자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열과 비교하여 자신의 위치를 찾아 삽입하는 방법이다.
+
 // while문
 function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
