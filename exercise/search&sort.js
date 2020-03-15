@@ -43,9 +43,9 @@ function bubbleSort(array) {
   for (let i = 0; i < arrLength; i++) {
     for (let j = 0; j < arrLength - i; j++) {
       if (array[j] > array[j + 1]) {
-        const changeNum = array[j];
+        const temp = array[j];
         array[j] = array[j + 1];
-        array[j + 1] = changeNum;
+        array[j + 1] = temp;
       }
     }
   } return array;
@@ -60,17 +60,17 @@ console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1
 
 // Selection Sort
 function selectionSort(array) {
-  const arrLength = array.length
+  const arrLength = array.length;
   for (let i = 0; i < arrLength - 1; i++) {
-    let minNum = i;
+    let minIdx = i;
     for (let j = i; j < arrLength; j++) {
-      if (array[j] < array[minNum]) {
-        minNum = j;
+      if (array[j] < array[minIdx]) {
+        minIdx = j;
       }
     }
-    const changeNum = array[minNum];
-    array[minNum] = array[i];
-    array[i] = changeNum;
+    const temp = array[minIdx];
+    array[minIdx] = array[i];
+    array[i] = temp;
   } return array;
 }
 
@@ -82,11 +82,22 @@ console.log(selectionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0
 
 
 // Insertion Sort
-function insertionSort() {
-
+function insertionSort(array) {
+  for (let i = 1; i < array.length; i++) {
+    let temp = array[i];
+    let prev = i - 1;
+    while (array[prev] > temp) {
+      array[prev + 1] = array[prev];
+      prev--;
+    } array[prev + 1] = temp;
+  } return array;
 }
 
-console.log(insertionSort());
+console.log(insertionSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
+console.log(insertionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
+console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(insertionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
+console.log(insertionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
 
 // Quick Sort
