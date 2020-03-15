@@ -119,8 +119,8 @@ function selectionSort(array) {
 }
 
 console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-console.log(selectionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
-console.log(selectionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
+console.log(selectionSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
+console.log(selectionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 
 
 // Insertion Sort (삽입 정렬)
@@ -132,7 +132,7 @@ console.log(selectionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
 // 정렬해야 할 숫자가 하나인 경우 시간 복잡도 O(n)
 
 // 이중for문
-function insertionSort2(array) {
+function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
     let temp = array[i];
     let prev = i - 1;
@@ -144,12 +144,12 @@ function insertionSort2(array) {
   } return array;
 }
 
-console.log(insertionSort2([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-console.log(insertionSort2([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
-console.log(insertionSort2([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
+console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(insertionSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
+console.log(insertionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 
 // for - while문
-function insertionSort(array) {
+function insertionSort2(array) {
   for (let i = 1; i < array.length; i++) {
     let temp = array[i];
     let prev = i - 1;
@@ -160,9 +160,9 @@ function insertionSort(array) {
   } return array;
 }
 
-console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-console.log(insertionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
-console.log(insertionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
+console.log(insertionSort2([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(insertionSort2([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
+console.log(insertionSort2([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 
 
 // Quick Sort
