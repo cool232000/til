@@ -36,6 +36,28 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6], -1)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
+function binarySearch2(array, target) {
+  let start = 0;
+  let end = array.length - 1;
+  for (let i = start; i <= end; i++) {
+    const mid = Math.floor((start + end) / 2);
+    if (target > array[mid]) {
+      start = mid + 1;
+    } else if (target < array[mid]) {
+      end = mid - 1;
+    } else return mid;
+  }
+  return -1;
+}
+
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], 1)); // 0
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], 3)); // 2
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], 5)); // 4
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], 6)); // 5
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], -1)); // -1
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], 0)); // -1
+console.log(binarySearch2([1, 2, 3, 4, 5, 6], 7)); // -1
+
 
 // Bubble sort
 function bubbleSort(array) {
