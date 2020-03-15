@@ -59,11 +59,26 @@ console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1
 
 
 // Selection Sort
-function selectionSort() {
-
+function selectionSort(array) {
+  const arrLength = array.length
+  for (let i = 0; i < arrLength - 1; i++) {
+    let minNum = i;
+    for (let j = i; j < arrLength; j++) {
+      if (array[j] < array[minNum]) {
+        minNum = j;
+      }
+    }
+    const changeNum = array[minNum];
+    array[minNum] = array[i];
+    array[i] = changeNum;
+  } return array;
 }
 
-console.log(selectionSort());
+console.log(selectionSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
+console.log(selectionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
+console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(selectionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
+console.log(selectionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
 
 // Insertion Sort
