@@ -130,7 +130,7 @@ console.log(selectionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0
 // 배열을 일일이 비교하지 않고 이미 정렬되어 있는 배열에서 특정 값의 위치를 확인해 삽입하는 정렬방식이다.
 // 시간 복잡도는 최악의 경우 거품 정렬, 선택 정렬과 마찬가지로 O(n2)를 갖지만 최선의 경우 O(n)을 갖는다.
 
-// while문
+// for - while문
 function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
     let temp = array[i];
@@ -148,7 +148,7 @@ console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
 console.log(insertionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
 console.log(insertionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
-// for문
+// 이중for문
 function insertionSort2(array) {
   for (let i = 1; i < array.length; i++) {
     let temp = array[i];
