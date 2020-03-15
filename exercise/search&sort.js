@@ -98,8 +98,9 @@ console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1
 
 
 // Selection Sort (선택 정렬)
-// 선택 정렬은 순차적으로 배열을 순회하면서 가장 작은 값부터 하나씩 앞으로 옮기는 방법이다.
-// 거품 정렬과 마찬가지로 단순 정렬이다.
+// 선택 정렬은 배열의 최소값을 검색하여 배열의 왼쪽부터 순차적으로 정렬을 반복하는 정렬 알고리즘이다.
+// 배열이 미정렬 상태이므로 최소값 검색에는 이진 검색이 아닌 선형 검색 알고리즘을 사용한다.
+// 선택 정렬은 버블 정렬보다 빠르다.
 // 시간 복잡도: O(n2)
 
 function selectionSort(array) {
@@ -117,36 +118,18 @@ function selectionSort(array) {
   } return array;
 }
 
-console.log(selectionSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
-console.log(selectionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-console.log(selectionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
-console.log(selectionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
+console.log(selectionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
+console.log(selectionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
 
 
 // Insertion Sort (삽입 정렬)
-// 삽입 정렬은 자료 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된 배열과 비교하여 자신의 위치를 찾아 삽입하는 방법이다.
-// 삽입 정렬은 정렬할 역순의 배열이 이미 정렬되어있음을 가정한다.
-// 배열을 일일이 비교하지 않고 이미 정렬되어 있는 배열에서 특정 값의 위치를 확인해 삽입하는 정렬방식이다.
-// 시간 복잡도는 최악의 경우 거품 정렬, 선택 정렬과 마찬가지로 O(n2)를 갖지만 최선의 경우 O(n)을 갖는다.
-
-// for - while문
-function insertionSort(array) {
-  for (let i = 1; i < array.length; i++) {
-    let temp = array[i];
-    let prev = i - 1;
-    while (array[prev] > temp) {
-      array[prev + 1] = array[prev];
-      prev--;
-    } array[prev + 1] = temp;
-  } return array;
-}
-
-console.log(insertionSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
-console.log(insertionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
-console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-console.log(insertionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
-console.log(insertionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
+// 삽입 정렬(insertion sort)은 인덱스 1부터 왼쪽과 비교하면서 순차적으로 정렬을 반복하는 정렬 알고리즘이다.
+// 정렬이 진행됨에 따라 왼쪽에는 정렬이 종료된 값이 모이게 되고, 오른쪽에는 아직 정렬되지 않은 값이 남게 된다.
+// 선택 정렬은 최소값 검색이 필요하지만 삽입 정렬은 필요없다.
+// 삽입 정렬은 평균 시나리오에서 선택 정렬과 유사하고(데이터 정렬 유형에 따라 차이가 있다) 거품 정렬보다 빠르다.
+// 시간 복잡도: O(n2)
+// 정렬해야 할 숫자가 하나인 경우 시간 복잡도 O(n)
 
 // 이중for문
 function insertionSort2(array) {
@@ -161,11 +144,25 @@ function insertionSort2(array) {
   } return array;
 }
 
-console.log(insertionSort2([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
-console.log(insertionSort2([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 console.log(insertionSort2([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
-console.log(insertionSort2([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
-console.log(insertionSort2([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
+console.log(insertionSort2([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
+console.log(insertionSort2([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
+
+// for - while문
+function insertionSort(array) {
+  for (let i = 1; i < array.length; i++) {
+    let temp = array[i];
+    let prev = i - 1;
+    while (array[prev] > temp) {
+      array[prev + 1] = array[prev];
+      prev--;
+    } array[prev + 1] = temp;
+  } return array;
+}
+
+console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(insertionSort([2, 4, 5, 1, 3]));     // [1, 2, 3, 4, 5]
+console.log(insertionSort([5, 2, 1, 3, 4, 6]));  // [1, 2, 3, 4, 5, 6]
 
 
 // Quick Sort
