@@ -15,6 +15,7 @@ console.log(linearSearch([1, 2, 3, 4, 5, 6], 7)); // 2
 
 
 // Binary search
+// while문
 function binarySearch(array, target) {
   let start = 0;
   let end = array.length - 1;
@@ -36,6 +37,7 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6], -1)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 0)); // -1
 console.log(binarySearch([1, 2, 3, 4, 5, 6], 7)); // -1
 
+// for문
 function binarySearch2(array, target) {
   let start = 0;
   let end = array.length - 1;
@@ -104,6 +106,7 @@ console.log(selectionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0
 
 
 // Insertion Sort
+// while문
 function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
     let temp = array[i];
@@ -121,7 +124,7 @@ console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
 console.log(insertionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
 console.log(insertionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
-
+// for문
 function insertionSort2(array) {
   for (let i = 1; i < array.length; i++) {
     let temp = array[i];
