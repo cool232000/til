@@ -63,7 +63,7 @@ function selectionSort(array) {
   const arrLength = array.length;
   for (let i = 0; i < arrLength - 1; i++) {
     let minIdx = i;
-    for (let j = i; j < arrLength; j++) {
+    for (let j = i + 1; j < arrLength; j++) {
       if (array[j] < array[minIdx]) {
         minIdx = j;
       }
@@ -98,6 +98,25 @@ console.log(insertionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
 console.log(insertionSort([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
 console.log(insertionSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
+
+
+function insertionSort2(array) {
+  for (let i = 1; i < array.length; i++) {
+    let temp = array[i];
+    let prev = i - 1;
+    for (prev; prev > -1; prev--) {
+      if (array[prev] > temp) {
+        array[prev + 1] = array[prev]
+      } else break;
+    } array[prev + 1] = temp;
+  } return array;
+}
+
+console.log(insertionSort2([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
+console.log(insertionSort2([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
+console.log(insertionSort2([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
+console.log(insertionSort2([1, 3, 0, -1, 4, 2, -2])); // [-2, -1, 0, 1, 2, 3, 4]
+console.log(insertionSort2([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1, 3, 4, 100]
 
 
 // Quick Sort
