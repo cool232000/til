@@ -1,3 +1,5 @@
+// https://programmers.co.kr/learn/courses/30/lessons/12916
+
 function solution(s) {
   let answer = true;
   const str = s.toUpperCase();
@@ -10,4 +12,3 @@ function solution(s) {
 console.log(solution('pPoooyY')); // true
 console.log(solution('Pyy')); // false
 console.log(solution('pip')); // false
-
