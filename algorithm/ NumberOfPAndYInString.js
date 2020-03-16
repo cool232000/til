@@ -9,3 +9,5 @@ function solution(s) {
 
 console.log(solution('pPoooyY')); // true
 console.log(solution('Pyy')); // false
+console.log(solution('pip')); // false
+
