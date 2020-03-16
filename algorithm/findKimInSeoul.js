@@ -6,4 +6,4 @@ function solution(seoul) {
   return answer;
 }
 
-console.log(solution(['Lee', 'Choi', 'Kim'])); 
+console.log(solution(['Lee', 'Choi', 'Kim'])); // 김서방은 2에 있다
