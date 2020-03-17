@@ -77,16 +77,17 @@ console.log(binarySearch2([1, 2, 3, 4, 5, 6], 7)); // -1
 // 시간 복잡도: O(n2)
 
 function bubbleSort(array) {
-  const arrLength = array.length - 1;
+  const sortArr = array;
+  const arrLength = sortArr.length - 1;
   for (let i = 0; i < arrLength; i++) {
     for (let j = 0; j < arrLength - i; j++) {
-      if (array[j] > array[j + 1]) {
-        const temp = array[j];
-        array[j] = array[j + 1];
-        array[j + 1] = temp;
+      if (sortArr[j] > sortArr[j + 1]) {
+        const temp = sortArr[j];
+        sortArr[j] = sortArr[j + 1];
+        sortArr[j + 1] = temp;
       }
     }
-  } return array;
+  } return sortArr;
 }
 
 console.log(bubbleSort([2, 4, 5, 1, 3])); // [1, 2, 3, 4, 5]
@@ -103,18 +104,19 @@ console.log(bubbleSort([4, 1, 100, 3, -1, -100, -2, 0])); // [-100, -2, -1, 0, 1
 // 시간 복잡도: O(n2)
 
 function selectionSort(array) {
-  const arrLength = array.length;
+  const sortArr = array;
+  const arrLength = sortArr.length;
   for (let i = 0; i < arrLength - 1; i++) {
     let minIdx = i;
     for (let j = i + 1; j < arrLength; j++) {
-      if (array[j] < array[minIdx]) {
+      if (sortArr[j] < sortArr[minIdx]) {
         minIdx = j;
       }
     }
-    const temp = array[minIdx];
-    array[minIdx] = array[i];
-    array[i] = temp;
-  } return array;
+    const temp = sortArr[minIdx];
+    sortArr[minIdx] = sortArr[i];
+    sortArr[i] = temp;
+  } return sortArr;
 }
 
 console.log(selectionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
@@ -131,15 +133,14 @@ console.log(selectionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 
 // 이중for문
 function insertionSort(array) {
-  for (let i = 1; i < array.length; i++) {
-    let temp = array[i];
+  const sortArr = array;
+  for (let i = 1; i < sortArr.length; i++) {
+    const temp = sortArr[i];
     let prev = i - 1;
-    for (prev; prev > -1; prev--) {
-      if (array[prev] > temp) {
-        array[prev + 1] = array[prev]
-      } else break;
-    } array[prev + 1] = temp;
-  } return array;
+    for (prev; prev > -1 && sortArr[prev] > temp; prev--) {
+      sortArr[prev + 1] = sortArr[prev];
+    } sortArr[prev + 1] = temp;
+  } return sortArr;
 }
 
 console.log(insertionSort([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
@@ -148,14 +149,15 @@ console.log(insertionSort([5, 2, 1, 3, 4, 6])); // [1, 2, 3, 4, 5, 6]
 
 // for - while문
 function insertionSort2(array) {
-  for (let i = 1; i < array.length; i++) {
-    let temp = array[i];
+  const sortArr = array;
+  for (let i = 1; i < sortArr.length; i++) {
+    const temp = sortArr[i];
     let prev = i - 1;
-    while (array[prev] > temp) {
-      array[prev + 1] = array[prev];
-      prev--;
-    } array[prev + 1] = temp;
-  } return array;
+    while (sortArr[prev] > temp) {
+      sortArr[prev + 1] = sortArr[prev];
+      prev -= 1;
+    } sortArr[prev + 1] = temp;
+  } return sortArr;
 }
 
 console.log(insertionSort2([3, 1, 0, -1, 4, 2])); // [-1, 0, 1, 2, 3, 4]
