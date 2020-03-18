@@ -1,15 +1,12 @@
-// https://www.codewars.com/kata/539a0e4d85e3425cb0000a88/train/javascript
+// https://programmers.co.kr/learn/courses/30/lessons/12948
 
-function add(n) {
-  const sum = function (args) {
-    return add(n + args);
-  };
-  sum.valueOf = function () {
-    return n;
-  };
-  return sum;
+function solution(phone_number) {
+  let answer = '';
+  let star = '';
+  answer = phone_number.substring(phone_number.length - 4);
+  for (let i = 0; i < phone_number.length - 4; i++) star += '*';
+  return star + answer;
 }
 
-add(1)(2)(3); // 6
-add(1)(2)(3)(4); // 10
-add(1)(2)(3)(4)(5); // 15
+solution('01033334444'); // *******4444
+solution('027778888'); // *****8888
