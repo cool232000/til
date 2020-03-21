@@ -2,8 +2,7 @@
 
 function solution(seoul) {
   const idx = seoul.indexOf('Kim');
-  const answer = `김서방은 ${idx}에 있다`;
-  return answer;
+  return `김서방은 ${idx}에 있다`;
 }
 
 console.log(solution(['Lee', 'Choi', 'Kim'])); // 김서방은 2에 있다
