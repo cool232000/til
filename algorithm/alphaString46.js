@@ -3,7 +3,7 @@
 // 예를 들어 s가 ‘a234’이면 false를 리턴하고 ‘1234’라면 true를 리턴한다.
 
 function alphaString46(s) {
-  return ((s === undefined || !(s.length >= 4 && s.length <= 6) || !parseInt(s, 10)) ? 'false' : 'true');
+  return ((s === undefined || !(s.length >= 4 && s.length <= 6) || !parseInt(s, 10)) ? false : true);
 }
 
 console.log(alphaString46('1234567')); // false
