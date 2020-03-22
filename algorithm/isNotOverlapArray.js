@@ -4,9 +4,9 @@
 
 function isNotOverlapArray(array) {
   const sortArr = array.sort((a, b) => a - b).join('');
-  let copyArr = '';
-  for (let i = 0; i < array.length; i++) copyArr += i + 1;
-  return sortArr === copyArr ? true : false;
+  let compare = '';
+  for (let i = 0; i < array.length; i++) compare += i + 1;
+  return sortArr === compare ? true : false;
 }
 
 console.log(isNotOverlapArray([4, 1, 3, 2])); // true
