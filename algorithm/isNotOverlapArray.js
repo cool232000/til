@@ -5,7 +5,7 @@
 function isNotOverlapArray(array) {
   const sortArr = array.sort((a, b) => a - b).join('');
   let compare = '';
-  for (let i = 0; i < array.length; i++) compare += i + 1;
+  for (let i = 1; i <= array.length; i++) compare += i;
   return sortArr === compare ? true : false;
 }
 
