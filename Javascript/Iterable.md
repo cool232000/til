@@ -115,7 +115,7 @@ console.log(...obj); // TypeError: Found non-callable @@iterator
 
 이터러블의 `Symbol.iterator` 메소드를 호출하면 이터레이터 프로토콜을 준수한 이터레이터를 반환한다. 이렇게 반환된 이터레이터는 `next` 메소드를 갖는다.
 
-이터레이터의 next()는 이터러블의 각 요소를 순회하기 위한 포인터 역할을 한다. next()를 호출하면 이터러블은 순차적으로 한 단계씩 순회하며 순회 결과를 나타내는 **이터레이터 리절트 객체(Iterator result object)**를 반환한다.
+이터레이터의 next()는 이터러블의 각 요소를 순회하기 위한 포인터 역할을 한다. next()를 호출하면 이터러블은 순차적으로 한 단계씩 순회하며 순회 결과를 나타내는 **이터레이터 리절트 객체(Iterator result object)** 를 반환한다.
 
 ```javascript
 const array = [1, 2, 3];
