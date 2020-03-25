@@ -8,7 +8,7 @@ ES6 이전의 순회 가능한 자료 구조인 배열, 유사 배열 객체, �
 
 이터레이션 프로토콜은 2개의 프로토콜을 가진다.  
 
-[iterable protocol](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols#iterable)  
+[iterable protocol](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols#iterable)
 
 [iterator protocol](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols#iterator)  
 
