@@ -13,7 +13,7 @@ console.log(findDuplicatedFilter([1, 2, 3, 4, 1, 2, 3])); // [ 1, 2, 3 ]
 
 // reduce
 function findDuplicatedReduce(array) {
-  return array.reduce((acc, cur, i, arr) => arr.indexOf(cur) !== i ? acc.concat(cur) : acc, []);
+  return array.reduce((acc, cur, i, arr) => arr.indexOf(cur) !== i ? [...acc, cur] : acc, []);
 }
 
 console.log(findDuplicatedReduce([1, 2, 3, 4, 1, 2, 3])); // [ 1, 2, 3 ]
