@@ -21,7 +21,7 @@ console.log(uniqFilter([2, 1, 2, 3, 4, 3, 4])); // [ 2, 1, 3, 4 ]
 
 // reduce
 function uniqReduce(array) {
-  return array.reduce((acc, cur, i, arr) => arr.indexOf(cur) === i ? acc.concat(cur) : acc, []);
+  return array.reduce((acc, cur, i, arr) => arr.indexOf(cur) === i ? [...acc, cur] : acc, []);
 }
 
 console.log(uniqReduce([2, 1, 2, 3, 4, 3, 4])); // [ 2, 1, 3, 4 ]
