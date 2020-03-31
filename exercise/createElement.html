@@ -14,9 +14,11 @@
   <ul class="todos"></ul>
 
   <script>
+    // variable
     const $inputTodo = document.querySelector('.inputTodo');
     const $todos = document.querySelector('.todos');
 
+    // creat list event
     $inputTodo.addEventListener('keyup', (e) => {
       const content = e.target.value.trim();
       if (content === '' || e.keyCode !== 13) return;
@@ -34,7 +36,7 @@
       $span.setAttribute('style', 'text-decoration: none');
       const $textNode = document.createTextNode(`${content}`);
 
-      // button
+      // remove button
       const $button = document.createElement('button');
       $button.setAttribute('class', 'remove');
       const $btnText = document.createTextNode('X');
@@ -51,6 +53,7 @@
       e.target.value = '';
     });
 
+    // checkbox toggle evnet
     $todos.addEventListener('change', (e) => {
       const $deco = e.target.nextElementSibling;
       if (e.target.checked) {
@@ -60,6 +63,7 @@
       }
     });
 
+    // remove event
     $todos.addEventListener('click', (e) => {
       if (!e.target.matches('.todos > li > button.remove')) return;
       $todos.removeChild(e.target.parentNode);
