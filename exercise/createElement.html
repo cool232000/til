@@ -34,19 +34,19 @@
       // span
       const $span = document.createElement('span');
       $span.setAttribute('style', 'text-decoration: none');
-      const $textNode = document.createTextNode(`${content}`);
+      const $content = document.createTextNode(`${content}`);
 
       // remove button
       const $button = document.createElement('button');
       $button.setAttribute('class', 'remove');
-      const $btnText = document.createTextNode('X');
+      const $remove = document.createTextNode('X');
 
       // node connect
       $li.appendChild($check);
       $li.appendChild($span);
-      $span.appendChild($textNode);
+      $span.appendChild($content);
       $li.appendChild($button);
-      $button.appendChild($btnText);
+      $button.appendChild($remove);
       $todos.appendChild($li);
 
       // input reset
