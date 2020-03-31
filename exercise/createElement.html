@@ -12,8 +12,8 @@
     const $inputTodo = document.querySelector('.inputTodo');
     const $todos = document.querySelector('.todos');
 
-    $inputTodo.addEventListener('keyup', (e) => {
-      let content = e.target.value.trim();
+    $inputTodo.addEventListener('keyup', (e) => {      
+      const content = e.target.value.trim();
       if (content === '' || e.keyCode !== 13) return;
 
       // structure = ul > li > checkbox + (span > text) + (button > text)
@@ -22,12 +22,11 @@
 
       // checkbox
       const $check = document.createElement('input');
-      $check.className = 'check';
-      $check.type = 'checkbox';
+      $check.setAttribute('type', 'checkbox');
 
       // span
       const $span = document.createElement('span');
-      $span.style.textDecoration = 'none';
+      $span.setAttribute('style', 'text-decoration: none');
       const $textNode = document.createTextNode(`${content}`);
 
       // button
@@ -35,20 +34,20 @@
       const $btnText = document.createTextNode('X');
 
       // node connect
-      $todos.appendChild($li);
       $li.appendChild($check);
       $li.appendChild($span);
       $span.appendChild($textNode);
       $li.appendChild($button);
       $button.appendChild($btnText);
+      $todos.appendChild($li);
 
       // li click event
       $li.addEventListener('click', (evt) => {
         const { checked } = $check;
         if (evt.target === $check && checked) {
-          $span.style.textDecoration = 'line-through';
+          $span.setAttribute('style', 'text-decoration: line-through');
         } else if (evt.target === $check && !checked) {
-          $span.style.textDecoration = 'none';
+          $span.setAttribute('style', 'text-decoration: none');
         }
         if (evt.target === $button) {
           $todos.removeChild($li);
