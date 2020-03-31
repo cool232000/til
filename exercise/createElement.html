@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <title>createElement exercise</title>
+</head>
+<body>
+  <input type="text" class="inputTodo">
+  <ul class="todos"></ul>
+
+  <script>
+    const $inputTodo = document.querySelector('.inputTodo');
+    const $todos = document.querySelector('.todos');
+
+    $inputTodo.addEventListener('keyup', (e) => {
+      let content = e.target.value.trim();
+      if (content === '' || e.keyCode !== 13) return;
+
+      // structure = ul > li > checkbox + (span > text) + button
+      // li
+      const $li = document.createElement('li');
+
+      // checkbox
+      const $check = document.createElement('input');
+      $check.className = 'check';
+      $check.type = 'checkbox';
+
+      // span
+      const $span = document.createElement('span');
+      $span.style.textDecoration = 'none';
+      const $textNode = document.createTextNode(`${content}`);
+
+      // button
+      const $button = document.createElement('button');
+      const $btnText = document.createTextNode('X');
+
+      // node connect
+      $todos.appendChild($li);
+      $li.appendChild($check);
+      $li.appendChild($span);
+      $span.appendChild($textNode);
+      $li.appendChild($button);
+      $button.appendChild($btnText);
+
+      // li click event
+      $li.addEventListener('click', (evt) => {
+        const { checked } = $check;
+        if (evt.target === $check && checked) {
+          $span.style.textDecoration = 'line-through';
+        } else if (evt.target === $check && !checked) {
+          $span.style.textDecoration = 'none';
+        }
+        if (evt.target === $button) {
+          $todos.removeChild($li);
+        }
+      });
+
+      // input reset
+      e.target.value = '';
+    });
+  </script>
+</body>
+</html>
