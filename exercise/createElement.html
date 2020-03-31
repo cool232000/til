@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>createElement exercise</title>
+  <style>
+    .todos {
+      list-style-type: none;
+    }
+  </style>
 </head>
 <body>
   <input type="text" class="inputTodo">
@@ -12,7 +17,7 @@
     const $inputTodo = document.querySelector('.inputTodo');
     const $todos = document.querySelector('.todos');
 
-    $inputTodo.addEventListener('keyup', (e) => {      
+    $inputTodo.addEventListener('keyup', (e) => {
       const content = e.target.value.trim();
       if (content === '' || e.keyCode !== 13) return;
 
@@ -31,6 +36,7 @@
 
       // button
       const $button = document.createElement('button');
+      $button.setAttribute('class', 'remove');
       const $btnText = document.createTextNode('X');
 
       // node connect
@@ -41,21 +47,22 @@
       $button.appendChild($btnText);
       $todos.appendChild($li);
 
-      // li click event
-      $li.addEventListener('click', (evt) => {
-        const { checked } = $check;
-        if (evt.target === $check && checked) {
-          $span.setAttribute('style', 'text-decoration: line-through');
-        } else if (evt.target === $check && !checked) {
-          $span.setAttribute('style', 'text-decoration: none');
-        }
-        if (evt.target === $button) {
-          $todos.removeChild($li);
-        }
-      });
-
       // input reset
       e.target.value = '';
+    });
+
+    $todos.addEventListener('change', (e) => {
+      const $deco = e.target.nextElementSibling;
+      if (e.target.checked) {
+        $deco.setAttribute('style', 'text-decoration: line-through');
+      } else {
+        $deco.setAttribute('style', 'text-decoration: none');
+      }
+    });
+
+    $todos.addEventListener('click', (e) => {
+      if (!e.target.matches('.todos > li > button.remove')) return;
+      $todos.removeChild(e.target.parentNode);
     });
   </script>
 </body>
