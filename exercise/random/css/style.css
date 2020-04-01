@@ -33,6 +33,7 @@ button {
   height: 50px;
   font-size: 1.7rem;
   background-color: #E1E2E2;
+  cursor: pointer;
 }
 
 li, li::before {
