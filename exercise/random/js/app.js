@@ -1,24 +1,21 @@
 const $button = document.querySelector('button');
 const $shuffleText = document.querySelector('.shuffle');
 
-const FDS15 = [ 'FastJ', '시멘틱을 Flex 해버렸지 뭐야', '디버깅', '미소', 'CloneAble', 'V' ];
+const shuffleArr = ['빨강', '주황', '노랑', '초록', '파랑', '남색', '보라'];
 
 $button.addEventListener('click', () => {
-  let shuffle = FDS15.sort(() => Math.random() - Math.random());
- 
-  [...shuffle].map((listText) => {
-    const $randomList = document.createElement('li');
-    $randomList.setAttribute('id', 'randomList');
-    const $randomText = document.createTextNode(`${listText}`)
-    $shuffleText.appendChild($randomList);
-    $randomList.appendChild($randomText);
-  });
-});
+  const $container = document.createElement('div');
+  const removeContainer = document.getElementById('container');
+  if (removeContainer !== null) $shuffleText.removeChild(removeContainer);
 
-$button.addEventListener('click', (e) => {
-  if (!!document.getElementsByTagName('li')) {
-    console.log(e.target.nextElementSibling);
-    const hi = document.getElementById('randomList');
-    console.log(hi);
-  }
+  const shuffle = shuffleArr.sort(() => Math.random() - Math.random());
+
+  [...shuffle].map((listText) => {
+    $container.setAttribute('id', 'container');
+    const $randomList = document.createElement('li');
+    const $randomText = document.createTextNode(`${listText}`);
+    $container.appendChild($randomList);
+    return $randomList.appendChild($randomText);
+  });
+  $shuffleText.appendChild($container);
 });
