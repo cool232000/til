@@ -22,7 +22,7 @@
       const content = e.target.value.trim();
       if (content === '' || e.keyCode !== 13) return;
 
-      // structure = ul > li > checkbox + (span > text) + (button > text)
+      // structure = ul > li > checkbox + span > content + button
       // li
       const $todoList = document.createElement('li');
 
@@ -41,11 +41,11 @@
       const $removeIcon = document.createTextNode('X');
 
       // node connect
-      $todoList.appendChild($check);
-      $todoList.appendChild($contentBox);
+      $remove.appendChild($removeIcon);
       $contentBox.appendChild($content);
       $todoList.appendChild($remove);
-      $remove.appendChild($removeIcon);
+      $todoList.appendChild($contentBox);
+      $todoList.appendChild($check);
       $todos.appendChild($todoList);
 
       // input reset
