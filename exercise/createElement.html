@@ -12,55 +12,49 @@
 <body>
   <input type="text" class="inputTodo">
   <ul class="todos"></ul>
-
   <script>
     // variable
     const $inputTodo = document.querySelector('.inputTodo');
     const $todos = document.querySelector('.todos');
 
-    // creat list event
+    // create list event
     $inputTodo.addEventListener('keyup', (e) => {
       const content = e.target.value.trim();
       if (content === '' || e.keyCode !== 13) return;
 
       // structure = ul > li > checkbox + (span > text) + (button > text)
       // li
-      const $li = document.createElement('li');
+      const $todoList = document.createElement('li');
 
       // checkbox
       const $check = document.createElement('input');
       $check.setAttribute('type', 'checkbox');
 
-      // span
-      const $span = document.createElement('span');
-      $span.setAttribute('style', 'text-decoration: none');
+      // content
+      const $contentBox = document.createElement('span');
+      $contentBox.setAttribute('style', 'text-decoration: none');
       const $content = document.createTextNode(`${content}`);
 
       // remove button
-      const $button = document.createElement('button');
-      $button.setAttribute('class', 'remove');
-      const $remove = document.createTextNode('X');
+      const $remove = document.createElement('button');
+      $remove.setAttribute('class', 'remove');
+      const $removeIcon = document.createTextNode('X');
 
       // node connect
-      $li.appendChild($check);
-      $li.appendChild($span);
-      $span.appendChild($content);
-      $li.appendChild($button);
-      $button.appendChild($remove);
-      $todos.appendChild($li);
+      $todoList.appendChild($check);
+      $todoList.appendChild($contentBox);
+      $contentBox.appendChild($content);
+      $todoList.appendChild($remove);
+      $remove.appendChild($removeIcon);
+      $todos.appendChild($todoList);
 
       // input reset
       e.target.value = '';
     });
 
-    // checkbox toggle evnet
+    // checkbox toggle event
     $todos.addEventListener('change', (e) => {
-      const $deco = e.target.nextElementSibling;
-      if (e.target.checked) {
-        $deco.setAttribute('style', 'text-decoration: line-through');
-      } else {
-        $deco.setAttribute('style', 'text-decoration: none');
-      }
+      e.target.nextElementSibling.setAttribute('style', `text-decoration: ${e.target.checked ? 'line-through' : 'none'}`);
     });
 
     // remove event
