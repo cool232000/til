@@ -7,7 +7,6 @@ const $button = document.querySelector('button');
 
 // button click event
 $button.addEventListener('click', () => {
-  
   // create ul to delete array
   const $listContainer = document.createElement('ul');
   const $removeContainer = document.getElementById('container');
