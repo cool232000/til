@@ -1,9 +1,9 @@
+// array
+const shuffleArr = ['빨강', '주황', '노랑', '초록', '파랑', '남색', '보라'];
+
 // variable
 const $button = document.querySelector('button');
 const $shuffleText = document.querySelector('.shuffle');
-
-// array
-const shuffleArr = ['빨강', '주황', '노랑', '초록', '파랑', '남색', '보라'];
 
 // button click event
 $button.addEventListener('click', () => {
