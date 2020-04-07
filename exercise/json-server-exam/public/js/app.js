@@ -49,7 +49,6 @@ const post = target => {
   const content = $target.value;
   ajax('POST', '/todos', data => {
     todos = [data, ...todos];
-    $target.value = '';
     render();
   }, { id: generateId(), content, completed: false });
 };
@@ -78,6 +77,7 @@ $inputTodo.addEventListener('keyup', ({ keyCode, target }) => {
   const content = target.value.trim();
   if (keyCode !== 13 || content === '') return;
   post(target);
+  target.value = '';
 });
 
 $todos.addEventListener('change', ({ target }) => patch(target));
