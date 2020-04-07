@@ -65,8 +65,9 @@ const patch = (target) => {
 
 // DELETE
 const remove = (target) => {
-  ajax('DELETE', `/todos/${+target.parentNode.id}`, () => {
-    todos = todos.filter(({ id }) => id !== +target.parentNode.id);
+  const targetId = +target.parentNode.id;
+  ajax('DELETE', `/todos/${targetId}`, () => {
+    todos = todos.filter(({ id }) => id !== targetId);
     render();
   });
 };
