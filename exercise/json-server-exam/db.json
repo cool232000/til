@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "HTML",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "content": "CSS",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "content": "Javascript",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "content": "React",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "content": "Angular",
+      "completed": true
+    },
+    {
+      "id": 6,
+      "content": "Vue",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "content": "Sevelt",
+      "completed": false
+    }
+  ]
+}
