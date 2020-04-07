@@ -34,21 +34,21 @@ const render = () => {
   $todos.innerHTML = html;
 };
 
-const generateId = () => (todos.length ? (Math.max(...todos.map((todo) => todo.id)) + 1) : 1);
+const generateId = () => (todos.length ? (Math.max(...todos.map(todo => todo.id)) + 1) : 1);
 
 // GET
 const getTodos = () => {
-  ajax('GET', '/todos', (data) => {
+  ajax('GET', '/todos', data => {
     todos = data.sort((a, b) => b.id - a.id);
     render();
   });
 };
 
 // POST
-const post = (target) => {
+const post = target => {
   const $target = target;
   const content = $target.value;
-  ajax('POST', '/todos', (data) => {
+  ajax('POST', '/todos', data => {
     todos = [data, ...todos];
     $target.value = '';
     render();
@@ -56,15 +56,15 @@ const post = (target) => {
 };
 
 // PATCH
-const patch = (target) => {
+const patch = target => {
   ajax('PATCH', `/todos/${+target.parentNode.id}`, ({ id }) => {
-    todos = todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+    todos = todos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo));
     render();
   }, { completed: target.checked });
 };
 
 // DELETE
-const remove = (target) => {
+const remove = target => {
   const targetId = +target.parentNode.id;
   ajax('DELETE', `/todos/${targetId}`, () => {
     todos = todos.filter(({ id }) => id !== targetId);
