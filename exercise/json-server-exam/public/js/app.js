@@ -11,7 +11,6 @@ const ajax = (method, url, callback, payload) => {
   xhr.open(method, url);
   xhr.setRequestHeader('content-type', 'application/json');
   xhr.send(JSON.stringify(payload));
-
   xhr.onload = () => {
     if ((xhr.status === 200) || (xhr.status === 201)) {
       callback(JSON.parse(xhr.response));
@@ -57,8 +56,8 @@ const post = target => {
 
 // PATCH
 const patch = target => {
-  ajax('PATCH', `/todos/${+target.parentNode.id}`, ({ id }) => {
-    todos = todos.map(todo => (todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+  ajax('PATCH', `/todos/${+target.parentNode.id}`, data => {
+    todos = todos.map(todo => (todo.id === data.id ? data : todo));
     render();
   }, { completed: target.checked });
 };
