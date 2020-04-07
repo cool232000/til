@@ -44,9 +44,7 @@ const getTodos = () => {
 };
 
 // POST
-const post = target => {
-  const $target = target;
-  const content = $target.value;
+const post = content => {
   ajax('POST', '/todos', data => {
     todos = [data, ...todos];
     render();
@@ -76,7 +74,7 @@ window.onload = getTodos;
 $inputTodo.addEventListener('keyup', ({ keyCode, target }) => {
   const content = target.value.trim();
   if (keyCode !== 13 || content === '') return;
-  post(target);
+  post(content);
   target.value = '';
 });
 
