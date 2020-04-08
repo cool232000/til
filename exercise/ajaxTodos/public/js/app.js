@@ -84,6 +84,14 @@ $inputTodo.addEventListener('keyup', ({ keyCode, target }) => {
   $target.value = '';
 });
 
+$navState.addEventListener('click', ({ target }) => {
+  if (!target.matches('.nav > li')) return;
+  const { id } = target;
+  [...$navState.children].map(navItem => navItem.classList.toggle('active', navItem.id === id));
+  navState = id;
+  render();
+});
+
 $todos.addEventListener('change', ({ target }) => patch(target, +target.parentNode.id));
 
 $todos.addEventListener('click', ({ target }) => {
@@ -95,12 +103,4 @@ $checkAll.addEventListener('change', ({ target }) => todos.map(({ id }) => patch
 
 $clearCompleted.addEventListener('click', () => {
   ajax('GET', '/todos?completed=true', data => data.filter(({ id }) => remove(id)));
-});
-
-$navState.addEventListener('click', ({ target }) => {
-  if (!target.matches('.nav > li')) return;
-  const { id } = target;
-  [...$navState.children].map(navItem => navItem.classList.toggle('active', navItem.id === id));
-  navState = id;
-  render();
 });
