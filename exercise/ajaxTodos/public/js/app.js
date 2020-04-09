@@ -12,19 +12,35 @@ const $checkAll = document.querySelector('.complete-all > .checkbox');
 const $clearCompleted = document.querySelector('.clear-completed > .btn');
 
 // ajax
-const ajax = (method, url, callback, payload) => {
-  const xhr = new XMLHttpRequest();
-  xhr.open(method, url);
-  xhr.setRequestHeader('content-type', 'application/json');
-  xhr.send(JSON.stringify(payload));
-  xhr.onload = () => {
-    if ((xhr.status === 200) || (xhr.status === 201)) {
-      callback(JSON.parse(xhr.response));
-    } else {
-      console.error(`${xhr.status}, ${xhr.statusText}`);
-    }
+const ajax = (() => {
+  const requset = (method, url, callback, payload) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader('content-type', 'application/json');
+    xhr.send(JSON.stringify(payload));
+    xhr.onload = () => {
+      if ((xhr.status === 200) || (xhr.status === 201)) {
+        callback(JSON.parse(xhr.response));
+      } else {
+        console.error(`${xhr.status}, ${xhr.statusText}`);
+      }
+    };
   };
-};
+  return {
+    get(url, callback) {
+      requset('GET', url, callback);
+    },
+    post(url, payload, callback) {
+      requset('POST', url, callback, payload);
+    },
+    patch(url, payload, callback) {
+      requset('PATCH', url, callback, payload);
+    },
+    delete(url, callback) {
+      requset('DELETE', url, callback);
+    },
+  };
+})();
 
 // function
 const render = () => {
@@ -46,29 +62,8 @@ const render = () => {
 const generateId = () => (todos.length ? (Math.max(...todos.map(({ id }) => id)) + 1) : 1);
 
 const getTodos = () => {
-  ajax('GET', '/todos?_sort=id&_order=desc', data => {
-    todos = data;
-    render();
-  });
-};
-
-const post = content => {
-  ajax('POST', '/todos', data => {
-    todos = [data, ...todos];
-    render();
-  }, { id: generateId(), content, completed: false });
-};
-
-const patch = (target, id) => {
-  ajax('PATCH', `/todos/${id}`, data => {
-    todos = todos.map(todo => (todo.id === data.id ? data : todo));
-    render();
-  }, { completed: target.checked });
-};
-
-const remove = id => {
-  ajax('DELETE', `todos/${id}`, () => {
-    getTodos();
+  ajax.get('/todos?_sort=id&_order=desc', res => {
+    todos = res;
     render();
   });
 };
@@ -80,7 +75,10 @@ $inputTodo.addEventListener('keyup', ({ keyCode, target }) => {
   const $target = target;
   const content = $target.value.trim();
   if (keyCode !== 13 || content === '') return;
-  post(content);
+  ajax.post('/todos', { id: generateId(), content, completed: false }, res => {
+    todos = [res, ...todos];
+    render();
+  });
   $target.value = '';
 });
 
@@ -92,15 +90,39 @@ $navState.addEventListener('click', ({ target }) => {
   render();
 });
 
-$todos.addEventListener('change', ({ target }) => patch(target, +target.parentNode.id));
-
-$todos.addEventListener('click', ({ target }) => {
-  if (!target.matches('.todos > li > i')) return;
-  remove(+target.parentNode.id);
+$todos.addEventListener('change', ({ target }) => {
+  const { id } = target.parentNode;
+  const completed = target.checked;
+  ajax.patch(`/todos/${id}`, { completed }, res => {
+    todos = todos.map(todo => (todo.id === +id ? res : todo));
+    render();
+  });
 });
 
-$checkAll.addEventListener('change', ({ target }) => todos.map(({ id }) => patch(target, id)));
+$todos.addEventListener('click', ({ target }) => {
+  const targetId = target.parentNode.id;
+  if (!target.matches('.todos > li > i')) return;
+  ajax.delete(`todos/${targetId}`, () => {
+    todos = todos.filter(({ id }) => id !== +targetId);
+    render();
+  });
+});
+
+$checkAll.addEventListener('click', ({ target }) => {
+  const completed = target.checked;
+  ajax.get('/todos', res => {
+    res.map(({ id }) => ajax.patch(`/todos/${id}`, { completed }, data => {
+      todos = todos.map(todo => (todo.id === id ? data : todo));
+      render();
+    }));
+  });
+});
 
 $clearCompleted.addEventListener('click', () => {
-  ajax('GET', '/todos?completed=true', data => data.filter(({ id }) => remove(id)));
+  ajax.get('/todos?completed=true', res => {
+    res.filter(({ id }) => ajax.delete(`todos/${id}`, () => {
+      todos = todos.filter(todo => todo.id !== id);
+      render();
+    }));
+  });
 });
