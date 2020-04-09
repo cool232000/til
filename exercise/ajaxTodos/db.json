@@ -3,7 +3,7 @@
     {
       "id": 1,
       "content": "HTML",
-      "completed": true
+      "completed": false
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
     {
       "id": 4,
       "content": "React",
-      "completed": false
+      "completed": true
     },
     {
       "id": 5,
@@ -28,7 +28,7 @@
     {
       "id": 6,
       "content": "Vue",
-      "completed": false
+      "completed": true
     },
     {
       "id": 7,
