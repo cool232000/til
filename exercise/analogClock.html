@@ -72,48 +72,28 @@
   </div>
 
   <script>
-    (function analogClock() {
-      
-      const $rotateHour = document.querySelector('.hour');
-      const $rotateMinute = document.querySelector('.minute');
-      const $rotateSecond = document.querySelector('.second');
+    (function () {
+      const $analogHour = document.querySelector('.hour');
+      const $analogMin = document.querySelector('.minute');
+      const $analogSec = document.querySelector('.second');
       const $digitalClock = document.querySelector('.digital-clock');
-      
-      // const clock = new Date();
-      // let hour = clock.getHours();
-      // let min = clock.getMinutes();
-      // let sec = clock.getSeconds();
-      
-      function digClock () {
-        setInterval(() => {
-          const clock = new Date();
-          let sec = clock.getSeconds();
-          let min = clock.getMinutes();
-          let hour = clock.getHours();
-          const zero = num => (num < 10 ? `0${num}` : num);
 
-          sec++;
-          if (sec === 60) {
-            min++;
-            sec = 0;
-          }
-          if (min === 60) {
-            hour++;
-            min = 0;
-          }
-          if (hour === 24) {
-            hour = 0;
-          }
+      const clock = () => {
+        const time = new Date();
+        const hour = time.getHours();
+        const min = time.getMinutes();
+        const sec = time.getSeconds();
 
-          $digClock.textContent = `${zero(hour)}:${zero(min)}:${zero(sec)}`;
-          $analogSec.style.transform = `rotateZ(${sec * 6}deg)`;
-          $analogMin.style.transform = `rotateZ(${(min + sec / 60) * 6}deg)`;
-          $analogHour.style.transform = `rotateZ(${((hour % 12) + min / 60) * 30}deg)`;
-        }, 1000)
-      }
-      digClock();
+        const zero = num => (num < 10 ? `0${num}` : num);
+        $digitalClock.textContent = `${zero(hour)}:${zero(min)}:${zero(sec)}`;
+
+        $analogSec.style.transform = `rotateZ(${sec * 6}deg)`;
+        $analogMin.style.transform = `rotateZ(${(min + sec / 60) * 6}deg)`;
+        $analogHour.style.transform = `rotateZ(${((hour % 12) + min / 60) * 30}deg)`;
+      };
+
+      setInterval(clock, 1000);
     }());
-
   </script>
 </body>
 </html>
