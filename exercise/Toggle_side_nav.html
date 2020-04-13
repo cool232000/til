@@ -64,18 +64,9 @@
     </div>
   </div>
   <script>
-    (function sideNav() {
-
-      const $toggle = document.querySelector('.toggle');
-      const $container = document.querySelector('.container');
-
-      $toggle.addEventListener('click', function () {
-        if ($container.classList.toggle('active')) {
-          $container.classList.add('active');
-        }
-      });
-      
-    }());
+    const $containser = document.querySelector('.container');
+    const $toggle = document.querySelector('.toggle');
+    $toggle.addEventListener('click', () => $containser.classList.toggle('active'));
   </script>
 </body>
 </html>
