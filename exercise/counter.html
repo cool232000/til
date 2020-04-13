@@ -40,23 +40,26 @@
   </div>
 
   <script>
-  (function counter() {
-    const $increase = document.querySelector('.increase');
-    const $decrease = document.querySelector('.decrease');
+    const $container = document.querySelector('.container');
     const $counter = document.querySelector('.counter');
-    let cnt = 0;
-    
-    $increase.onclick = function () {
-      cnt += 1;
-      $counter.textContent = cnt;
-    };
 
-    $decrease.onclick = function () {
-      if (cnt === 0) return;
-      cnt -= 1;
-      $counter.textContent = cnt;
-    };
-  }());
+    const counter = (() => {
+      let num = 0;
+      return {
+        increase() {
+          $counter.textContent = ++num;
+        },
+        decrease() {
+          if (num <= 0) return;
+          $counter.textContent = --num;
+        }
+      };
+    })();
+
+    $container.addEventListener('click', ({ target }) => {
+      if (target.matches('.container > .increase')) counter.increase();
+      else if (target.matches('.container > .decrease')) counter.decrease();
+    });
   </script>
 </body>
 </html>
