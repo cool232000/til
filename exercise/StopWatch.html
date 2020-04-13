@@ -40,53 +40,43 @@
     <button class="control">Start</button>
   </div>
   <script>
-  (function stopWatch() {
     const $display = document.querySelector('.display');
     const $control = document.querySelector('.control');
 
-    let min = 0;
-    let sec = 0;
-    let msec = 0;
-    let interval = 0;
     let timer = false;
 
-    function start () {
-      timer = true;
-
-      interval = setInterval(function () {
-        msec += 1;
-        if (msec === 100) {
-          sec += 1;
-          msec = 0;
+    const stopWatch = (() => {
+      let interval = 0;
+      let [min, sec, msec] = [0, 0, 0];
+      const zero = num => (num < 10 ? `0${num}` : num);
+      return {
+        start() {
+          timer = true;
+          $control.textContent = 'Stop';
+          $control.style.background = '#f44336';
+          $control.style.color = 'aliceblue';
+          interval = setInterval(() => {
+            msec++;
+            if (msec === 100) {
+              sec++;
+              msec = 0;
+            }
+            if (sec === 60) {
+              min++;
+              sec = 0;
+            }
+            $display.textContent = `${zero(min)}:${zero(sec)}:${zero(msec)}`;
+          }, 10);
+        },
+        stop() {
+          timer = false;
+          $control.textContent = 'Start';
+          clearInterval(interval);
         }
-        if (sec === 60) {
-          min += 1;
-          sec = 0;
-        }
+      };
+    })();
 
-        const disMin = min < 10 ? `0${min}` : min;
-        const disSec = sec < 10 ? `0${sec}` : sec;
-        const disMsec = msec < 10 ? `0${msec}` : msec;
-
-        $display.textContent = `${disMin}:${disSec}:${disMsec}`;
-      }, 10);
-    }
-
-    function stop () {
-      timer = false;
-      clearInterval(interval);
-    }
-
-    $control.addEventListener('click', function () {
-      if (timer === false) {
-        start();
-        $control.textContent = 'Start';
-      } else {
-        stop();
-        $control.textContent = 'Stop';
-      }
-    });
-  }());
+    $control.addEventListener('click', () => (timer === false ? stopWatch.start() : stopWatch.stop()));
   </script>
 </body>
 </html>
