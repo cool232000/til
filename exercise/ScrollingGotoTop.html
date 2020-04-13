@@ -21,7 +21,7 @@
       text-align: center;
     }
 
-    .scoll-icon {
+    .scroll-icon {
       position: fixed;
       left: 50%;
       bottom: 20px;
@@ -97,31 +97,20 @@
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, repudiandae quia. Veniam amet fuga, eveniet velit ipsa repudiandae nemo? Sit dolorem itaque laudantium dignissimos, rerum maiores nihil ad voluptates nostrum.
   </p>
 
-  <div class="scoll-icon fa fa-angle-double-up"></div>
+  <div class="scroll-icon fa fa-angle-double-up"></div>
 
   <script>
+    const $scrollIcon = document.querySelector('.scroll-icon');
+    
+    window.onscroll = () => { $scrollIcon.style.display = window.pageYOffset > 90 ? 'block' : 'none'; };
 
-    const $scroll = document.querySelector('.scoll-icon');
-    const scrollHeight = 100;
-
-    window.onscroll = function () {
-      // console.log(window.pageYOffset);
-      $scroll.style.display = window.pageYOffset > scrollHeight ? 'block' : 'none';
-      // window.pageYOffset > scrollHeight ? $scroll.style.display = 'block' : $scroll.style.display = 'none';
-      // if (window.pageYOffset > scrollHeight) {
-      //   $scroll.style.display = 'block';
-      // } else { $scroll.style.display = 'none'; }
-    };
-
-    $scroll.addEventListener('click', function () {
-      // window.scrollTo(0, 0);
+    $scrollIcon.addEventListener('click', () => {
       window.scroll({
         top: 0,
         left: 0,
         behavior: 'smooth'
       });
     });
-    
   </script>
 </body>
 </html>
