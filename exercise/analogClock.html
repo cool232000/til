@@ -79,35 +79,37 @@
       const $rotateSecond = document.querySelector('.second');
       const $digitalClock = document.querySelector('.digital-clock');
       
-      const clock = new Date();
-      let hour = clock.getHours();
-      let min = clock.getMinutes();
-      let sec = clock.getSeconds();
+      // const clock = new Date();
+      // let hour = clock.getHours();
+      // let min = clock.getMinutes();
+      // let sec = clock.getSeconds();
       
       function digClock () {
-        setInterval(function () {
-          sec += 1;
+        setInterval(() => {
+          const clock = new Date();
+          let sec = clock.getSeconds();
+          let min = clock.getMinutes();
+          let hour = clock.getHours();
+          const zero = num => (num < 10 ? `0${num}` : num);
+
+          sec++;
           if (sec === 60) {
-            min += 1;
+            min++;
             sec = 0;
           }
           if (min === 60) {
-            hour += 1;
+            hour++;
             min = 0;
           }
           if (hour === 24) {
             hour = 0;
           }
-  
-          const disHour = hour < 10 ? `0${hour}` : hour;
-          const disMin = min < 10 ? `0${min}` : min;
-          const disSec = sec < 10 ? `0${sec}` : sec;
-          $digitalClock.textContent = `${disHour}:${disMin}:${disSec}`;
 
-          $rotateSecond.style.transform = `rotateZ(${sec*6}deg)`;
-          $rotateMinute.style.transform = `rotateZ(${min*6}deg)`;
-          $rotateHour.style.transform = `rotateZ(${hour*30}deg)`;
-        }, 1000);
+          $digClock.textContent = `${zero(hour)}:${zero(min)}:${zero(sec)}`;
+          $analogSec.style.transform = `rotateZ(${sec * 6}deg)`;
+          $analogMin.style.transform = `rotateZ(${(min + sec / 60) * 6}deg)`;
+          $analogHour.style.transform = `rotateZ(${((hour % 12) + min / 60) * 30}deg)`;
+        }, 1000)
       }
       digClock();
     }());

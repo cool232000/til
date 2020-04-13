@@ -40,12 +40,12 @@
     <button class="control">Start</button>
   </div>
   <script>
-    const $display = document.querySelector('.display');
     const $control = document.querySelector('.control');
 
     let timer = false;
 
     const stopWatch = (() => {
+      const $display = document.querySelector('.display');
       let interval = 0;
       let [min, sec, msec] = [0, 0, 0];
       const zero = num => (num < 10 ? `0${num}` : num);
