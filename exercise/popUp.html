@@ -27,8 +27,8 @@
       width: 550px;
       padding: 20px;
       box-shadow: 0px 10px 10px 0px rgba(112,112,112,1);
-      position: fixed;
-      top: 20px;
+      position: absolute;
+      top: 0;
       left: 0;
       right: 0;
       margin: auto;
@@ -76,7 +76,7 @@
     const $popup = document.querySelector('.popup');
     const $togglePopup = document.querySelector('.toggle-popup');
     const $overlay = document.querySelector('.overlay');
-    const $inputValue = document.querySelector('.popup > input');
+    const $input = document.querySelector('.popup > input');
     const $popupMessage = document.querySelector('.popup-message');
     const $btnOk = document.querySelector('.btn-ok');
 
@@ -88,7 +88,7 @@
       none() {
         $popup.style.display = 'none';
         $overlay.style.display = 'none';
-        $inputValue.value = '';
+        $input.value = '';
       }
     }))();
 
@@ -96,9 +96,9 @@
       if (!target.matches('div > button')) return;
       display.none();
     });
-    $overlay.addEventListener('click', () => display.none());
-    $togglePopup.addEventListener('click', () => display.block());
-    $btnOk.addEventListener('click', () => { $popupMessage.innerHTML = `<span>form popup: ${$inputValue.value}</span>`; });
+    $overlay.addEventListener('click', display.none);
+    $togglePopup.addEventListener('click', display.block);
+    $btnOk.addEventListener('click', () => { $popupMessage.innerHTML = `<span>form popup: ${$input.value}</span>`; });
   </script>
 </body>
 </html>
