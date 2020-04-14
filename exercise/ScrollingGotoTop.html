@@ -102,7 +102,7 @@
   <script>
     const $scrollIcon = document.querySelector('.scroll-icon');
     
-    window.onscroll = () => { $scrollIcon.style.display = window.pageYOffset > 90 ? 'block' : 'none'; };
+    window.onscroll = () => { $scrollIcon.setAttribute('style', `display: ${window.pageYOffset > 90 ? 'block' : 'none'}`); };
 
     $scrollIcon.addEventListener('click', () => {
       window.scroll({
