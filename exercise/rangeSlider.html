@@ -119,10 +119,9 @@
      *
      * @param {MouseEvent} e - 이벤트 객체
      */
-    function rangeHandler(e) {
-      // do something!
-      if (e.clientX >= left && e.clientX <= right) {
-        const positionX = e.clientX - left;
+    function rangeHandler({ clientX }) {
+      if (clientX >= left && clientX <= right) {
+        const positionX = clientX - left;
         $handle.setAttribute('style', `transform: translateX(${positionX}px)`);
         $fill.setAttribute('style', `width: ${(positionX * 100) / width}%`);
 
