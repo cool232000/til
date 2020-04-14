@@ -89,9 +89,10 @@
       this.tabsData = tabsData;
       this.tabState = 1; // tab id
 
+      this.$tabs = document.querySelector('.tabs');
+
       this.renderTabs();
 
-      this.$tabs = document.querySelector('.tabs');
       this.$tabGroup = document.querySelector('.tab-group');
 
       this.$tabs.addEventListener('click', ({ target }) => {
@@ -113,7 +114,7 @@
       <div class="tab-content-group">
         ${this.tabsData.map(({ id, content }) => (id === this.tabState ? `<div class="tab-content">${content}</div>` : '')).join('')}
       </div>`;
-      document.querySelector('.tabs').innerHTML = html;
+      this.$tabs.innerHTML = html;
     }
   }
 
