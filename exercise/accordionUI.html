@@ -167,11 +167,18 @@
       this.config = Accordion.mergeConfig(options);
       this.$accordion = document.querySelector(this.config.selector);
 
-      // do something!
-      this.$menu = document.querySelector('.menu');
       this.$submenu = document.querySelectorAll('.submenu');
-      this.subMenu();
-      this.activeMenu();
+      this.menuOpen();
+
+      this.$accordion.addEventListener('click', ({ target }) => {
+        if (target.matches('ul > li > div > i')) target = target.parentNode;
+        else if (target.matches('ul > li > ul > li > a')) return;
+        [...this.$accordion.children].forEach(showSubMenu => {
+          showSubMenu.classList.remove('active');
+          target.parentNode.classList.add('active');
+        });
+        this.menuOpen();
+      });
     }
 
     static mergeConfig(options) {
@@ -184,29 +191,10 @@
       return { ...config, ...options };
     }
 
-    // do something!
-    // active 클래스가 포함되어 있으면 서브메뉴를 보이게 하고, 아니면 닫기
-    subMenu() {
-      [...this.$accordion.children].forEach((submenuShow, index) => {
-        if (submenuShow.classList.contains('active')) {
-          this.$submenu[index].style.height = this.$submenu[index].scrollHeight + 'px';
-        } else {
-          this.$submenu[index].style.height = 0;
-        }
+    menuOpen() {
+      [...this.$accordion.children].forEach((subMenu, idx) => {
+        this.$submenu[idx].style.height = subMenu.classList.contains('active') ? `${this.$submenu[idx].scrollHeight}px` : 0;
       });
-    }
-
-    // 클릭 이벤트
-    activeMenu() {
-      this.$accordion.addEventListener('click', function (e) {
-        // 클릭시 전체 리무브 후 클릭한 타겟에 active 클래스 추가
-        [...this.$accordion.children].forEach((activeShow) => {
-          activeShow.classList.remove('active');
-          e.target.parentNode.classList.add('active');
-
-          this.subMenu();
-        });
-      }.bind(this));
     }
   }
 
