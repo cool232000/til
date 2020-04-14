@@ -80,12 +80,12 @@
 
     const display = (() => ({
       block() {
-        $popup.style.display = 'block';
-        $overlay.style.display = 'block';
+        $popup.setAttribute('style', 'display: block');
+        $overlay.setAttribute('style', 'display: block');
       },
       none() {
-        $popup.style.display = 'none';
-        $overlay.style.display = 'none';
+        $popup.setAttribute('style', 'display: none');
+        $overlay.setAttribute('style', 'display: none');
         $input.value = '';
       }
     }))();
@@ -96,7 +96,7 @@
     });
     $overlay.addEventListener('click', display.none);
     $togglePopup.addEventListener('click', display.block);
-    $btnOk.addEventListener('click', () => { $popupMessage.innerHTML = `<span>form popup: ${$input.value}</span>`; });
+    $btnOk.addEventListener('click', () => { $popupMessage.textContent = `form popup: ${$input.value}`; });
   </script>
 </body>
 </html>
