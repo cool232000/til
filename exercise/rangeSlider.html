@@ -120,13 +120,14 @@
      * @param {MouseEvent} e - 이벤트 객체
      */
     function rangeHandler(e) {
+      // do something!
       if (e.clientX >= left && e.clientX <= right) {
         const positionX = e.clientX - left;
-        $handle.style.transform = `translateX(${positionX}px)`;
-        $fill.style.width = `${(positionX * 100) / width}%`;
+        $handle.setAttribute('style', `transform: translateX(${positionX}px)`);
+        $fill.setAttribute('style', `width: ${(positionX * 100) / width}%`);
 
         const gradientDeg = (positionX * 360) / width;
-        $gradient.style.backgroundImage = `linear-gradient(${gradientDeg}deg, #f1a829, #f14429)`;
+        $gradient.setAttribute('style', `background-image: linear-gradient(${gradientDeg}deg, #f1a829, #f14429)`);
         $gradientAngle.textContent = Math.floor(gradientDeg);
       }
     }
