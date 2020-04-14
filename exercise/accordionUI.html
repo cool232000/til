@@ -193,7 +193,7 @@
 
     menuOpen() {
       [...this.$accordion.children].forEach((subMenu, idx) => {
-        this.$submenu[idx].style.height = subMenu.classList.contains('active') ? `${this.$submenu[idx].scrollHeight}px` : 0;
+        this.$submenu[idx].setAttribute('style', `height: ${subMenu.classList.contains('active') ? `${this.$submenu[idx].scrollHeight}px` : 0}`);
       });
     }
   }
