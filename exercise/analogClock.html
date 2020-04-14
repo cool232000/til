@@ -87,9 +87,9 @@
         const zero = num => (num < 10 ? `0${num}` : num);
         $digitalClock.textContent = `${zero(hour)}:${zero(min)}:${zero(sec)}`;
 
-        $analogSec.style.transform = `rotateZ(${sec * 6}deg)`;
-        $analogMin.style.transform = `rotateZ(${(min + sec / 60) * 6}deg)`;
-        $analogHour.style.transform = `rotateZ(${((hour % 12) + min / 60) * 30}deg)`;
+        $analogSec.setAttribute('style', `transform: rotateZ(${sec * 6}deg)`);
+        $analogMin.setAttribute('style', `transform: rotateZ(${(min + sec / 60) * 6}deg)`);
+        $analogHour.setAttribute('style', `transform: rotateZ(${((hour % 12) + min / 60) * 30}deg)`);
       };
 
       setInterval(clock, 1000);
