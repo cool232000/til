@@ -123,9 +123,7 @@
       if (e.clientX >= left && e.clientX <= right) {
         const positionX = e.clientX - left;
         $handle.style.transform = `translateX(${positionX}px)`;
-
-        const rangeFill = (positionX * 100) / width;
-        $fill.style.width = `${rangeFill}%`;
+        $fill.style.width = `${(positionX * 100) / width}%`;
 
         const gradientDeg = (positionX * 360) / width;
         $gradient.style.backgroundImage = `linear-gradient(${gradientDeg}deg, #f1a829, #f14429)`;
