@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Toast UI</title>
+  <style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+  
+  body {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    background-color: #D6E1E5;
+  }
+
+  h1 {
+    color: #DB5B33;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .toast-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .toast {
+    width: 300px;
+    height: 100px;
+    border: 1px solid transparent;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: move 2s both;
+  }
+
+  .success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #bfe0c7;
+  }
+
+  .error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+
+  .toast > em {
+    font-weight: 600;
+  }
+
+  .toast > button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+
+  @keyframes move {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+  /* CSS 작성 바랍니다. */
+  </style>
+</head>
+<body>
+  <h1>JavaScript Toast</h1>
+
+  <button class="show-success">Success</button>
+  <button class="show-error">Error</button>
+  <button class="show-warning">Warning</button>
+
+  <div class="toast-container"></div>
+  <script>
+    const $success = document.querySelector('.show-success');
+    const $error = document.querySelector('.show-error');
+    const $warning = document.querySelector('.show-warning');
+    const $toastContainer = document.querySelector('.toast-container');
+
+    const toastUI = (() => ({
+      add({ target }) {
+        const $toast = $toastContainer.children;
+        let toasts = [];
+        const generateId = () => (toasts.length ? Math.max(...toasts.map(({ id }) => id)) + 1 : 1);
+        const type = target.textContent.toLowerCase();
+        const id = generateId();
+        toasts = [{ id, type }, ...toasts];
+
+        const html = `<em>${type === 'success' ? 'Well Done!' : 'Check it out!'} ${$toast.length}</em>
+          <p>This is a ${type} alert</p><button>X</button>`;
+
+        const $addToast = document.createElement('div');
+        $addToast.setAttribute('id', id);
+        $addToast.setAttribute('class', `toast ${type}`);
+        $addToast.insertAdjacentHTML('beforeend', html);
+        $toastContainer.appendChild($addToast);
+
+        setTimeout(() => {
+          if (![...$toast].filter(toast => id === +toast.id)[0]) return;
+          $toastContainer.removeChild([...$toast].filter(toast => id === +toast.id)[0]);
+        }, 5000);
+      },
+      remove({ target }) {
+        if (!target.matches('div > button')) return;
+        $toastContainer.removeChild(target.parentNode);
+      }
+    }))();
+
+    $success.addEventListener('click', toastUI.add);
+    $error.addEventListener('click', toastUI.add);
+    $warning.addEventListener('click', toastUI.add);
+    $toastContainer.addEventListener('click', toastUI.remove);
+  </script>
+</body>
+</html>
