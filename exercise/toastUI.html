@@ -109,7 +109,7 @@
           $addToast.insertAdjacentHTML('beforeend', html);
           $toastContainer.appendChild($addToast);
           toasts = [$addToast, ...toasts];
-
+        
           setTimeout(() => {
             if (![...$toastContainer.children].includes($addToast)) return;
             $toastContainer.removeChild($addToast);
