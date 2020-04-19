@@ -20,37 +20,33 @@
     text-align: center;
   }
 
-  .toast-container {
+  .toast {
     position: absolute;
-    bottom: 0;
     right: 0;
     width: 300px;
-  }
-
-  .toast {
-    box-sizing: border-box;
-    border: 1px solid transparent;
     height: 100px;
+    border: 1px solid transparent;
     padding: 20px;
-    animation: insert 2s both;
+    box-sizing: border-box;
+    animation: move 2s both;
   }
 
   .success {
     color: #155724;
     background-color: #d4edda;
-    border-color: #b8dfc2;
+    border-color: #bfe0c7;
   }
 
   .error {
     color: #721c24;
     background-color: #f8d7da;
-    border-color: #f3c0c5;
+    border-color: #f5c6cb;
   }
 
   .warning {
     color: #856404;
     background-color: #fff3cd;
-    border-color: #fde292;
+    border-color: #ffeeba;
   }
 
   .toast > em {
@@ -65,9 +61,10 @@
     top: 0;
     right: 0;
     padding: 15px;
+    font-size: 1.1rem;
   }
 
-  @keyframes insert {
+  @keyframes move {
       from {
         transform: translateX(100%);
       }
@@ -75,6 +72,7 @@
         transform: translateX(0);
       }
     }
+
   </style>
 </head>
 <body>
@@ -85,40 +83,54 @@
   <button class="show-warning">Warning</button>
 
   <div class="toast-container"></div>
+  
   <script>
     const $success = document.querySelector('.show-success');
     const $error = document.querySelector('.show-error');
     const $warning = document.querySelector('.show-warning');
     const $toastContainer = document.querySelector('.toast-container');
 
-    const toastUI = (() => ({
-      add({ target }) {
-        const $toast = $toastContainer.children;
-        const type = target.textContent.toLowerCase();
-        const $addToast = document.createElement('div');
-        $addToast.setAttribute('class', `toast ${type}`);
+    const toastUI = (() => {
+      let toasts = [];
+      const bottomPosition = () => {
+        toasts.forEach((toast, i) => {
+          toast.setAttribute('style', `bottom: ${i * 100}px`);
+        });
+      };
+      return {
+        add(target) {
+          const type = target.innerText.toLowerCase();
+          const $addToast = document.createElement('div');
+          $addToast.setAttribute('class', `toast ${type}`);
 
-        const html = `<em>${type === 'success' ? 'Well Done!' : 'Check it out!'} ${$toast.length}</em>
-          <p>This is a ${type} alert</p><button>X</button>`;
+          const html = `<em>${type === 'success' ? 'Well Done!' : 'Check it out!'} ${toasts.length}</em>
+              <p>This is a ${type} alert</p><button>X</button>`;
 
-        $addToast.insertAdjacentHTML('beforeend', html);
-        $toastContainer.appendChild($addToast);
+          $addToast.insertAdjacentHTML('beforeend', html);
+          $toastContainer.appendChild($addToast);
+          toasts = [$addToast, ...toasts];
 
-        setTimeout(() => {
-          if (![...$toastContainer.children].includes($addToast)) return;
-          $toastContainer.removeChild($addToast);
-        }, 5000);
-      },
-      remove({ target }) {
-        if (!target.matches('div > button')) return;
-        $toastContainer.removeChild(target.parentNode);
-      }
-    }))();
+          setTimeout(() => {
+            if (![...$toastContainer.children].includes($addToast)) return;
+            $toastContainer.removeChild($addToast);
+          }, 5000);
 
-    $success.addEventListener('click', toastUI.add);
-    $error.addEventListener('click', toastUI.add);
-    $warning.addEventListener('click', toastUI.add);
-    $toastContainer.addEventListener('click', toastUI.remove);
+          bottomPosition();
+        },
+        remove(target) {
+          if (!target.matches('div > button')) return;
+          toasts = toasts.filter(toast => toast !== target.parentNode);
+          $toastContainer.removeChild(target.parentNode);
+
+          bottomPosition();
+        }
+      };
+    })();
+
+    $success.addEventListener('click', ({ target }) => toastUI.add(target));
+    $error.addEventListener('click', ({ target }) => toastUI.add(target));
+    $warning.addEventListener('click', ({ target }) => toastUI.add(target));
+    $toastContainer.addEventListener('click', ({ target }) => toastUI.remove(target));
   </script>
 </body>
 </html>
