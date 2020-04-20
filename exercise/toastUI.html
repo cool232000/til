@@ -83,7 +83,6 @@
   <button class="show-warning">Warning</button>
 
   <div class="toast-container"></div>
-  
   <script>
     const $success = document.querySelector('.show-success');
     const $error = document.querySelector('.show-error');
@@ -103,13 +102,25 @@
           const $addToast = document.createElement('div');
           $addToast.setAttribute('class', `toast ${type}`);
 
-          const html = `<em>${type === 'success' ? 'Well Done!' : 'Check it out!'} ${toasts.length}</em>
-              <p>This is a ${type} alert</p><button>X</button>`;
+          const $title = document.createElement('em');
+          const $titleText = document.createTextNode(`${type === 'success' ? 'Well Done!' : 'Check it out!'} ${toasts.length}`);
+          $title.appendChild($titleText);
 
-          $addToast.insertAdjacentHTML('beforeend', html);
+          const $alert = document.createElement('p');
+          const $alertText = document.createTextNode(`This is a ${type} alert`);
+          $alert.appendChild($alertText);
+
+          const $remove = document.createElement('button');
+          const $removeBtn = document.createTextNode('X');
+          $remove.appendChild($removeBtn);
+
+          $addToast.appendChild($title);
+          $addToast.appendChild($alert);
+          $addToast.appendChild($remove);
           $toastContainer.appendChild($addToast);
+
           toasts = [$addToast, ...toasts];
-        
+
           setTimeout(() => {
             if (![...$toastContainer.children].includes($addToast)) return;
             $toastContainer.removeChild($addToast);
