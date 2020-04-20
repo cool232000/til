@@ -98,7 +98,8 @@
       };
       return {
         add(target) {
-          const type = target.innerText.toLowerCase();
+          const type = target.textContent.toLowerCase();
+
           const $addToast = document.createElement('div');
           $addToast.setAttribute('class', `toast ${type}`);
 
