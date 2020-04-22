@@ -19,6 +19,7 @@ $button.addEventListener('click', () => {
   [...shuffle].map((listText) => {
     $listContainer.setAttribute('id', 'container');
     const $randomList = document.createElement('li');
+    // $randomList.setAttribute('class', 'bounceInUp');
     const $randomText = document.createTextNode(`${listText}`);
     $randomList.appendChild($randomText);
     return $listContainer.appendChild($randomList);
