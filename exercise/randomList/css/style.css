@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(250, 250, 250);
+}
+
 section {
   width: 600px;
   margin: 0 auto;
@@ -38,10 +42,6 @@ button {
   box-shadow: 0px 10px 10px -15px rgba(64,64,64,1);
 }
 
-.swing {
-  perspective: 100px;
-}
-
 li, li::before {
   font-size: 1.5rem;
 }
@@ -51,45 +51,11 @@ li {
   counter-increment: number;
   margin-bottom: 15px;
   background-color: #e8e2dc;
+  perspective: 100px;
   box-shadow: 0px 10px 10px -15px rgba(112,112,112,1);
-}
-
-li:nth-child(1) {
-  animation: move .2s both;
-}
-li:nth-child(2) {
-  animation: move .4s both;
-}
-li:nth-child(3) {
-  animation: move .6s both;
-}
-li:nth-child(4) {
-  animation: move .8s both;
-}
-li:nth-child(5) {
-  animation: move 1s both;
-}
-li:nth-child(6) {
-  animation: move 1.2s both;
-}
-li:nth-child(7) {
-  animation: move 1.4s both;
 }
 
 li::before {
   content: counter(number)'번';
   margin-right: 10px;
-}
-
-@keyframes move {
-  from {
-    opacity: 0;
-    transform: rotateX(-90deg);
-    transition: all 0.3s cubic-bezier(.36,-0.64,.34,1.76);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-    transition: all 0.3s cubic-bezier(.36,-0.64,.34,1.76);
-  }
 }
