@@ -1,6 +1,6 @@
 # Element.animate()
 
-![랜덤리스트](https://i.imgur.com/Kvcdb83.mp4)
+![랜덤리스트](https://im7.ezgif.com/tmp/ezgif-7-e4362c0c7063.gif)
 
 버튼을 누르면 랜덤으로 순서가 정해져서 뷰에 리스트가 나타나는 추첨기를 만들 때 생각했던 이미지는 생성되는 li들이 약간의 텀을 두고 주르륵(?) 나타나는 것이었다.
 그것을 구현하기 위해 처음에는 css에서 animation을 사용했다.
