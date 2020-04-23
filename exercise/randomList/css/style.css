@@ -26,6 +26,7 @@ h1 {
   font-size: 3rem;
   color: white;
   background-color: #3e6b79;
+  box-shadow: 0px 10px 10px -10px rgba(64,64,64,1);
 }
 
 button {
@@ -34,6 +35,11 @@ button {
   font-size: 1.7rem;
   background-color: #E1E2E2;
   cursor: pointer;
+  box-shadow: 0px 10px 10px -15px rgba(64,64,64,1);
+}
+
+.swing {
+  perspective: 100px;
 }
 
 li, li::before {
@@ -43,30 +49,31 @@ li, li::before {
 li {
   list-style: none;
   counter-increment: number;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   background-color: #e8e2dc;
+  box-shadow: 0px 10px 10px -15px rgba(112,112,112,1);
 }
 
 li:nth-child(1) {
-  animation: move 1s both;
+  animation: move .2s both;
 }
 li:nth-child(2) {
-  animation: move 1s both;
+  animation: move .4s both;
 }
 li:nth-child(3) {
-  animation: move 2s both;
+  animation: move .6s both;
 }
 li:nth-child(4) {
-  animation: move 3s both;
+  animation: move .8s both;
 }
 li:nth-child(5) {
-  animation: move 4s both;
+  animation: move 1s both;
 }
 li:nth-child(6) {
-  animation: move 5s both;
+  animation: move 1.2s both;
 }
 li:nth-child(7) {
-  animation: move 6s both;
+  animation: move 1.4s both;
 }
 
 li::before {
@@ -77,8 +84,12 @@ li::before {
 @keyframes move {
   from {
     opacity: 0;
+    transform: rotateX(-90deg);
+    transition: all 0.3s cubic-bezier(.36,-0.64,.34,1.76);
   }
   to {
     opacity: 1;
+    transform: none;
+    transition: all 0.3s cubic-bezier(.36,-0.64,.34,1.76);
   }
 }

@@ -6,8 +6,9 @@ const $section = document.querySelector('section');
 const $button = document.querySelector('button');
 
 // button click event
-$button.addEventListener('click', () => {
+$button.addEventListener('click', ({ target }) => {
   // create ul to delete array
+  target.textContent = '다시 뽑기';
   const $listContainer = document.createElement('ul');
   const $removeContainer = document.getElementById('container');
   if ($removeContainer !== null) $section.removeChild($removeContainer);
@@ -19,7 +20,7 @@ $button.addEventListener('click', () => {
   [...shuffle].map((listText) => {
     $listContainer.setAttribute('id', 'container');
     const $randomList = document.createElement('li');
-    // $randomList.setAttribute('class', 'bounceInUp');
+    $randomList.setAttribute('class', 'swing');
     const $randomText = document.createTextNode(`${listText}`);
     $randomList.appendChild($randomText);
     return $listContainer.appendChild($randomList);
