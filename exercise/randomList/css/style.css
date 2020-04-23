@@ -38,6 +38,7 @@ button {
   height: 50px;
   font-size: 1.7rem;
   background-color: #E1E2E2;
+  border: 0;
   cursor: pointer;
   box-shadow: 0px 10px 10px -15px rgba(64,64,64,1);
 }

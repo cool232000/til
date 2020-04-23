@@ -20,21 +20,28 @@ $button.addEventListener('click', ({ target }) => {
   [...shuffle].map((listText, idx) => {
     $listContainer.setAttribute('id', 'container');
     const $randomList = document.createElement('li');
-    $randomList.animate([
-      {
-        opacity: '0',
-        transform: 'rotateX(-90deg)',
-        transition: 'all 0.3s cubic-bezier(.36,-0.64,.34,1.76)'
-      },
-      {
-        opacity: '1',
-        transform: 'none',
-        transition: 'all 0.3s cubic-bezier(.36,-0.64,.34,1.76)'
-      }
-    ], {
-      duration: 77 * (idx + 1)
-    })
     const $randomText = document.createTextNode(`${listText}`);
+
+    // li animation
+    $randomList.animate(
+      [
+        {
+          opacity: '0',
+          transform: 'rotateX(-90deg)',
+          transition: 'all 0.3s cubic-bezier(.36,-0.64,.34,1.76)',
+        },
+        {
+          opacity: '1',
+          transform: 'none',
+          transition: 'all 0.3s cubic-bezier(.36,-0.64,.34,1.76)',
+        },
+      ],
+      {
+        duration: 77 * (idx + 1),
+      }
+    );
+
+    // connect
     $randomList.appendChild($randomText);
     return $listContainer.appendChild($randomList);
   });
