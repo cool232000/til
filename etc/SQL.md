@@ -120,9 +120,9 @@ FROM <table_name>
    오름차순(ASC)은 기본이므로 생략 가능하지만 내림차순(DESC)으로 정렬하고 싶은 경우 명시해야 한다.
 
    ```mysql
-   SELECT code, name, GovernmentForm
+   SELECT *
    FROM country
-   WHERE GovernmentForm LIKE "%Republic%";
+   ORDER BY population ASC;
    ```
 
    city 테이블을 국가코드 기준 알파벳 순으로 정렬하기 && 같은 국가 코드를 가졌을 경우 인구수 순으로 내림차순 정렬하기
