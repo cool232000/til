@@ -110,7 +110,7 @@ FROM <table_name>
 4. LIKE: 특정 문자열이 포함된 국가 찾기
 
    ```mysql
-SELECT code, name, GovernmentForm
+   SELECT code, name, GovernmentForm
    FROM country
    WHERE GovernmentForm LIKE "%Republic%";
    ```
@@ -228,14 +228,14 @@ SELECT code, name, GovernmentForm
 2. ALTER: 속성을 수정할 때 사용한다.
 
    ```mysql
-SHOW VARIABLES LIKE "character_set_database";
+   SHOW VARIABLES LIKE "character_set_database";
    ALTER DATABASE test CHARACTER SET = utf8;
    ```
    
    ALTER를 이용해서 데이터 속성값을 수정하기
 
    ```mysql
-DESC user2;
+   DESC user2;
    ALTER TABLE user2 ADD article TEXT;
    ALTER TABLE user2 MODIFY COLUMN article varchar(200);
    ```
@@ -243,11 +243,11 @@ DESC user2;
 3. DROP: 데이터베이스/테이블 삭제하기
 
    ```mysql
-ALTER TABLE user2 DROP article;
+   ALTER TABLE user2 DROP article;
    ```
    
    ```mysql
-CREATE DATABASE tmp;
+   CREATE DATABASE tmp;
    SHOW DATABASES;
    USE tmp;
    CREATE TABLE test(id INT);
@@ -258,7 +258,7 @@ CREATE DATABASE tmp;
 4. INSERT: 속성값 삽입하기
 
    ```mysql
-USE test;
+   USE test;
    INSERT INTO user1(user_id, name, email, age, rdate)
    VALUES (1, "jin", "pdj@gmail.com", 30, now()),
    (2, "peter", "peter@daum.net", 33, '2017-02-20'),
@@ -278,7 +278,7 @@ USE test;
    인구수가 800만명 이상인 도시를 검색해 특정 테이블에 저장하기
 
    ```mysql
-USE world;
+   USE world;
    SELECT name, countrycode, population
    FROM city
    WHERE population >= 8000000;
