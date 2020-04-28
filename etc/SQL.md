@@ -395,10 +395,10 @@ FROM <table_name>
    ```mysql
    SELECT name, population,
    CASE
-   	WHEN population >= 1000000000 THEN "upper 1 bilion"
-   	WHEN population >= 100000000 THEN "upper 100 milion"
-     ELSE "below 100 milion"
-     END as result
+      WHEN population >= 1000000000 THEN "upper 1 bilion"
+      WHEN population >= 100000000 THEN "upper 100 milion"
+      ELSE "below 100 milion"
+      END as result
    FROM country
    ORDER BY population DESC;
    ```
