@@ -403,4 +403,289 @@ FROM <table_name>
    ORDER BY population DESC;
    ```
 
+8. JOIN
+   두 개 이상의 테이블에서 데이터를 모아서 보여줄 때 사용
    
+   ENGINE은 InnoDB와 MyISAM으로 설정할 수 있는데 InnoDB가 로그 단위로 락을 거는 방법이기 때문에 동시에 접속했을 때 데이터를 빨리 가져올 수 있다는 장점이 있어서 많이 활용된다.
+   
+   ```mysql
+   CREATE TABLE user (
+   user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   name VARCHAR(30) DEFAULT NULL,
+   PRIMARY KEY (user_id)
+   ) ENGINE = InnoDB DEFAULT CHARSET=UTF8;
+   
+   CREATE TABLE addr (
+   addr_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   addr VARCHAR(30) DEFAULT NULL,
+   user_id INT(20) DEFAULT NULL,
+   PRIMARY KEY (addr_id)
+   ) ENGINE = InnoDB DEFAULT CHARSET=UTF8;
+   
+   INSERT INTO user(name)
+   VALUES ("jin"), ("andy"), ("peter");
+   
+   INSERT INTO addr(addr, user_id)
+   VALUES ("seoul", 1), ("busan", 2), ("jeju", 4), ("seoul", 5), ("deagu", 6);
+   ```
+   
+   1) INNER JOIN
+   
+   ```mysql
+   SELECT user.user_id, user.name, addr.addr
+   FROM user
+   INNER JOIN addr
+   ON user.user_id = addr.user_id;
+   ```
+   
+   INNER JOIN은 WHERE절을 활용할 수 있다 (INNER JOIN만 가능)
+   
+   ```mysql
+   SELECT user.user_id, user.name, addr.addr
+   FROM user, addr
+   WHERE user.user_id = addr.user_id;
+   ```
+   
+   국가명, 도시명, 도시 인구수, 국가 인구수에 대한 도시 인구수의 비율 출력하기
+   
+   ```mysql
+   SELECT city.countrycode
+   , country.name as country_name
+   , city.name as city_name
+   , city.population as city_population
+   , country.population as country_population
+   , city.population / country.population as rate
+   FROM city
+   JOIN country
+   ON city.countrycode = country.code
+   HAVING rate >= 0.5;
+   ```
+   
+   3개 이상의 테이블을 JOIN하기
+   
+   국가명, 도시명, 사용 언어, 사용률 출력하기
+   
+   ```mysql
+   SELECT country.name as country_name
+   , city.name as city_name
+   , countrylanguage.language as language
+   , countrylanguage.percentage as percentage
+   FROM country
+   JOIN city
+   ON country.code = city.countrycode
+   JOIN countrylanguage
+   ON country.code = countrylanguage.countrycode
+   ORDER BY country_name ASC, city_name ASC, percentage DESC;
+   ```
+   
+   INNER JOIN의 경우 JOIN ON 절을 여러 번 사용하지 않고 WHERE을 사용할 수 있다.
+   
+   ```mysql
+   SELECT country.name as country_name
+   , city.name as city_name
+   , countrylanguage.language as language
+   , countrylanguage.percentage as percentage
+   FROM country, city, countrylanguage
+   WHERE country.code = city.countrycode AND country.code = countrylanguage.countrycode
+   ORDER BY country_name ASC, city_name ASC, percentage DESC;
+   ```
+   
+   
+   
+   2) LEFT JOIN
+   
+   ```mysql
+   SELECT user.user_id, user.name, addr.addr
+   FROM user
+   LEFT JOIN addr
+   ON user.user_id = addr.user_id;
+   ```
+   
+   지역별, 대륙별 사용 언어 출력 (distinct를 활용해 중복을 제거한다)
+   
+   ```mysql
+   SELECT distinct country.region, country.continent, countrylanguage.language
+   FROM country
+   LEFT JOIN countrylanguage
+   ON country.code = countrylanguage.countrycode;
+   ```
+   
+   3) RIGHT JOIN
+   
+   ```mysql
+   SELECT addr.user_id, user.name, addr.addr
+   FROM user
+   RIGHT JOIN addr
+   ON user.user_id = addr.user_id;
+   ```
+   
+   4) OUTTER JOIN (UNION)
+   
+   SELECT문의 결과를 하나로 합쳐서 출력
+   
+   ```mysql
+   SELECT name
+   FROM user;
+   
+   SELECT addr
+   FROM addr;
+   ```
+   
+   위와 같은 경우 UNION을 사용하면 결과를 하나로 합쳐서 출력한다. 다만 UNION은 기본적으로 중복 제거를 하는데, 만약 중복을 제거하면 안 될 경우 UNION ALL을 해야 한다.
+   
+   ```mysql
+   SELECT name
+   FROM user
+   UNION
+   SELECT addr
+   FROM addr;
+   ```
+   
+   LEFT JOIN절과 RIGHT JOIN절을 UION으로 합칠 수 있다.
+   
+   ```mysql
+   # LEFT JOIN
+   SELECT user.user_id, user.name, addr.addr
+   FROM user
+   LEFT JOIN addr
+   ON user.user_id = addr.user_id;
+   
+   # RIGHT JOIN
+   SELECT addr.user_id, user.name, addr.addr
+   FROM user
+   LEFT JOIN addr
+   ON user.user_id = addr.user_id;
+   
+   # UNION OUTTER JOIN
+   SELECT user.user_id, user.name, addr.addr
+   FROM user
+   LEFT JOIN addr
+   ON user.user_id = addr.user_id
+   UNION
+   SELECT addr.user_id, user.name, addr.addr
+   FROM user
+   LEFT JOIN addr
+   ON user.user_id = addr.user_id;
+   ```
+   
+9. SUB-QUERY
+
+   SELECT, FROM, WHERE에서 서브쿼리를 사용할 수 있다.
+
+   1) SELECT절에서 서브쿼리 사용하기
+
+   전체 나라 수, 전체 도시 수, 전체 언어 수 출력하기
+
+   FROM절이 필요하지 않을 때는 `FROM DUAL`이라고 작성하면 된다.
+
+   ```mysql
+   SELECT
+   (SELECT count(name) FROM country) as total_count,
+   (SELECT count(name) FROM city) as city_count,
+   (SELECT count(distinct(language)) FROM countrylanguage) as language_count
+   FROM DUAL;
+   ```
+
+   2) FROM절에서 서브쿼리 사용하기
+
+   인구가 800만 이상인 도시의 국가 코드, 도시명, 인구 수 출력하기
+
+   ```mysql
+   SELECT country.code, country.name, city.countrycode, city.population
+   FROM (
+   SELECT countrycode, name, population
+   FROM city
+   WHERE population >= 8000000
+   ) as city
+   JOIN country
+   on city.countrycode = country.code
+   ORDER BY city.population DESC;
+   ```
+
+   위와 같은 코드는 서브쿼리를 사용하지 않고도 아래와 같이 사용이 가능하지만 JOIN의 경우 최대한 테이블이 덜 만들어지는 방향일 때 사용하는 것이 좋다. JOIN을 사용하는 것은 성능을 느리게 할 가능성이 높으므로 JOIN을 사용하는 것이 더 효율이 좋다고 판단될 때 JOIN을 써야한다.
+
+   ```mysql
+   SELECT country.code, country.name, city.countrycode, city.population
+   FROM city
+   JOIN country
+   ON city.countrycode = country.code
+   HAVING city.population >= 8000000
+   ORDER BY city.population DESC;
+   ```
+
+   3) WHERE절에서 서브쿼리 사용하기
+
+   인구가 800만 이상인 도시의 국가 코드, 국가 이름, 대통령 이름 출력하기
+
+   ```mysql
+   SELECT code, name, headofstate
+   FROM country
+   WHERE CODE IN (
+   SELECT countrycode
+   FROM city
+   WHERE population >= 8000000
+   );
+   ```
+
+10. VIEW
+
+    쿼리를 단순하게 만들어주는 기능을 한다.
+
+    뷰는 실제로 데이터를 갖고 있는 것이 아니라 쿼리를 수행할 데이터의 주소값만 가지고 있다. 때문에 데이터를 수정하거나 인덱스를 설정하는 것이 불가능하다.
+
+    VIEW는 많은 데이터를 가지고 JOIN을 여러 번 하는 복잡한 쿼리문이 있을 때 그 데이터들의 주소값만 가진 테이블을 생성하게 빠르게 데이터를 읽을 수 있게 한다.
+
+    국가 코드, 국가명, 도시명을 출력하기
+
+    ```mysql
+    SELECT code, name, headofstate
+    FROM country
+    WHERE CODE IN (
+    SELECT countrycode
+    FROM city
+    WHERE population >= 8000000
+    );
+    ```
+
+    위의 코드를 VIEW로 만들면 아래와 같은 코드로 만들 수 있다.
+
+    ```mysql
+    CREATE VIEW code_name as
+    SELECT country.code, country.name as country_name, city.name as city_name
+    FROM country
+    JOIN city
+    ON country.code = city.countrycode;
+    ```
+
+    생성한 VIEW를 활용해 국가 코드, 국가 이름, 도시 이름을 출력하는 쿼리는 아래와 같다.
+
+    ```mysql
+    SELECT *
+    FROM code_name;
+    ```
+
+11. INDEX
+
+    인덱스는 방대한 양의 데이터를 좀 더 쉽게 찾을 수 있는 역할을 한다. 다만 설정한 데이터에 대한 인덱스를 생성해야 하기 때문에 인덱스가 없는 경우보다 데이터의 용량이 커질 수 있고, 찾고자 하는 데이터의 인덱스를 제대로 설정하지 않는 경우 인덱스를 사용하는 것이 쓸모가 없어질 수 있다.
+
+    데이터가 중간에 추가되거나 삭제되는 등의 변화가 있을 때 인덱스도 함께 동기화되므로 데이터를 읽어오는 것에는 인덱스가 있는 것이 빠르지만 데이터를 추가, 삭제, 변경하는 동작을 할 경우에는 인덱스가 없는 경우보다 속도가 느리다.
+
+    ```mysql
+    SELECT count(*)
+    FROM salaries;
+    
+    CREATE INDEX tdate
+    ON salaries (to_date);
+    ```
+
+    데이터 실행 속도 확인은 EXPLAIN으로 할 수 있다.
+
+    ```mysql
+    EXPLAIN
+    SELECT *
+    FROM salaries
+    WHERE to_date < "1986-01-01";
+    ```
+
+    
+
