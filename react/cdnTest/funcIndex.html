@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React CDN Function</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  <script type="text/babel">
+
+    // Function Component
+    // 함수형 컴포넌트는 render() 함수가 필요하지 않고 바로 리턴문에 jsx 문법을 사용한다
+    const Greeting = () => <p>Hello, World</p>;
+
+    ReactDOM.render(<Greeting />, document.getElementById('root'));
+  </script>
+</body>
+</html>

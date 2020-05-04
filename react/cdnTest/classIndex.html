@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React CDN Class</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  <script type="text/babel">
+
+    // Class Component
+    // 클래스형 컴포넌트 방식은 render() 함수가 반드시 있어야 한다
+    // render() 함수 내부에 return문으로 jsx 문법을 작성한다
+
+    class Greeting extends React.Component {
+      render() {
+        return (
+          <p>Hello, World</p>
+        )
+      }
+    }
+
+    ReactDOM.render(<Greeting />, document.getElementById('root'));
+  </script>
+</body>
+</html>
