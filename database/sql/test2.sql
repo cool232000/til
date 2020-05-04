@@ -5,14 +5,14 @@ SELECT COUNT(DISTINCT continent) AS count
 FROM country;
 
 -- 2. 국가 코드별 도시의 갯수를 출력하세요. (상위 5개를 출력)
-SELECT countrycode, COUNT(countrycode) AS count
+SELECT countrycode, COUNT(*) AS count
 FROM city
 GROUP BY countrycode
 ORDER BY count DESC
 LIMIT 5;
 
 -- 3. 대륙별 몇개의 나라가 있는지 대륙별 나라의 갯수로 내림차순하여 출력하세요.
-SELECT continent, COUNT(continent) AS count
+SELECT continent, COUNT(*) AS count
 FROM country
 GROUP BY continent
 ORDER BY count DESC;
@@ -32,14 +32,14 @@ HAVING population >= 50000000
 ORDER BY population DESC;
 
 -- 6. 언어별 사용하는 국가수를 조회하고 많이 사용하는 언어를 6위에서 10위까지 조회하세요.
-SELECT language, COUNT(language) AS count
+SELECT language, COUNT(*) AS count
 FROM countrylanguage
 GROUP BY language
 ORDER BY count DESC, language DESC
 LIMIT 5, 5;
 
 -- 7. 언어별 15곳 이상의 국가에서 사용되는 언어를 조회하고, 언어별 국가수에 따라 내림차순하세요.
-SELECT language, COUNT(language) AS count
+SELECT language, COUNT(*) AS count
 FROM countrylanguage
 GROUP BY language
 HAVING count >= 15
