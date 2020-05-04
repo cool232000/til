@@ -7,7 +7,7 @@ FROM country;
 
 -- 2. Sakila 데이터 베이스에서 국가가 인도 고객의 수를 출력하세요.
 USE sakila;
-SELECT country, count(country) as count
+SELECT country, COUNT(country) AS count
 FROM customer_list
 WHERE country = 'india';
 
@@ -27,7 +27,7 @@ ORDER BY population DESC;
 
 -- 5. country 테이블에서 1940 ~ 1950년도 사이에 독립한 국가들을 조회하고 독립한 년도 순으로 오름차순하세요.
 USE world;
-SELECT code, concat(name, "(", indepyear, ")") as NameIndep, continent, population
+SELECT code, CONCAT(name, '(', indepyear, ')') AS NameIndep, continent, population
 FROM country
 WHERE indepyear BETWEEN 1940 AND 1950
 ORDER BY indepyear;
@@ -47,7 +47,7 @@ WHERE code LIKE 'A%' AND governmentform LIKE "%Republic%";
 
 -- 8. Sakila actor 테이블에서 first_name이 DAN 인 배우의 수를 출력하세요.
 USE sakila;
-SELECT first_name, count(first_name) as count
+SELECT first_name, COUNT(first_name) AS count
 FROM actor
 WHERE first_name = 'DAN';
 
@@ -55,14 +55,14 @@ WHERE first_name = 'DAN';
 USE sakila;
 SELECT *
 FROM film_text
-WHERE title LIKE '%ICE%' AND description LIKE '%Drama%';
+WHERE title LIKE '%ICE%' AND DESCRIPTION LIKE '%Drama%';
 
 -- 10. Sakila 데이터 베이스의 file_list 뷰에서 price가 1 ~ 4, length가 180 이상, category는 Sci-Fi과 Animation이 아닌 데이터를 출력하세요.
 USE sakila;
 
 -- create file_list view
-CREATE VIEW file_list as
-SELECT film.title, film.description, category.name as category, film.length, film.rental_rate as price
+CREATE VIEW file_list AS
+SELECT film.title, film.description, category.name AS category, film.length, film.rental_rate AS price
 FROM film, film_category, category
 WHERE film.film_id = film_category.film_id AND film_category.category_id = category.category_id;
 
