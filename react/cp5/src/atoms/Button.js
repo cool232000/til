@@ -1,13 +1,13 @@
 import React from 'react';
 import './Button.css';
 
-const Button = () => {
-  const onClick = (e) => {
-    e.preventDefault();
-    alert('로그인 시도!');
-  };
+const Button = ({ handleButtonClick }) => {
   return (
-    <button type="submit" className="btn" onClick={onClick}>
+    <button
+      type="submit"
+      className="btn"
+      onClick={(e) => handleButtonClick(e.preventDefault())}
+    >
       LogIn
     </button>
   );
