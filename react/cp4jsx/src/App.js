@@ -10,28 +10,37 @@ class App extends Component {
     }
   };
 
-  onClick = () => {
-    console.log("로그인 시도");
+  onClick = (e) => {
+    e.preventDefault();
+    alert("로그인 시도!");
   };
 
   render() {
     return (
       <div className="container">
-        <h1>LogIn</h1>
         <form className="form-container">
-          <input
-            className="id"
-            placeholder="ID를 입력하세요"
-            onChange={this.onChange}
-          />
-          <input
-            className="pw"
-            placeholder="PW를 입력하세요"
-            onChange={this.onChange}
-          />
-          <button type="button" className="btn" onClick={this.onClick}>
-            LogIn
-          </button>
+          <fieldset>
+            <legend>회원가입 폼</legend>
+            <label htmlFor="userID">
+              <span className="a11y-hidden">아이디</span>
+              <input
+                className="id"
+                placeholder="ID를 입력하세요"
+                onChange={this.onChange}
+              />
+            </label>
+            <label htmlFor="userPW">
+              <span className="a11y-hidden">비밀번호</span>
+              <input
+                className="pw"
+                placeholder="PW를 입력하세요"
+                onChange={this.onChange}
+              />
+            </label>
+            <button type="submit" className="btn" onClick={this.onClick}>
+              LogIn
+            </button>
+          </fieldset>
         </form>
       </div>
     );
