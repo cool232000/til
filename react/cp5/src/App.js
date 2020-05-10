@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import LoginTemplate from './templates/LoginTemplate';
-import Form from './organisms/Form';
-import Fieldset from './molecules/Fieldset';
-import Input from './atoms/Input';
-import './atoms/Input.css';
-import Button from './atoms/Button';
+import LoginTemplate from './components/templates/LoginTemplate';
+import Form from './components/organisms/Form';
+import Fieldset from './components/molecules/Fieldset';
+import Input from './components/atoms/Input';
+import './components/atoms/Input.css';
+import Button from './components/atoms/Button';
 
 const App = () => {
   const userInput = ['id', 'password'];
