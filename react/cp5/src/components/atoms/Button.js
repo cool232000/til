@@ -3,11 +3,7 @@ import './Button.css';
 
 const Button = ({ handleButtonClick }) => {
   return (
-    <button
-      type="submit"
-      className="btn"
-      onClick={(e) => handleButtonClick(e.preventDefault())}
-    >
+    <button type="button" className="btn" onClick={handleButtonClick}>
       LogIn
     </button>
   );

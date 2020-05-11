@@ -18,6 +18,12 @@ const App = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.target.matches('.password') && e.key === 'Enter') {
+      handleButtonClick();
+    }
+  };
+
   const handleButtonClick = () => {
     alert('로그인 시도!');
   };
@@ -31,6 +37,7 @@ const App = () => {
               input={input}
               key={`input${idx}`}
               handlechange={handlechange}
+              handleKeyPress={handleKeyPress}
             />
           ))}
           <Button handleButtonClick={handleButtonClick} />

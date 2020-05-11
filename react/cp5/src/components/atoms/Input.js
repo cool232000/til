@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ input, handlechange }) => {
+const Input = ({ input, handlechange, handleKeyPress }) => {
   return (
     <>
       <label htmlFor={input}>
@@ -9,6 +9,7 @@ const Input = ({ input, handlechange }) => {
           className={input}
           placeholder={input}
           onChange={() => handlechange(input)}
+          onKeyPress={(e) => handleKeyPress(e)}
         />
       </label>
     </>
