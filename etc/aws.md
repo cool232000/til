@@ -20,6 +20,9 @@
     * 보안키 권한 얻는 방법 `chmod 600 보안키.pem`
   * Ubuntu server 접속 후 `cd home/`으로 가서 `mkdir www` 생성
     * www 폴더가 생성 안 될 경우 관리자 권한 얻기: `sudo -s`
+  * cd www/
+    * git init
+    * git add origin 레포 주소
 
 * nginx 배포
 
@@ -86,6 +89,3 @@
   sudo systemctl start nginx
   sudo systemctl status nginx
   ```
-
-  
-
