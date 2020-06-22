@@ -104,6 +104,14 @@ git merge 파일명
 # git flow
 
 ```shell
+brew install git-flow-avh
+pm의 깃을 folk하고 clone
+
+cd clone한 깃 폴더
+git branch -r
+develop이 있는 것으로 확인됐을 경우
+git flow init
+
 git pull pmorigin develop
 git flow feature start 브랜치명
 작업
