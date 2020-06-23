@@ -6,20 +6,20 @@
 배열 arr의 원소는 1 이상 100 이하의 자연수입니다.
 */
 
-const deplicate = arr => {
+const countingDeplicates = arr => {
   const solution = [];
   const array = [...new Set(arr)];
   if (array.length === arr.length) solution.push(-1);
   else {
-    array.forEach(elem => {
+    array.forEach(arrayNum => {
       let count = 0;
-      arr.forEach(num => num === elem && count++);
+      arr.forEach(arrNum => arrNum === arrayNum && count++);
       if (count > 1) solution.push(count);
     });
   }
   return solution;
 };
 
-console.log(deplicate([1, 2, 3, 3, 3, 3, 4, 4])); // [4, 2]
-console.log(deplicate([3, 2, 4, 4, 2, 5, 2, 5, 5])); // [3, 2, 3]
-console.log(deplicate([3, 5, 7, 9, 1])); // [-1]
+console.log(countingDeplicates([1, 2, 3, 3, 3, 3, 4, 4])); // [4, 2]
+console.log(countingDeplicates([3, 2, 4, 4, 2, 5, 2, 5, 5])); // [3, 2, 3]
+console.log(countingDeplicates([3, 5, 7, 9, 1])); // [-1]
