@@ -3,10 +3,6 @@
 다음과 같은 자바스크립트 코드가 있다.
 
 ```javascript
-const person = {
-  favoriteLanguages: [ 'TypeScript', 'JavaScript', 'Python', 'Rust', 'Haskell' ]
-}
-
 function preferTypeScript(person) {
   return person.favoriteLanguages.includes('TypeScript');
 }
