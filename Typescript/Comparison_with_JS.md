@@ -23,9 +23,11 @@ function preferTypeScript(person) {
 
 ```typescript
 type Language = 'TypeScript' | 'JavaScript' | 'Python' | 'Rust' | 'Haskell';
+
 interface Person {
   favoriteLanguages: Array<Language>;
 }
+
 function preferTypeScript(person: Person): boolean {
   return person.favoriteLanguages.includes('TypeScript');
 }
