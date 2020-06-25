@@ -37,3 +37,7 @@ function preferTypeScript(person: Person): boolean {
 2. Person 인터페이스의 favoriteLanguages 키는 Array 타입이고 Language 타입에 포함된 값만을 갖는다.
 3. preferTypeScript 함수는 Person 타입의 person 매개변수를 받아 불리언 값을 리턴하는 함수이다.
 4. 리턴하는 값은 person 매개변수의 favoriteLanguages 프로퍼티에 'TypeScript'라는 문자열이 포함되었는지를 판단한다.
+
+
+
+> 코드 참조 자료: https://ahnheejong.gitbook.io/ts-for-jsdev/01-introducing-typescript/intro
