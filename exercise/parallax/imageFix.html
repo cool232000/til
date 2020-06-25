@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      width: 100%;
+      height: 50px;
+      background-color: khaki;
+    }
+
+    .container, .copyright-container, .overlap {
+      z-index: 100;
+    }
+
+    .container {
+      background-color: lightcoral;
+      height: 507px;
+      padding: 0 100px;
+    }
+
+    .copyright-container {
+      background-color:lightslategrey;
+      width: 500px;
+      height: 200px;
+      position: relative;
+      top: 100px;
+    }
+
+    .fix-img {
+      position: fixed;
+      top: 50px;
+      right: 100px;
+    }
+
+    .overlap {
+      background-color: lightseagreen;
+      height: 700px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">이거슨 헤더</header>
+  <section class="container">이거슨 현재 섹션
+    <div class="copyright-container">
+      <h1 class="main-copyright">이거슨 카피라이트</h1>
+      <p class="sub-copyright">이거슨 상세설명</p>
+    </div>
+    <div class="fix-img">
+      <img src="./test.jpg">
+    </div>
+  </section>
+  <section class="overlap">이거슨 다음 섹션</section>
+</body>
+</html>
