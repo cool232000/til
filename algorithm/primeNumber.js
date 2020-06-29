@@ -11,7 +11,9 @@ const primeNumber = n => {
   for (let i = 2; i <= n; i++) array.push(i);
   for (let i = 2; i <= n; i++) {
     for (let j = i * 2; j <= n; j += i) {
-      array[j] = 0;
+      if (array[i] !== 0) {
+        array[j] = 0;
+      }
     }
     if (array[i] !== 0) count++;
   }
