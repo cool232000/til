@@ -3,9 +3,16 @@
 // 예를 들어 s가 ‘hello world’라면 첫번째 단어는 ‘HeLlO’, 두번째 단어는 ‘WoRlD’로 바꿔 ‘HeLlO WoRlD’를 리턴한다.
 // 주의) 문자열 전체의 짝/홀수 인덱스가 아니라 단어(공백을 기준)별로 짝/홀수 인덱스를 판단한다.
 
-function toWeirdCase(s) {
-  return [...s].map((str, idx) => (str[idx % 2] ? str.toUpperCase() : str.toLowerCase())).join('');
-}
+const toWeirdCase = s => {
+  let count = 0;
+  let str = '';
+  for (let i = 0; i < s.length; i++) {
+    count++;
+    if (s[i] === ' ') count = 0;
+    str += count % 2 ? s[i].toUpperCase() : s[i].toLowerCase();
+  }
+  return str;
+};
 
 console.log(toWeirdCase('hello world')); // 'HeLlO WoRlD'
 console.log(toWeirdCase('my name is lee')); // 'My NaMe Is LeE'
