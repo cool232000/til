@@ -16,4 +16,4 @@ const includesWord = array => {
 
 console.log(includesWord(['호랑이', '사자', '쥐', '닭', '주머니쥐'])); // true
 console.log(includesWord(['딸기', '사과', '복숭아', '수박'])); // false
-console.log(includesWord(['hello', 'hi', 'hell', 'nice'])); // false
+console.log(includesWord(['hello', 'hi', 'hell', 'nice'])); // true
