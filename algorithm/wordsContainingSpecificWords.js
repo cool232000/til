@@ -2,10 +2,9 @@
 
 const includesWord = array => {
   let answer = true;
-  let comparison = [];
   let result = [];
   for (let i = 0; i < array.length; i++) {
-    comparison = array.filter(word => word !== array[i]);
+    const comparison = array.filter(word => word !== array[i]);
     for (let j = 0; j < comparison.length; j++) {
       result.push(array[i].includes(comparison[j]));
     }
