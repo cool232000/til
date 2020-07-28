@@ -39,3 +39,19 @@ if __name__=="__main__":
     print(li)
 ```
 
+```javascript
+function bubbleSort(array) {
+  const sortArr = array;
+  const arrLength = sortArr.length - 1;
+  for (let i = 0; i < arrLength; i++) {
+    for (let j = 0; j < arrLength - i; j++) {
+      if (sortArr[j] > sortArr[j + 1]) {
+        const temp = sortArr[j];
+        sortArr[j] = sortArr[j + 1];
+        sortArr[j + 1] = temp;
+      }
+    }
+  } return sortArr;
+}
+```
+
