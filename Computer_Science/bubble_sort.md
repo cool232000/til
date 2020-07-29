@@ -20,6 +20,7 @@ Bubble sort는 가까이 있는 원소 두 개를 단순히 비교해 정렬하�
 
 ## Bubble sort 계산
 
+파이썬
 ```python
 def bubble_sort(li):
     # n은 리스트의 갯수를 뜻한다    
@@ -39,6 +40,7 @@ if __name__=="__main__":
     print(li)
 ```
 
+자바스크립트
 ```javascript
 function bubbleSort(array) {
   const sortArr = array;
