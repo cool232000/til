@@ -18,6 +18,11 @@ Selection sort는 배열을 돌면서 가장 작은 값부터 앞으로 하나�
 
 ## Selection sort 계산
 
+1. 첫번째 for 문으로 n-1번 도는 반복문에서 min_idx 값에 i 값을 넣는다.
+2. 두번째 for 문으로 i+1부터 n까지 도는 반복문에서 만약 j 값이 min_idx 값보다 작으면 min_idx를 j 값으로 교체한다.
+3. 반복문을 탈출한 후 i값과 j값이 들어간 min_idx 값의 위치를 바꿔준다.
+
+파이썬
 ```python
 def selection_sort(li):
     n=len(li)
@@ -31,7 +36,21 @@ def selection_sort(li):
         li[i], li[min_idx]=li[min_idx], li[i]
 ```
 
-1. 첫번째 for 문으로 n-1번 도는 반복문에서 min_idx 값에 i 값을 넣는다.
-2. 두번째 for 문으로 i+1부터 n까지 도는 반복문에서 만약 j 값이 min_idx 값보다 작으면 min_idx를 j 값으로 교체한다.
-3. 반복문을 탈출한 후 i값과 j값이 들어간 min_idx 값의 위치를 바꿔준다.
-
+자바스크립트
+```javascript
+function selectionSort(array) {
+  const sortArr = array;
+  const arrLength = sortArr.length;
+  for (let i = 0; i < arrLength - 1; i++) {
+    let minIdx = i;
+    for (let j = i + 1; j < arrLength; j++) {
+      if (sortArr[j] < sortArr[minIdx]) {
+        minIdx = j;
+      }
+    }
+    const temp = sortArr[minIdx];
+    sortArr[minIdx] = sortArr[i];
+    sortArr[i] = temp;
+  } return sortArr;
+}
+```
