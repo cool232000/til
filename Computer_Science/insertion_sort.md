@@ -14,6 +14,12 @@ Insertion Sort는 정렬할 역순의 배열이 이미 정렬되어 있음을 �
 
 ## Insertion Sort 계산
 
+1. 첫번째 for 문에서 i는 1부터 n번까지 진행되는 반복문이며 temp라는 변수에 i의 값을 삽입한다.
+2. 두번째 for 문은 j는 i-1부터 -2까지, -1만큼씩 이동하는 반복문이다.
+3. 만약 j가 -1이면 반복문을 탈출하고, 그게 아니라 temp보다 크면 j+1 위치에 j를 삽입한다.
+4. 반복문을 탈출한 후 temp에 저장된 값을 3에서 삽입된 j보다 1자리 큰 위치에 삽입한다.
+
+파이썬
 ```python
 def insertion_sort(li):
     n=len(li)
@@ -31,7 +37,30 @@ def insertion_sort(li):
         li[j+1]=temp
 ```
 
-1. 첫번째 for 문에서 i는 1부터 n번까지 진행되는 반복문이며 temp라는 변수에 i의 값을 삽입한다.
-2. 두번째 for 문은 j는 i-1부터 -2까지, -1만큼씩 이동하는 반복문이다.
-3. 만약 j가 -1이면 반복문을 탈출하고, 그게 아니라 temp보다 크면 j+1 위치에 j를 삽입한다.
-4. 반복문을 탈출한 후 temp에 저장된 값을 3에서 삽입된 j보다 1자리 큰 위치에 삽입한다.
+자바스크립트
+```javascript
+// 이중 for문
+function insertionSort(array) {
+  const sortArr = array;
+  for (let i = 1; i < sortArr.length; i++) {
+    const temp = sortArr[i];
+    let prev = i - 1;
+    for (prev; prev > -1 && sortArr[prev] > temp; prev--) {
+      sortArr[prev + 1] = sortArr[prev];
+    } sortArr[prev + 1] = temp;
+  } return sortArr;
+}
+
+// for - while문
+function insertionSort2(array) {
+  const sortArr = array;
+  for (let i = 1; i < sortArr.length; i++) {
+    const temp = sortArr[i];
+    let prev = i - 1;
+    while (sortArr[prev] > temp) {
+      sortArr[prev + 1] = sortArr[prev];
+      prev -= 1;
+    } sortArr[prev + 1] = temp;
+  } return sortArr;
+}
+```
