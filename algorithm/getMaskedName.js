@@ -8,7 +8,7 @@ const getMaskedName = name => {
   return maskedName;
 };
 
-console.log(getMaskedName('이진'));
-console.log(getMaskedName('YiJaeE'));
-console.log(getMaskedName('제갈공명'));
-console.log(getMaskedName('김수한무거북이와두루미삼천갑자동방삭'));
+console.log(getMaskedName('이진')); // 이*
+console.log(getMaskedName('YiJaeE')); // Yi****
+console.log(getMaskedName('제갈공명')); // 제갈**
+console.log(getMaskedName('김수한무거북이와두루미삼천갑자동방삭')); // 김수****************
