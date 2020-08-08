@@ -4,12 +4,39 @@
 */
 
 // toLocaleString 메소드 사용하기
-const commaizeNumberMethod = num => {
-  return num.toLocaleString();
+const commaizeNumberMethod = num => num.toLocaleString();
+
+console.log(commaizeNumberMethod(1)); // 1
+console.log(commaizeNumberMethod(1234)); // 1,234
+console.log(commaizeNumberMethod(1234567)); // 1,234,567
+console.log(commaizeNumberMethod(123456789)); // 123,456,789
+console.log(commaizeNumberMethod(1234567890)); // 1,234,567,890
+
+// 동일하게 동작하는 함수 만들기
+
+const commaizeNumber = num => {
+  const str = num + '';
+  if (str.length < 4) {
+    return str;
+  } else {
+    let commaizeArray = [...str];
+    for (let i = str.length - 3; i > 0; i -= 3) {
+      commaizeArray.splice(i, 0, 0);
+    }
+    commaizeArray = commaizeArray
+      .map(commaizeStr => (commaizeStr === 0 ? ',' : commaizeStr))
+      .join('');
+    return commaizeArray;
+  }
 };
 
-console.log(commaizeNumberMethod(1));
-console.log(commaizeNumberMethod(1234));
-console.log(commaizeNumberMethod(1234567));
-console.log(commaizeNumberMethod(123456789));
-console.log(commaizeNumberMethod(1234567890));
+console.log(commaizeNumber(1)); // 1
+console.log(commaizeNumber(12)); // 12
+console.log(commaizeNumber(123)); // 123
+console.log(commaizeNumber(1234)); // 1,234
+console.log(commaizeNumber(12345)); // 12,345
+console.log(commaizeNumber(123456)); // 123,456
+console.log(commaizeNumber(1234567)); // 1,234,567
+console.log(commaizeNumber(12345678)); // 12,345,678
+console.log(commaizeNumber(123456789)); // 123,456,789
+console.log(commaizeNumber(1234567890)); // 1,234,567,890
