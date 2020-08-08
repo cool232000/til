@@ -16,18 +16,15 @@ console.log(commaizeNumberMethod(1234567890)); // 1,234,567,890
 
 const commaizeNumber = num => {
   const str = num + '';
-  if (str.length < 4) {
-    return str;
-  } else {
-    let commaizeArray = [...str];
-    for (let i = str.length - 3; i > 0; i -= 3) {
-      commaizeArray.splice(i, 0, 0);
-    }
-    commaizeArray = commaizeArray
-      .map(commaizeStr => (commaizeStr === 0 ? ',' : commaizeStr))
-      .join('');
-    return commaizeArray;
+  if (str.length < 4) return str;
+  const commaizeArray = [...str];
+  for (let i = str.length - 3; i > 0; i -= 3) {
+    commaizeArray.splice(i, 0, 0);
   }
+  const commaizeString = commaizeArray
+    .map(commaizePostion => (commaizePostion === 0 ? ',' : commaizePostion))
+    .join('');
+  return commaizeString;
 };
 
 console.log(commaizeNumber(1)); // 1
