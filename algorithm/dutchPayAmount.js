@@ -5,7 +5,7 @@ n등분을 했을 때 나머지가 남는 경우 더치페이를 만든 사람(�
 금액은 반드시 사람 수보다 많다
 */
 
-const splitDutchPayAmount = (peopleCount, amount) => {
+const dutchPayAmount = (peopleCount, amount) => {
   const answer = [];
   const calc = amount / peopleCount;
   const remainder = (calc % 1) * peopleCount;
@@ -18,8 +18,8 @@ const splitDutchPayAmount = (peopleCount, amount) => {
   return answer;
 };
 
-console.log(splitDutchPayAmount(2, 2)); // [1, 1]
-console.log(splitDutchPayAmount(3, 4)); // [2, 1, 1]
-console.log(splitDutchPayAmount(10, 13500)); // [1350, 1350, 1350, 1350, 1350, 1350, 1350, 1350, 1350, 1350]
-console.log(splitDutchPayAmount(4, 11003)); // [2753, 2750, 2750, 2750]
-console.log(splitDutchPayAmount(3, 9850)); // [3284, 3283, 3283]
+console.log(dutchPayAmount(2, 2)); // [1, 1]
+console.log(dutchPayAmount(3, 4)); // [2, 1, 1]
+console.log(dutchPayAmount(10, 13500)); // [1350, 1350, 1350, 1350, 1350, 1350, 1350, 1350, 1350, 1350]
+console.log(dutchPayAmount(4, 11003)); // [2753, 2750, 2750, 2750]
+console.log(dutchPayAmount(3, 9850)); // [3284, 3283, 3283]
