@@ -6,19 +6,14 @@ n등분을 했을 때 나머지가 남는 경우 더치페이를 만든 사람(�
 */
 
 const splitDutchPayAmount = (peopleCount, amount) => {
-  const calc = amount / peopleCount;
   const answer = [];
-  if (calc % 1 === 0) {
-    for (let i = 0; i < peopleCount; i++) {
-      answer.push(calc);
-    }
-  } else {
-    let sum = 0;
-    sum = (calc % 1) * peopleCount;
-    for (let i = 0; i < peopleCount; i++) {
-      answer.push(Math.floor(calc));
-    }
-    answer[0] = Math.round(answer[0] + sum);
+  const calc = amount / peopleCount;
+  const remainder = (calc % 1) * peopleCount;
+  for (let i = 0; i < peopleCount; i++) {
+    answer.push(Math.floor(calc));
+  }
+  if (calc % 1) {
+    answer[0] = Math.round(answer[0] + remainder);
   }
   return answer;
 };
