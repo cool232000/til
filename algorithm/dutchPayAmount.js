@@ -8,12 +8,10 @@ n등분을 했을 때 나머지가 남는 경우 더치페이를 만든 사람(�
 const dutchPayAmount = (peopleCount, amount) => {
   const answer = [];
   const calc = amount / peopleCount;
+  const clearCalc = Math.floor(calc);
   const remainder = (calc % 1) * peopleCount;
   for (let i = 0; i < peopleCount; i++) {
-    answer.push(Math.floor(calc));
-  }
-  if (calc % 1) {
-    answer[0] = Math.round(answer[0] + remainder);
+    answer.push(calc % 1 ? (i === 0 ? Math.round(clearCalc + remainder) : clearCalc) : calc);
   }
   return answer;
 };
