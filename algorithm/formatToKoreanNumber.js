@@ -10,10 +10,15 @@ const formatToKoreanNumber = num => {
   let arr = [];
   const array = [...str];
   for (let i = str.length - 4; i > 0; i -= 4) {
-    array.splice(i, 0, 0);
+    // array.splice(i, 0, 0);
+    arr.push(array.splice(i));
   }
+  console.log(arr.reverse());
+  arr.unshift(array);
   console.log(array);
   console.log(arr);
+  console.log(str);
+  console.log(arr.map(s => (s.every(string => string === '0') ? [''] : s)));
 };
 
 console.log(formatToKoreanNumber(9876543210)); // 98억7,654만3,210
