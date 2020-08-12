@@ -6,23 +6,28 @@
 */
 
 const formatToKoreanNumber = num => {
-  const str = num + '';
-  let arr = [];
-  const array = [...str];
-  for (let i = str.length - 4; i > 0; i -= 4) {
-    // array.splice(i, 0, 0);
-    arr.push(array.splice(i));
+  const monetaryUnit = ['', '만', '억'];
+  const numberToStr = num + '';
+  let koreanArray = [];
+  const spliceArray = [...numberToStr];
+  for (let i = numberToStr.length - 4; i > 0; i -= 4) {
+    koreanArray.push(spliceArray.splice(i));
   }
-  console.log(arr.reverse());
-  arr.unshift(array);
-  console.log(array);
-  console.log(arr);
-  console.log(str);
-  console.log(arr.map(s => (s.every(string => string === '0') ? [''] : s)));
+  koreanArray.push(spliceArray);
+  koreanArray = koreanArray.map(zeroArray =>
+    zeroArray.every(zero => zero === '0') ? [''] : zeroArray,
+  );
+  koreanArray.map(comma =>
+    comma.map((c, idx) => (comma.length === 4 && idx === 1 ? comma.splice(idx, 0, ',') : comma)),
+  );
+  koreanArray.map((unitArray, idx) => unitArray.push(monetaryUnit[idx]));
+  koreanArray = koreanArray.reverse().flat().join('');
+  return koreanArray;
 };
 
 console.log(formatToKoreanNumber(9876543210)); // 98억7,654만3,210
 console.log(formatToKoreanNumber(123456789010)); // 1,234억5,678만9,010
+console.log(formatToKoreanNumber(12340123)); // 1,234억만123
 console.log(formatToKoreanNumber(123)); // 123
 console.log(formatToKoreanNumber(10000)); // 1만
 console.log(formatToKoreanNumber(1000000)); // 100만
