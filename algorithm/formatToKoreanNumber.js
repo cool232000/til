@@ -26,9 +26,9 @@ const formatToKoreanNumber = num => {
   return koreanArray;
 };
 
-console.log(formatToKoreanNumber(9876543210)); // 98억7,654만3,210
-console.log(formatToKoreanNumber(123456789010)); // 1,234억5,678만9,010
-console.log(formatToKoreanNumber(12340123)); // 1,234억만123
+console.log(formatToKoreanNumber(9876543210)); // 98억 7,654만 3,210
+console.log(formatToKoreanNumber(123456789010)); // 1,234억 5,678만 9,010
+console.log(formatToKoreanNumber(12340123)); // 1,234억만 123
 console.log(formatToKoreanNumber(123)); // 123
 console.log(formatToKoreanNumber(10000)); // 1만
 console.log(formatToKoreanNumber(1000000)); // 100만
