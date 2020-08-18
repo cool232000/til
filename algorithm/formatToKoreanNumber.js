@@ -7,7 +7,7 @@
 */
 
 const formatToKoreanNumber = num => {
-  const monetaryUnit = ['', '만', '억'];
+  const monetaryUnit = ['', '만 ', '억 '];
   const numberToStr = num + '';
   let koreanArray = [];
   const spliceArray = [...numberToStr];
