@@ -28,37 +28,37 @@ result
 
 const makeRectangle = v => {
   const answer = [];
-  const coordinateZero = [];
-  const coordinateOne = [];
+  const coordinateX = [];
+  const coordinateY = [];
 
   for (let i = 0; i < v.length - 1; i++) {
     for (let j = 0; j < v.length; j++) {
       if (i === 0) {
-        coordinateZero.push(v[j][i]);
+        coordinateX.push(v[j][i]);
       } else {
-        coordinateOne.push(v[j][i]);
+        coordinateY.push(v[j][i]);
       }
     }
   }
 
-  const copyZero = coordinateZero.filter((zero, idx) => coordinateZero.indexOf(zero) === idx);
-  const copyOne = coordinateOne.filter((one, idx) => coordinateOne.indexOf(one) === idx);
+  const copyX = coordinateX.filter((x, idx) => coordinateX.indexOf(x) === idx);
+  const copyY = coordinateY.filter((y, idx) => coordinateY.indexOf(y) === idx);
 
   const answerArray = (array, coordinate) => {
     array.forEach(num => {
       let count = 0;
-      if (coordinate === 'zero') {
-        coordinateZero.map(dupleNum => dupleNum === num && count++);
+      if (coordinate === 'x') {
+        coordinateX.map(dupleNum => dupleNum === num && count++);
         if (count <= 1) answer.push(num);
       } else {
-        coordinateOne.map(dupleNum => dupleNum === num && count++);
+        coordinateY.map(dupleNum => dupleNum === num && count++);
         if (count <= 1) answer.push(num);
       }
     });
   };
 
-  answerArray(copyZero, 'zero');
-  answerArray(copyOne, 'one');
+  answerArray(copyX, 'x');
+  answerArray(copyY, 'y');
 
   return answer;
 };
