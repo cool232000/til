@@ -19,11 +19,9 @@ const commaizeNumber = num => {
   if (str.length < 4) return str;
   const commaizeArray = [...str];
   for (let i = str.length - 3; i > 0; i -= 3) {
-    commaizeArray.splice(i, 0, 0);
+    commaizeArray.splice(i, 0, ',');
   }
-  const commaizeString = commaizeArray
-    .map(commaizePostion => (commaizePostion === 0 ? ',' : commaizePostion))
-    .join('');
+  const commaizeString = commaizeArray.join('');
   return commaizeString;
 };
 
