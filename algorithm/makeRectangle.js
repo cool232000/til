@@ -77,3 +77,28 @@ console.log(
     [1, 2],
   ]),
 ); // [2, 1]
+
+// 비트 연산자 활용
+// lint에서는 비트 연산자를 사용하지 않을 것을 권함
+const makeRectangleBitwise = v => {
+  const answer = new Array(2);
+  answer[0] = v[0][0] ^ v[1][0] ^ v[2][0];
+  answer[1] = v[0][1] ^ v[1][1] ^ v[2][1];
+  return answer;
+};
+
+console.log(
+  makeRectangleBitwise([
+    [1, 4],
+    [3, 4],
+    [3, 10],
+  ]),
+); // [1, 10]
+
+console.log(
+  makeRectangleBitwise([
+    [1, 1],
+    [2, 2],
+    [1, 2],
+  ]),
+); // [2, 1]
