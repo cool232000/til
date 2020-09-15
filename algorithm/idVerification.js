@@ -1,4 +1,13 @@
-const solution = newId => {
+/*
+입력되는 아이디 검증
+1. 아이디는 3자 ~ 15자 내외여야 한다.
+2. 아이디는 소문자여야 한다
+3. 특수문자는 -_.만 입력 가능하다
+4. 마침표는 맨 앞과 맨 뒤에 있으면 안 되고 연달아 있어도 안 된다
+5. 모든 검사를 마친 아이디가 3자 이하라면 마지막 문자와 같은 문자를 3자가 될 때까지 붙인다
+*/
+
+const idVerification = newId => {
   let answer = newId;
   answer = newId.toLowerCase();
   const regexr = /[\{\}\[\]\/?,;:|\)*~`!^\+<>@\#$%&\\\=\(\'\"]/gi;
@@ -24,8 +33,8 @@ const solution = newId => {
   return answer;
 };
 
-console.log(solution('...!@BaT#*..y.abcdefghijklm'));
-console.log(solution('z-+.^.'));
-console.log(solution('=.='));
-console.log(solution('123_.def'));
-console.log(solution('abcdefghijklmn.p'));
+console.log(idVerification('...!@BaT#*..y.abcdefghijklm'));
+console.log(idVerification('z-+.^.'));
+console.log(idVerification('=.='));
+console.log(idVerification('123_.def'));
+console.log(idVerification('abcdefghijklmn.p'));
