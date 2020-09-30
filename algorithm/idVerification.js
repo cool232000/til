@@ -33,8 +33,8 @@ const idVerification = newId => {
   return answer;
 };
 
-console.log(idVerification('...!@BaT#*..y.abcdefghijklm'));
-console.log(idVerification('z-+.^.'));
-console.log(idVerification('=.='));
-console.log(idVerification('123_.def'));
-console.log(idVerification('abcdefghijklmn.p'));
+console.log(idVerification('...!@BaT#*..y.abcdefghijklm')); // bat.y.abcdefghi
+console.log(idVerification('z-+.^.')); // z--
+console.log(idVerification('=.=')); // aaa
+console.log(idVerification('123_.def')); // 123_.def
+console.log(idVerification('abcdefghijklmn.p')); // abcdefghijklmn
