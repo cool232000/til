@@ -44,6 +44,7 @@ console.log(
     [7, 8],
   ]),
 );
+// 2
 
 console.log(
   interchangeable([
@@ -52,6 +53,7 @@ console.log(
     [5, 6],
   ]),
 );
+// 3
 
 console.log(
   interchangeable([
@@ -60,3 +62,4 @@ console.log(
     [3, 1],
   ]),
 );
+// 0
