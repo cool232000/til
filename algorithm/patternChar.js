@@ -7,8 +7,9 @@ function waterMelon(n) {
   let answer = '';
   for (let i = 0; i < n; i++) {
     answer += i % 2 ? '박' : '수';
-  } return answer;
+  }
+  return answer;
 }
 
-console.log(`n이 3인 경우: ${waterMelon(3)}`);
-console.log(`n이 4인 경우: ${waterMelon(4)}`);
+console.log(`n이 3인 경우: ${waterMelon(3)}`); // n이 3인 경우: 수박수
+console.log(`n이 4인 경우: ${waterMelon(4)}`); // n이 4인 경우: 수박수박
