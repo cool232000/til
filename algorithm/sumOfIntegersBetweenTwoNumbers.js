@@ -18,6 +18,6 @@ const adder = (x, y) => {
   return array.reduce((acc, cur) => acc + cur, 0);
 };
 
-console.log(adder(3, 5));
-console.log(adder(3, 3));
-console.log(adder(5, 3));
+console.log(adder(3, 5)); // 12
+console.log(adder(3, 3)); // 3
+console.log(adder(5, 3)); // 12
