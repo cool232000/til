@@ -13,7 +13,7 @@ const getDayName = (a, b) => {
   return answerDay;
 };
 
-console.log(getDayName(1, 6)); // TUE
+console.log(getDayName(1, 6)); // WED
 console.log(getDayName(5, 24)); // TUE
 console.log(getDayName(8, 16)); // TUE
-console.log(getDayName(9, 17)); // TUE
+console.log(getDayName(9, 17)); // SAT
