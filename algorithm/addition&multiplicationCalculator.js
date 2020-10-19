@@ -1,3 +1,5 @@
+// 타입에 따라 배열 안의 숫자를 덧셈 혹은 곱셈하기
+
 const calculate = ({ type, operands }) => {
   if (type === 'add') {
     return operands.reduce((acc, cur) => acc + cur, 0);
