@@ -1,3 +1,5 @@
+// 최대공약수(GCD)와 최소공배수(LCM) 구하기 (유클리드 호제법)
+
 const GCDnLCM = (n, m) => {
   let answer = [];
   let [a, b, r] = [n, m, m];
