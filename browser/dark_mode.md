@@ -183,3 +183,10 @@ $checkbox.addEventListener('click', e => {
 많은 서비스가 다크모드를 지원하고 있고 실제로 사용자의 선호도 꽤 높다. 하지만 사용자 경험에서 중요한 것은 단순히 예쁜 디자인으로 꾸미는 것이 아니라 어떤 디자인이든 사용자 경험을 해치지 않고, 나아가 더 나은 사용자 경험을 제공해야 한다는 점이다.
 
 사용자가 직접 선택한 모드를 저장해뒀다가 렌더링하거나 사용자의 OS 모드를 감지해 같은 모드로 렌더링하는 것은 모두 일관된 사용자 경험을 제공하기 위한 방법이다. 이번에 다크모드를 구현해보면서 단순히 기술적인 문제에 그치지 않고 실제로 서비스를 제공했을 때 발생할 수 있는 문제점에 대해 고려해볼 수 있었다.
+
+### 참고
+
+- [The Complete Guide to the Dark Mode Toggle](https://ryanfeigenbaum.com/dark-mode/)
+- [웹에서 다크 모드 구현하기](https://marshall-ku.com/web/tips/%EC%9B%B9%EC%97%90%EC%84%9C-%EB%8B%A4%ED%81%AC-%EB%AA%A8%EB%93%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
+- [prefers-color-scheme](https://developer.mozilla.org/ko/docs/Web/CSS/@media/prefers-color-scheme)
+- [https://developer.mozilla.org/ko/docs/Web/CSS/:root](https://developer.mozilla.org/ko/docs/Web/CSS/:root)
