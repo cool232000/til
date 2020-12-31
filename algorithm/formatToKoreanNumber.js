@@ -11,10 +11,13 @@ const formatToKoreanNumber = num => {
   const numberToStr = num + '';
   let koreanArray = [];
   const spliceArray = [...numberToStr];
+
+  // num을 4개씩 분할해서 빈 배열에 삽입
   for (let i = numberToStr.length - 4; i > 0; i -= 4) {
     koreanArray.push(spliceArray.splice(i));
   }
   koreanArray.push(spliceArray);
+
   koreanArray = koreanArray.map(zeroArray =>
     zeroArray.every(zero => zero === '0') ? [''] : zeroArray,
   );
