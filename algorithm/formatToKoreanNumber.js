@@ -12,15 +12,21 @@ const formatToKoreanNumber = num => {
   let koreanArray = [];
   const spliceArray = [...numberToStr];
 
-  // num을 4개씩 분할해서 빈 배열에 삽입
+  // 문자열로 변환한 num을 앞에서부터 4자리씩 잘라 빈 배열에 삽입 (네자리를 충족하는 경우에만)
   for (let i = numberToStr.length - 4; i > 0; i -= 4) {
     koreanArray.push(spliceArray.splice(i));
   }
+
+  // 네자리를 충족하지 못한 나머지 배열을 추가
   koreanArray.push(spliceArray);
 
+  console.log(koreanArray);
   koreanArray = koreanArray.map(zeroArray =>
     zeroArray.every(zero => zero === '0') ? [''] : zeroArray,
   );
+
+  console.log(koreanArray);
+
   koreanArray.map(comma =>
     comma.map((c, idx) => (comma.length === 4 && idx === 1 ? comma.splice(idx, 0, ',') : comma)),
   );
