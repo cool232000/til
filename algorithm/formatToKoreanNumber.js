@@ -7,7 +7,7 @@
 */
 
 const formatToKoreanNumber = num => {
-  const monetaryUnit = ['', '만 ', '억 '];
+  const monetaryUnit = ['', '만', '억'];
   const numberToStr = num + '';
   let koreanArray = [];
   const spliceArray = [...numberToStr];
@@ -50,9 +50,14 @@ const formatToKoreanNumber = num => {
     ),
   );
 
+  console.log(koreanArray);
+
   // 돈 단위 추가하고 재정렬하기
   koreanArray.map((unitArray, idx) => unitArray.push(monetaryUnit[idx]));
-  koreanArray = koreanArray.reverse().flat().join('');
+  koreanArray = koreanArray
+    .reverse()
+    .flat()
+    .filter(blank => blank !== '');
 
   return koreanArray;
 };
