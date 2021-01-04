@@ -6,11 +6,12 @@
 금액 사이는 한 칸 띄우고 0이 아닌 숫자가 나올 때까지 0은 표기하지 않도록 한다
 */
 
-const formatToKoreanNumber = num => {
+const formatToKoreaWon = num => {
   const monetaryUnit = ['', '만', '억'];
   const numberToStr = num + '';
   let koreanArray = [];
   const spliceArray = [...numberToStr];
+  let formatKorean = '';
 
   /*
   문자열로 변환한 numberToStr를 numberToStr의 length에서 4를 뺀 숫자가 0이 될 때까지
@@ -50,24 +51,35 @@ const formatToKoreanNumber = num => {
     ),
   );
 
-  console.log(koreanArray);
-
-  // 돈 단위 추가하고 재정렬하기
+  // 돈 단위 추가
   koreanArray.map((unitArray, idx) => unitArray.push(monetaryUnit[idx]));
+
+  // 배열 재정렬 후 이중 배열 없앤 뒤 빈 문자열 삭제
   koreanArray = koreanArray
     .reverse()
     .flat()
     .filter(blank => blank !== '');
 
-  return koreanArray;
+  // 돈 단위 뒤에 이어지는 숫자가 있다면 빈 칸 삽입
+  monetaryUnit.map(unit =>
+    koreanArray.map(
+      (korean, idx) =>
+        (koreanArray[idx] =
+          unit === korean && koreanArray[idx + 1] !== undefined ? `${korean} ` : `${korean}`),
+    ),
+  );
+
+  formatKorean = `${koreanArray.join('')}원`;
+
+  return formatKorean;
 };
 
-console.log(formatToKoreanNumber(9876543210)); // 98억 7,654만 3,210
-console.log(formatToKoreanNumber(123456789010)); // 1,234억 5,678만 9,010
-console.log(formatToKoreanNumber(1230401)); // 123만 401
-console.log(formatToKoreanNumber(12340012)); // 1,234만 12
-console.log(formatToKoreanNumber(12340123)); // 1,234만 123
-console.log(formatToKoreanNumber(123401234)); // 1억 2340만 1234
-console.log(formatToKoreanNumber(123)); // 123
-console.log(formatToKoreanNumber(10000)); // 1만
-console.log(formatToKoreanNumber(1000000)); // 100만
+console.log(formatToKoreaWon(9876543210)); // 98억 7,654만 3,210원
+console.log(formatToKoreaWon(123456789010)); // 1,234억 5,678만 9,010원
+console.log(formatToKoreaWon(1230401)); // 123만 401원
+console.log(formatToKoreaWon(12340012)); // 1,234만 12원
+console.log(formatToKoreaWon(12340123)); // 1,234만 123원
+console.log(formatToKoreaWon(123401234)); // 1억 2340만 1234원
+console.log(formatToKoreaWon(123)); // 123원
+console.log(formatToKoreaWon(10000)); // 1만원
+console.log(formatToKoreaWon(1000000)); // 100만원
