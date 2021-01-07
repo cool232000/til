@@ -8,6 +8,7 @@
 [이터러블](https://github.com/YiJaeE/til/blob/master/Javascript/Iterable.md)  
 
 ## [algorithm](https://github.com/YiJaeE/til/tree/master/algorithm)
+[입력받은 숫자를 원화 포맷으로 변경하기](https://github.com/YiJaeE/til/blob/master/algorithm/formatToKoreanNumber.js)  
 
 ## [exercise](https://github.com/YiJaeE/til/tree/master/exercise)
 [제어문 연습](https://github.com/YiJaeE/til/blob/master/exercise/control_flow_statement_exercise.js)  
