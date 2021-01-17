@@ -94,4 +94,12 @@ GET, HEAD, OPTIONS, TRACE 모두 body에 아무것도 담지 않은 채 요청�
 
 \*hop by hop: 데이타통신망에서 각 패킷이 매 노드(또는 라우터)를 건너가는 양상을 비유적으로 표현
 
-## HTTP RESPONSE METHODS
+## HTTP RESPONSE STATUS CODE
+
+HTTP 응답 상태 코드는 특정 HTTP 요청이 성공적으로 완료되었는지 여부를 나타낸다. 응답은 5개의 클래스로 그룹화할 수 있다.
+
+- 100-199: Informational responses
+- 200-2999: Successful responses
+- 300-399: Redirects
+- 400-499: Client errors
+- 500-599: Server errors
