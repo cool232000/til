@@ -10,7 +10,19 @@ CORS란 Cross-Origin Resource Sharing의 약자로 번역해서 교차 출처 �
 
 브라우저가 서버에 리소스 요청을 보낼 때는 요청 헤더에 Origin이라는 필드에 요청을 보내는 출처를 함께 담아서 보낸다. 그러면 리소스 요청을 받은 서버에서는 응답 헤더에 Access-Control-Allow-Origin에 접근이 허용된 출처를 함께 담아서 리소스를 보낸다. 리소스를 받은 브라우저는 자신이 보냈던 Origin과 서버가 보낸 Access-Control-Allow-Origin을 비교하여 유효한 응답인지 검사하고 요청을 승인할지 거부할지 결정한다.
 
-## 같은 출처란?
+## 교차 출처 구분하기
 
 같은 출처와 교차 출처를 구분하는 방법은 브라우저가 요청을 보냈던 출처와 서버로부터 받은 접근이 허용된 출처를 비교하여 scheme, host, port가 동일한 것을 기준으로 둔다.
 다만 scheme과 host가 다르면 무조건 교차 출처로 간주되지만 port가 다른 경우는 대상 브라우저의 정책에 따른다.
+
+- scheme: http, https
+- host: google.com 등
+- port: 80, 3000 등
+
+## CORS 에러 해결하기
+
+1. Access-Control-Allow-Origin 세팅
+   서버에서 Access-Control-Allow-Origin에 출처를 명시해준다. \*를 사용하면 모든 출처를 허용할 수 있으나 보안상 권장되지 않는 방식이다.
+
+2. Webpack Dev Server 프록시 설정
+   로컬에서 프론트엔드 개발을 하는 경우 프록시로 CORS 정책을 우회할 수 있다. CORS 정책을 지킨 것처럼 브라우저를 속이면서 개발을 하는 방법인데, 개발 단계에서는 사용하기 용이한 방법이지만 빌드 후에도 이 방법을 사용할 수는 없다.
