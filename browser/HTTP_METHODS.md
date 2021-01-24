@@ -103,3 +103,7 @@ HTTP 응답 상태 코드는 특정 HTTP 요청이 성공적으로 완료되었�
 - 300-399: Redirects
 - 400-499: Client errors
 - 500-599: Server errors
+
+---
+
+[HTTP request methods](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods)
