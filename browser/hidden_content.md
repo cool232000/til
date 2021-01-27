@@ -10,8 +10,6 @@
   overflow: hidden;
   margin: -1px;
   clip-path: polygon(0 0, 0 0, 0 0);
-  /* 현재는 권장되지 않는 과거 문법 */
-  clip: rect(0, 0, 0, 0);
 }
 ```
 
