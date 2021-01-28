@@ -6,19 +6,16 @@
 
 웹 표준은 접근성, 사생활 보호, 보안, 국제화의 측면을 고려해 작성되어야 한다. 결국 웹 표준을 지킨다는 것은 웹접근성을 향상시킨다는 것이고, 이는 결국 동일한 사용자 경험으로 이어지게 된다. 사용자가 어떤 환경에서 웹을 사용하더라도 동일한 경험을 제공하기 위해 등장한 것이 웹 표준인 셈이다.
 
-*[제프리 젤드만의 웹 표준 가이드](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1024887)*
-
-
+_[제프리 젤드만의 웹 표준 가이드](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=1024887)_
 
 # 웹접근성
 
-[^웹의 힘은 보편성에 있다. 장애에 관계없이 모든 사람이 접근하는 것이 필수적이다. -팀 버너스 리]: The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect. -Tim Berners-Lee
+> 웹의 힘은 보편성에 있다. 장애에 관계없이 모든 사람이 접근하는 것이 필수적이다. -팀 버너스 리  
+> The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect. -Tim Berners-Lee
 
 웹 접근성은 보편성의 측면에서 중요한 이슈이다. 전세계에서 인터넷을 이용하는 사람의 비율이 점점 늘어나고 있고, 때문에 웹에 접근하는 환경과 사용자는 점점 더 다양해지고 있다.
 
 오히려 어디에서나 인터넷만 연결되어 있으면 접근할 수 있는 웹의 특성상 웹은 장애가 있거나 환경의 제약을 받는 사람들이 접근하기 좋은 매체이다. 하지만 현재까지의 웹(특히 국내)은 그러한 사용자 다양성을 보장하지 못하는 단점이 있었고 그것을 극복하기 위한 방법으로 웹 접근성에 대한 논의가 활발해지고 있다.
-
-
 
 # SEO
 
