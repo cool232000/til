@@ -26,7 +26,7 @@ function myTag(strings, personExp, ageExp) {
     ageStr = 'youngster';
   }
 
-  // 매개변수로 들어온 personExp는 함수 내부에서 아무런 동작도 추가로 하지 않기 때문에 Mike가 그대로 출력된다
+  // 매개변수로 들어온 personExp는 함수 내부에서 아무런 추가 동작도 하지 않기 때문에 Mike가 그대로 출력된다
   return str0 + personExp + str1 + ageStr;
 }
 
