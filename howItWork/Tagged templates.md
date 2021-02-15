@@ -27,7 +27,7 @@ function myTag(strings, personExp, ageExp) {
   }
 
   // 매개변수로 들어온 personExp는 함수 내부에서 아무런 추가 동작도 하지 않기 때문에 Mike가 그대로 출력된다
-  return str0 + personExp + str1 + ageStr;
+  return `${str0} ${personExp} ${str1} ${ageStr}`;
 }
 
 let output = myTag`that ${person} is a ${age}`;
