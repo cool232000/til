@@ -7,18 +7,18 @@ const a = 'length';
 const b = '';
 const c = ' ';
 
-console.log('length의 코드 유닛은 ' + a.length + '개 입니다.');
+console.log(`length의 코드 유닛은 ${a.length}개 입니다.`);
 // length의 코드 유닛은 6개 입니다.
 
-console.log('빈 문자열은 ' + b.length + '개 입니다.');
+console.log(`빈 문자열은 ${b.length}개 입니다.`);
 // 빈 문자열은 0개 입니다.
 
-console.log('공백은 ' + c.length + '개 입니다.');
+console.log(`공백은 ${c.length}개 입니다.`);
 // 공백은 1개 입니다.
 
-const str = 'string.length는 문자열의 길이를 반환합니다. 이 문자열의 길이는 ';
+const str = 'string.length는 문자열의 길이를 반환합니다. 이 문자열의 길이는';
 
-console.log(str + str.length + '개 입니다.');
+console.log(`${str} ${str.length}개 입니다.`);
 // string.length는 문자열의 길이를 반환합니다. 이 문자열의 길이는 42개 입니다.
 ```
 
@@ -33,10 +33,8 @@ repeat()가 반환할 수 있는 문자열은 양의 정수여야 하며, 최대
 `count`: 문자열을 반복할 횟수. 0과 양의 무한대 사이의 정수.
 
 ```javascript
-'abc'.repeat(1);
-// abc
+'abc'.repeat(1); // abc
 
 const def = 'def';
-def.repeat(3);
-// defdefdef
+def.repeat(3); // defdefdef
 ```
