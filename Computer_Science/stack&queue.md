@@ -2,19 +2,17 @@
 
 stack은 흔히 접시를 쌓는 것처럼 제일 나중에 들어간 원소가 제일 먼저 나오는 방식이다. 이것을 LIFO(Last In, First Out), 선입후출 혹은 후입선출이라고 한다.
 
-
-
 ```python
 class Stack:
     def __init__(self):
         self.container=list()
-    
+
     # empty는 반드시 불리언 값으로 반환한다.
     def empty(self):
         if not self.container:
             return True
         return False
-    
+
     # 데이터는 매개변수이다. 데이터를 푸시하는 것이므로 반환값이 없다.
     def push(self, data):
         self.container.append(data)
@@ -23,41 +21,35 @@ class Stack:
     # 있는 데이터를 하나씩 꺼내는 것이므로 매개변수가 필요하지 않다.
     def pop(self):
         return self.container.pop()
-    
+
     def peek(self):
         return self.container[-1]
 ```
 
-
-
 # Queue
 
-queue는 화장실 앞에 줄을 서는 것처럼 제일 먼저 들어간 원소가 제일 먼저 나오는 방식이다. 이것을 FIFO(First In, First Out), 선입선출이라고 한다.
-
-
+queue는 화장실 앞에 줄을 서는 것처럼 제일 먼저 들어간 원소가 제일 먼저 나오는 방식이다. 이것을 FIFO(First In, First Out), 선입선출 혹은 후입후출이라고 한다.
 
 ```python
 class Queue:
     def __init__(self):
         self.container=list()
-        
+
     def empty(self):
         if not self.container:
             return True
         return False
-    
+
     def enqueue(self, data):
         self.container.append(data)
 
     # 래퍼 함수(wrapper function)
     def dequeue(self):
         return self.container.pop(0)
-    
+
     def peek(self):
         return self.container[-1]
 ```
-
-
 
 # Stack을 두 번 이용해 Queue 구현하기
 
@@ -74,28 +66,28 @@ stack을 두 번 이용해 queue를 구현하려면 첫번째 stack에 push한 �
 class Stack:
     def __init__(self):
         self.container=list()
-        
+
     def empty(self):
         if not self.container:
             return True
         return False
-    
+
     def push(self, data):
         self.container.append(data)
 
     # 래퍼 함수(wrapper function)
     def pop(self):
         return self.container.pop()
-    
+
     def peek(self):
         return self.container[-1]
-      
+
 #Queue를 정의
 class Queue:
     def __init__(self):
         self.first = Stack()
         self.second = Stack()
-        
+
     def empty(self):
 
         if self.first.empty() and self.second.empty():
@@ -118,8 +110,6 @@ class Queue:
 
         return self.second.pop()
 ```
-
-
 
 first에서 second로 data를 이동해주는 시점을, second가 비어있을 때라는 조건을 주면
 
