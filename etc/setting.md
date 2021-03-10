@@ -36,7 +36,7 @@ brew install nvm
 brew uninstall nvm
 ```
 
-## environoment variable
+## environment variable
 
 ```
 vi ~/.bash_profile
