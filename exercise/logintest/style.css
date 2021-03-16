@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.a11y-hidden,
+legend,
+label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 20px 0;
+  border: 1px solid #999;
+}
+
+fieldset {
+  border: 0;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid #999;
+}
+
+.id-section {
+  margin: 10px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pw-section {
+  margin: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 250px;
+}
+
+.id,
+.pw {
+  width: 180px;
+}
+
+.pw-check {
+  font-size: 12px;
+  color: red;
+  height: 20px;
+  margin: 0 10px;
+}
+
+button {
+  margin: 0 10px;
+  width: 250px;
+  padding: 10px;
+  background-color: yellowgreen;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #999;
+}
