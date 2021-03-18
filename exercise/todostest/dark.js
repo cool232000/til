@@ -6,9 +6,6 @@ const isOsColorTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 const getUserTheme = () => (isUserColorTheme ? isUserColorTheme : isOsColorTheme);
 
-console.log(isUserColorTheme);
-console.log(isOsColorTheme);
-
 window.onload = function () {
   if (getUserTheme() === 'dark') {
     localStorage.setItem('color-theme', 'dark');
